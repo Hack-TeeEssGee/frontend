@@ -1,3 +1,8 @@
+# Build status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/210233ac-0171-4957-b403-68095ae4d0a2/deploy-status)](https://app.netlify.com/sites/tsg-hackathon/deploys)
+
+<br/>
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
