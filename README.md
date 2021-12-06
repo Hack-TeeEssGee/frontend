@@ -1,8 +1,27 @@
-# Build status
+# Production
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/210233ac-0171-4957-b403-68095ae4d0a2/deploy-status)](https://app.netlify.com/sites/tsg-hackathon/deploys)
+### Build Link
+
+[kgpverse.chiragghosh.me](https://kgpverse.chiragghosh.me)
+
+### Build Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3849a80-043a-46e5-b06b-5dbffe354e4b/deploy-status)](https://app.netlify.com/sites/kgpverse/deploys)
 
 <br/>
+
+# Development
+
+### Build Link
+
+[kgpverse-demo.netlify.app](https://kgpverse-demo.netlify.app)
+
+### Build Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8e4cf66f-2086-48bd-89bb-e07c855a37b1/deploy-status)](https://app.netlify.com/sites/kgpverse-demo/deploys)
+
+<br/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
