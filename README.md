@@ -2,7 +2,7 @@
 
 ### Build Link
 
-[kgpverse.chiragghosh.me](kgpverse.chiragghosh.me)
+[kgpverse.chiragghosh.me](https://kgpverse.chiragghosh.me)
 
 ### Build Status
 
@@ -14,7 +14,7 @@
 
 ### Build Link
 
-[kgpverse-demo.netlify.app](kgpverse-demo.netlify.app)
+[kgpverse-demo.netlify.app](https://kgpverse-demo.netlify.app)
 
 ### Build Status
 
