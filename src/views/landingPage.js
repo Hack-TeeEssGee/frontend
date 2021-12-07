@@ -1,3 +1,5 @@
+import iitkgp from "../assets/iitkgp.jpeg";
+
 const LandingPage = () => {
   return (
     <div className="landing-page">
@@ -10,6 +12,7 @@ const LandingPage = () => {
           Made by the KGPians for the KGPians
         </div>
         <button className="hero-btn">Learn More</button>
+        <img src={iitkgp} alt="IITKGP Main Building"></img>
       </div>
     </div>
   );
