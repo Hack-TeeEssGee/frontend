@@ -9,6 +9,7 @@ const LandingPage = () => {
           <br />
           Made by the KGPians for the KGPians
         </div>
+        <button className="hero-btn">Learn More</button>
       </div>
     </div>
   );
