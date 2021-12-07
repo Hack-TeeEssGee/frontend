@@ -1,0 +1,52 @@
+.landing-page {
+  background-color: $primary-grey;
+}
+
+.hero {
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10rem;
+  text-align: center;
+  margin-bottom: 20rem;
+
+  &-title {
+    font-size: 8rem;
+    font-weight: 700;
+
+    @include sm {
+      font-size: 5rem;
+    }
+  }
+
+  &-subtitle {
+    color: $text-primary-color;
+  }
+
+  &-btn {
+    margin: 4rem 0;
+  }
+
+  img {
+    width: 60vw;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+  }
+}
+
+.landing-events,
+.event-calendar,
+.login-portal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40vh;
+  margin: 5rem 0;
+}
+
+.event-calendar {
+  background-color: $primary-color;
+}
