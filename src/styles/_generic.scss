@@ -6,6 +6,7 @@
 
 body {
   font-family: "Karla", sans-serif;
+  background-color: $primary-grey;
 }
 
 button,
@@ -31,4 +32,9 @@ button,
   &:active {
     box-shadow: none;
   }
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin: 2rem;
 }

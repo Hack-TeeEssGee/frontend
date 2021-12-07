@@ -1,4 +1,8 @@
 import iitkgp from "../assets/iitkgp.jpeg";
+import Footer from "../components/footer";
+import EventCalendar from "../components/landing/eventCalendar";
+import LandingEvents from "../components/landing/landingEvents";
+import LoginPortal from "../components/landing/loginPortal";
 
 const LandingPage = () => {
   return (
@@ -14,6 +18,14 @@ const LandingPage = () => {
         <button className="hero-btn">Learn More</button>
         <img src={iitkgp} alt="IITKGP Main Building"></img>
       </div>
+
+      <LandingEvents />
+
+      <EventCalendar />
+
+      <LoginPortal />
+
+      <Footer />
     </div>
   );
 };

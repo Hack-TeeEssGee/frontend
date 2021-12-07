@@ -32,3 +32,17 @@
     box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
   }
 }
+
+.landing-events,
+.event-calendar,
+.login-portal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40vh;
+  margin: 5rem 0;
+}
+
+.event-calendar {
+  background-color: $primary-color;
+}
