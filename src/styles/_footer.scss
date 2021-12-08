@@ -50,15 +50,30 @@
   @include sm {
     nav {
       flex-direction: column;
-      text-align: center;
+      //text-align: center;
       width: 80vw;
+      height: 300px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      .footer-column {
+        box-sizing: border-box;
+        max-width: 30%;
+      }
     }
   }
 
   @include md {
     nav {
+      flex-direction: column;
+      //text-align: center;
       width: 80vw;
-      justify-content: space-evenly;
+      justify-content: flex-start;
+      height: 300px;
+      flex-wrap: wrap;
+      .footer-column {
+        box-sizing: border-box;
+        max-width: 30%;
+      }
     }
   }
   &-title {
