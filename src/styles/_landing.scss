@@ -70,20 +70,20 @@
     align-items: center;
     justify-content: space-evenly;
     padding: 1.5rem 2rem;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 1rem;
 
     &[color="green"] {
       background-color: rgba($primary-color, 0.5);
     }
     &[color="pink"] {
-      background-color: pink;
+      background-color: rgba($login-pink, 0.25);
     }
     &[color="orange"] {
-      background-color: orange;
+      background-color: rgba($login-orange, 0.25);
     }
     &[color="blue"] {
-      background-color: blue;
+      background-color: rgba($login-blue, 0.25);
     }
 
     button {

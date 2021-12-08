@@ -1,4 +1,7 @@
 import UilUser from "@iconscout/react-unicons/icons/uil-user";
+import UilGraduationCap from '@iconscout/react-unicons/icons/uil-graduation-cap';
+import UilShieldCheck from '@iconscout/react-unicons/icons/uil-shield-check';
+import UilMedal from '@iconscout/react-unicons/icons/uil-medal';
 
 const LoginPortal = () => {
   return (
@@ -10,15 +13,15 @@ const LoginPortal = () => {
           <button className="login-card-button">TSG Official</button>
         </div>
         <div className="login-card" color="orange">
-          <UilUser size={100} />
+          <UilShieldCheck size={100} />
           <button className="login-card-button">Admin</button>
         </div>
         <div className="login-card" color="pink">
-          <UilUser size={100} />
+          <UilMedal size={100} />
           <button className="login-card-button">Society</button>
         </div>
         <div className="login-card" color="blue">
-          <UilUser size={100} />
+          <UilGraduationCap size={100} />
           <button className="login-card-button">Student</button>
         </div>
       </div>
