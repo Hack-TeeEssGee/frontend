@@ -28,6 +28,13 @@ $screen-xl-max: 1449px;
   }
 }
 
+// Small and Medium devices
+@mixin smd {
+  @media (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
 // Large devices
 @mixin lg {
   @media (min-width: #{$screen-xl-min}) {

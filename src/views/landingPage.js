@@ -3,10 +3,13 @@ import Footer from "../components/footer";
 import EventCalendar from "../components/landing/eventCalendar";
 import LandingEvents from "../components/landing/landingEvents";
 import LoginPortal from "../components/landing/loginPortal";
+import Navbar from "../components/navbar";
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
+      <Navbar />
+
       <div className="hero">
         <div className="hero-title">KGPverse</div>
         <div className="hero-subtitle">
