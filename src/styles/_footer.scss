@@ -8,7 +8,6 @@
 
   div {
     margin: 1rem 0.5rem;
-    //text-align: center;
   }
   
   nav {
@@ -50,8 +49,8 @@
   @include sm {
     nav {
       flex-direction: column;
-      //text-align: center;
-      width: 80vw;
+      text-align: center;
+      width: 100vw;
       height: 300px;
       justify-content: flex-start;
       flex-wrap: wrap;
@@ -65,8 +64,8 @@
   @include md {
     nav {
       flex-direction: column;
-      //text-align: center;
-      width: 80vw;
+      text-align: center;
+      width: 100vw;
       justify-content: flex-start;
       height: 300px;
       flex-wrap: wrap;
