@@ -49,4 +49,45 @@
 
 .event-calendar {
   background-color: $primary-color;
+  padding-bottom: 4rem;
+
+  .calendar-wrapper {
+    background-color: $text-primary-color;
+    color: #eee;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+
+    .react-calendar__tile--active {
+      background-color: #eee;
+      color: $text-primary-color;
+    }
+
+    .react-calendar__navigation {
+      display: flex;
+      border-bottom: 2px solid #eee;
+
+      button {
+        flex-grow: 1;
+        font-size: 1.5rem;
+        padding: 0.8rem 0;
+      }
+    }
+
+    button {
+      background-color: $text-primary-color;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      border-radius: 10px;
+      color: #eee;
+    }
+
+    abbr {
+      display: block;
+      text-decoration: none;
+      margin: 1rem 0;
+      padding: 0;
+    }
+  }
 }
