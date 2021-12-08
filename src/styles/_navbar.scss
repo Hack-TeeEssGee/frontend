@@ -1,0 +1,76 @@
+.navbar {
+  position: fixed;
+  min-height: 10vh;
+  width: 100%;
+  background-color: rgba($primary-color, 0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @include smd {
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgba($primary-color, 1);
+
+    .navbar-logo img {
+      width: 8rem;
+    }
+
+    &[isOpen="false"] {
+      min-height: 3.5rem;
+      .navbar-logo,
+      .navbar-links {
+        display: none;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1.5rem;
+    transition: all 0.2s ease-in-out;
+
+    &:active {
+      transform: rotateY(90deg);
+    }
+
+    @include smd {
+      display: block;
+    }
+  }
+
+  &-links {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @include smd {
+      flex-direction: column;
+      min-height: 60vh;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+    }
+
+    a {
+      color: $text-primary-color;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      transition: all 0.2s ease-in-out;
+      font-size: 1.2rem;
+
+      &:hover {
+        background-color: $primary-color-highlight;
+      }
+    }
+  }
+
+  img {
+    width: 4rem;
+  }
+}
