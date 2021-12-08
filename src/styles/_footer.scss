@@ -8,6 +8,74 @@
 
   div {
     margin: 1rem 0.5rem;
-    text-align: center;
+  }
+  
+  nav {
+    width: 50rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+
+    .footer-column {
+      margin: 0 1rem;
+      h3 {
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 1.2rem;
+
+        li {
+          padding-bottom: 0.8rem;
+
+          a {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+              color: $text-secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include sm {
+    nav {
+      flex-direction: column;
+      text-align: center;
+      width: 100vw;
+      height: 300px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      .footer-column {
+        box-sizing: border-box;
+        max-width: 30%;
+      }
+    }
+  }
+
+  @include md {
+    nav {
+      flex-direction: column;
+      text-align: center;
+      width: 100vw;
+      justify-content: flex-start;
+      height: 300px;
+      flex-wrap: wrap;
+      .footer-column {
+        box-sizing: border-box;
+        max-width: 30%;
+      }
+    }
+  }
+  &-title {
+    color: $text-secondary-color;
   }
 }
