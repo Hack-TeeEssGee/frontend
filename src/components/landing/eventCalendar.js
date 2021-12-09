@@ -28,8 +28,8 @@ const EventCalendar = () => {
         <div className="event-box">
           <div className="event-box-heading">Events of the Day</div>
           <div className="event-list">{
-            eventsOfDay.map((event) => {
-              return(<li>{event}</li>)
+            eventsOfDay.map((event, index) => {
+              return(<li key={index}>{event}</li>)
             })
           }</div>
         </div>

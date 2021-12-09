@@ -38,7 +38,7 @@ const LoginPortal = () => {
         {
           loginPortalData.map((card) => {
             return (
-              <div className="login-card" color={card.color}>
+              <div key={card.role} className="login-card" color={card.color}>
                 <card.icon size={100}/>
                 <button className="login-card-button" onClick={() => window.location.href=`${window.location.origin}/login/${card.url}`}>{card.role}</button>
               </div>

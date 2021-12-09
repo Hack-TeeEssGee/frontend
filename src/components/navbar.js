@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMobNavbarOpen, setIsMobNavbarOpen] = useState(false);
 
   return (
-    <div className="navbar" isOpen={String(isMobNavbarOpen)}>
+    <div className="navbar" isopen={String(isMobNavbarOpen)}>
       <div
         className="hamburger"
         onClick={() => setIsMobNavbarOpen(!isMobNavbarOpen)}
