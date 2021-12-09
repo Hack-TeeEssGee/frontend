@@ -5,9 +5,31 @@
 
   &[isopen="false"] {
     width: fit-content;
+
+    .dashboard-header {
+      display: none;
+    }
   }
 
   .hamburger {
     padding: 0.5rem 1rem;
+  }
+
+  .dashboard-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      margin: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      color: $text-primary-color;
+      font-size: 1.2rem;
+    }
   }
 }

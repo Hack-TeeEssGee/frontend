@@ -2,7 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import UilBars from "@iconscout/react-unicons/icons/uil-bars";
 import UilTimes from "@iconscout/react-unicons/icons/uil-times";
 
-const Dashboard = () => {
+const DashboardHeader = (props) => {
+
+    return (
+        <div className="dashboard-header">
+            <props.icon size={200} />
+            <div className="title">{props.title}</div>
+            <div className="subtitle">{props.subtitle}</div>
+        </div>
+    )
+}
+
+const Dashboard = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
     
@@ -30,6 +41,9 @@ const Dashboard = () => {
             >
             {isOpen ? <UilTimes size={30} /> : <UilBars size={30} />}
             </div>
+            <DashboardHeader
+                {...props.headerData}
+            />
         </div>
     )
 }
