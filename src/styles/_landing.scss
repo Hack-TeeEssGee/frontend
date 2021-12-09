@@ -49,6 +49,102 @@
 
 .event-calendar {
   background-color: $primary-color;
+  padding: 4rem;
+  width: 100%;
+
+  &-body {
+    display: flex;
+
+    @include smd {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .calendar-wrapper {
+    background-color: $text-primary-color;
+    color: #eee;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+
+    @include sm {
+      width: 90vw;
+      font-size: 1rem;
+    }
+
+    .react-calendar__tile--active {
+      background-color: #eee;
+      color: $text-primary-color;
+    }
+
+    .react-calendar__navigation {
+      display: flex;
+      border-bottom: 2px solid #eee;
+
+      button {
+        flex-grow: 1;
+        font-size: 1.5rem;
+        padding: 0.8rem 0;
+      }
+    }
+
+    button {
+      background-color: $text-primary-color;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      border-radius: 10px;
+      color: #eee;
+    }
+
+    abbr {
+      display: block;
+      text-decoration: none;
+      margin: 1rem 0;
+      padding: 0;
+
+      @include sm {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .event-box {
+    width: 35rem;
+    margin: 2rem;
+    background-color: $text-primary-color;
+    color: $primary-grey;
+    font-size: 1.2rem;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include sm {
+      width: 80vw;
+    }
+
+    &-heading {
+      width: 90%;
+      margin: 1.5rem 0.5rem 1rem 0.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #eee;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .event-list {
+      align-self: flex-start;
+      padding: 1rem;
+
+      li {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
 }
 
 .login-cards-wrapper {
