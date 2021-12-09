@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./views/loginPage";
 import EventsPage from "./views/eventsPage";
 import LandingPage from "./views/landingPage";
 import QuickInfo from "./views/quickInfo";
@@ -13,6 +14,7 @@ function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/society-point" element={<SocietyPoint />} />
         <Route path="/quickinfo" element={<QuickInfo />} />
+        <Route path="/login/" element={<LoginPage />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
