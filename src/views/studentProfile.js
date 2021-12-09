@@ -1,7 +1,11 @@
+import Dashboard from "../components/dashboard";
+
 const StudentProfile = () => {
 
     return (
-        <div className="student-profile">This is student profile</div>
+        <div className="student-profile">
+            <Dashboard />
+        </div>
     )
 }
 
