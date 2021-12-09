@@ -9,7 +9,7 @@ const LoginPage = () => {
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
         setRole(urlParams.get("role"));
-    }, []);
+    }, [location.search]);
 
     return (
         <div className="login-page">
