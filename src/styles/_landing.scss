@@ -47,6 +47,73 @@
   margin: 5rem 0;
 }
 
+.landing-events {
+  h1 {
+    margin: 5rem 0 5rem 0;
+  }
+
+  .slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    width: 60rem;
+    height: 30rem;
+    border-radius: 10px;
+
+    @include smd {
+      width: 80vw;
+      height: 40vw;
+    }
+  }
+
+  .right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 32px;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+
+    @include sm {
+      right: 10px;
+      transform: translateY(-50%) scale(80%);
+    }
+  }
+
+  .left-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 32px;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+
+    @include sm {
+      left: 10px;
+      transform: translateY(-50%) scale(80%);
+    }
+  }
+
+  .slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+  }
+}
+
 .event-calendar {
   background-color: $primary-color;
   padding: 4rem;
