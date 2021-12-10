@@ -12,7 +12,7 @@ const Logbar = () => {
       </div>
 
       <div className="logbar-links">
-        <button>Go Back</button>
+        <button onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
       </div>
     </div>
   );

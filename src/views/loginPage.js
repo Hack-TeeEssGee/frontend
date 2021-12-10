@@ -17,8 +17,7 @@ const LoginPage = () => {
     return (
         <div className="login-page">
             <Logbar />
-            <OfficialLogin />
-            <StudentLogin />
+            {role === "student" ? <StudentLogin /> : <OfficialLogin />}
         </div>
     )
 }
