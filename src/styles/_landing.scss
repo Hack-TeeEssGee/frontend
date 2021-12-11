@@ -132,6 +132,12 @@
       align-items: center;
     }
   }
+  h1 {
+    @include sm {
+      text-align: center;
+    }
+    margin: 1.5rem 0.5rem 5rem 0.5rem;
+  }
 
   .calendar-wrapper {
     background-color: $text-primary-color;
