@@ -29,11 +29,16 @@
   &-btn {
     margin: 4rem 0;
   }
-
+  @include sm {
+    margin-bottom: auto;
+  }
   img {
     width: 60vw;
     border-radius: 1rem;
     box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+    @include smd {
+      width: 80vw;
+    }
   }
 }
 
@@ -126,6 +131,12 @@
       flex-direction: column;
       align-items: center;
     }
+  }
+  h1 {
+    @include sm {
+      text-align: center;
+    }
+    margin: 1.5rem 0.5rem 5rem 0.5rem;
   }
 
   .calendar-wrapper {

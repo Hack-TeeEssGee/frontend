@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UilArrowCircleLeft from "@iconscout/react-unicons/icons/uil-arrow-circle-left";
 import UilArrowCircleRight from "@iconscout/react-unicons/icons/uil-arrow-circle-right";
 
@@ -20,6 +20,11 @@ const LandingEvents = () => {
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  });
 
   if (!Array.isArray(demoEventsData) || demoEventsData.length <= 0) {
     return null;
