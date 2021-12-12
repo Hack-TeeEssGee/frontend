@@ -1,0 +1,264 @@
+.landing-page {
+  background-color: $primary-grey;
+}
+
+.hero {
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10rem;
+  text-align: center;
+  margin-bottom: 20rem;
+
+  &-title {
+    font-size: 8rem;
+    font-weight: 700;
+
+    @include sm {
+      font-size: 5rem;
+    }
+  }
+
+  &-subtitle {
+    color: $text-primary-color;
+  }
+
+  &-btn {
+    margin: 4rem 0;
+  }
+  @include sm {
+    margin-bottom: auto;
+  }
+  img {
+    width: 60vw;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+    @include smd {
+      width: 80vw;
+    }
+  }
+}
+
+.landing-events,
+.event-calendar,
+.login-portal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40vh;
+  margin: 5rem 0;
+}
+
+.landing-events {
+  h1 {
+    margin: 5rem 0 5rem 0;
+  }
+
+  .slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    width: 60rem;
+    height: 30rem;
+    border-radius: 10px;
+
+    @include smd {
+      width: 80vw;
+      height: 40vw;
+    }
+  }
+
+  .right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 32px;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+
+    @include sm {
+      right: 10px;
+      transform: translateY(-50%) scale(80%);
+    }
+  }
+
+  .left-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 32px;
+    color: #000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+
+    @include sm {
+      left: 10px;
+      transform: translateY(-50%) scale(80%);
+    }
+  }
+
+  .slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+  }
+}
+
+.event-calendar {
+  background-color: $primary-color;
+  padding: 4rem;
+  width: 100%;
+
+  &-body {
+    display: flex;
+
+    @include smd {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  h1 {
+    @include sm {
+      text-align: center;
+    }
+    margin: 1.5rem 0.5rem 5rem 0.5rem;
+  }
+
+  .calendar-wrapper {
+    background-color: $text-primary-color;
+    color: #eee;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+
+    @include sm {
+      width: 90vw;
+      font-size: 1rem;
+    }
+
+    .react-calendar__tile--active {
+      background-color: #eee;
+      color: $text-primary-color;
+    }
+
+    .react-calendar__navigation {
+      display: flex;
+      border-bottom: 2px solid #eee;
+
+      button {
+        flex-grow: 1;
+        font-size: 1.5rem;
+        padding: 0.8rem 0;
+      }
+    }
+
+    button {
+      background-color: $text-primary-color;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      border-radius: 10px;
+      color: #eee;
+    }
+
+    abbr {
+      display: block;
+      text-decoration: none;
+      margin: 1rem 0;
+      padding: 0;
+
+      @include sm {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .event-box {
+    width: 35rem;
+    margin: 2rem;
+    background-color: $text-primary-color;
+    color: $primary-grey;
+    font-size: 1.2rem;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include sm {
+      width: 80vw;
+    }
+
+    &-heading {
+      width: 90%;
+      margin: 1.5rem 0.5rem 1rem 0.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #eee;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .event-list {
+      align-self: flex-start;
+      padding: 1rem;
+
+      li {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
+
+.login-cards-wrapper {
+  width: 100%;
+  margin: 4rem 1rem;
+  text-align: center;
+
+  .login-card {
+    min-height: 20rem;
+    width: 18rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    margin: 1rem 2rem;
+
+    &[color="green"] {
+      background-color: rgba($primary-color, 0.5);
+    }
+    &[color="pink"] {
+      background-color: rgba($login-pink, 0.25);
+    }
+    &[color="orange"] {
+      background-color: rgba($login-orange, 0.25);
+    }
+    &[color="blue"] {
+      background-color: rgba($login-blue, 0.25);
+    }
+
+    button {
+      background-color: $heading-color;
+      color: #eee;
+      border-radius: 10px;
+      min-width: 10rem;
+    }
+  }
+}

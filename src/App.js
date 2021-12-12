@@ -1,10 +1,15 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./views/landingPage";
+import LoginPage from "./views/loginPage";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Building landing page. Please visit later.
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login/" element={<LoginPage />} />
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

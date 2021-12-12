@@ -1,17 +1,12 @@
+//generic stuff
+@import "variables.scss";
+@import "mixins.scss";
 @import "generic.scss";
 
-.App {
-  text-align: center;
-}
+//views
+@import "landing.scss";
+@import "login.scss";
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #eee;
-  font-weight: 700;
-}
+//components
+@import "footer.scss";
+@import "navbar.scss";
