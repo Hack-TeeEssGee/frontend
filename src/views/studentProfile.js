@@ -5,6 +5,7 @@ import UilSetting from "@iconscout/react-unicons/icons/uil-setting";
 import UilBall from "@iconscout/react-unicons/icons/uil-volleyball";
 import UilUsersAlt from "@iconscout/react-unicons/icons/uil-users-alt";
 import UilStar from "@iconscout/react-unicons/icons/uil-star";
+import UilInfo from "@iconscout/react-unicons/icons/uil-info-circle";
 import { useState } from "react";
 
 const StudentProfile = () => {
@@ -40,7 +41,8 @@ const StudentProfile = () => {
                 icon: UilStar
             },
             {
-                option: "Student's Grievance Form"
+                option: "Student's Grievance Form",
+                icon: UilInfo
             }
         ]
     }

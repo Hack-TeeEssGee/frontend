@@ -36,6 +36,29 @@ const DashBoardList = (props) => {
     )
 }
 
+const DashboardSpecial = (props) => {
+
+    return (
+        <div className="dashboard-list special">
+            {
+                props.listData.map((option, index) => {
+                    if (index === props.specialSelection) {
+                        return (
+                            <li key={index} className="dashboard-option" isselected={String(props.currentSelection === index)} onClick={() => {props.changeSelection(index)}}>
+                                <option.icon size={50} />
+                                <div>{option.option}</div>
+                            </li>
+                        )
+                    }
+                    else {
+                        return null;
+                    }
+                })
+            }
+        </div>
+    )
+}
+
 const Dashboard = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -72,6 +95,11 @@ const Dashboard = (props) => {
                 currentSelection = {props.currentSelection}
                 changeSelection = {props.changeSelection}
                 
+            />
+            <DashboardSpecial
+                {...props.listData}
+                currentSelection = {props.currentSelection}
+                changeSelection = {props.changeSelection}
             />
         </div>
     )
