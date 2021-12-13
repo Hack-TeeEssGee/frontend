@@ -6,9 +6,32 @@ const DashboardHeader = (props) => {
 
     return (
         <div className="dashboard-header">
-            <props.icon size={200} />
+            <props.icon size={100} />
             <div className="title">{props.title}</div>
             <div className="subtitle">{props.subtitle}</div>
+        </div>
+    )
+}
+
+const DashBoardList = (props) => {
+
+    return (
+        <div className="dashboard-list">
+            {
+                props.listData.map((option, index) => {
+                    if (index !== props.specialSelection) {
+                        return (
+                            <li key={index} className="dashboard-option" isselected={String(props.currentSelection === index)} onClick={() => {props.changeSelection(index)}}>
+                                <option.icon size={50} />
+                                <div>{option.option}</div>
+                            </li>
+                        )
+                    }
+                    else {
+                        return null;
+                    }
+                })
+            }
         </div>
     )
 }
@@ -43,6 +66,12 @@ const Dashboard = (props) => {
             </div>
             <DashboardHeader
                 {...props.headerData}
+            />
+            <DashBoardList
+                {...props.listData}
+                currentSelection = {props.currentSelection}
+                changeSelection = {props.changeSelection}
+                
             />
         </div>
     )

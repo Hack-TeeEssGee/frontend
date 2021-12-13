@@ -2,12 +2,23 @@
   background-color: $primary-color;
   max-width: 30rem;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
 
   &[isopen="false"] {
     width: fit-content;
 
     .dashboard-header {
-      display: none;
+      div,
+      svg {
+        display: none;
+      }
+    }
+
+    .dashboard-option {
+      div {
+        display: none;
+      }
     }
   }
 
@@ -19,6 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 20vh;
 
     .title {
       margin: 1rem;
@@ -30,6 +42,30 @@
     .subtitle {
       color: $text-primary-color;
       font-size: 1.2rem;
+    }
+  }
+
+  .dashboard-list {
+    width: 100%;
+    margin: 6rem 0;
+
+    .dashboard-option {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: 1rem 20%;
+
+      &[isselected="true"] {
+        background-color: $primary-color-highlight;
+      }
+
+      svg {
+        margin: 0 0.5rem;
+      }
+
+      div {
+        padding-left: 2rem;
+      }
     }
   }
 }
