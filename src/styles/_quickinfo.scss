@@ -1,3 +1,50 @@
 .quick-info {
   background-color: $primary-color;
+  height:100vh;
 }
+
+  h1 {text-align: center;}
+  button {text-align: center;}
+  .button {
+  background-color: $primary-color;
+  border: none;
+  color: $primary-color;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.block {
+  display: block;
+  width: 98%;
+  border: none;
+  background-color: #333;
+  padding: 17px 28px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  color: #eee;
+    border-radius: 20px;
+     font-weight: bold;
+}
+
+
+ 
+
+.button1 {
+    line-height: 12px;
+    width: 140px;
+    font-size: 18pt;
+    margin-top: 10px;
+    margin-right: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+     font-weight: bold;
+}
+
+ 
