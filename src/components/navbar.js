@@ -25,7 +25,7 @@ const Navbar = () => {
         <a href="/">News Bulletin</a>
         <a href="/">Societies</a>
         <a href="/">Student Point</a>
-        <a href="./views/quickInfo">Quick Info</a>
+        <a href="./quickinfo">Quick Info</a>
         <button>Sign In</button>
       </div>
     </div>

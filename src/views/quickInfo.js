@@ -4,7 +4,7 @@ const QuickInfo = () => {
 
         <div className="quick-info">
 
-            <button type="button" class="return-btn">Go Back</button>
+            <button type="button" class="return-btn" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
             <h1>QUICK INFO</h1>
             <button type="button" class="block">Archive-Statistics of CDC</button>
             <button type="button" class="block">Quick Links</button>
