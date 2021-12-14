@@ -2,14 +2,15 @@
 
 .login-page {
   background-color: $primary-white;
+  margin: -5rem 0rem;
 }
 
 .logbar {
   position: fixed;
-  min-height: 10vh;
+  min-height: 12vh;
   min-width: 100%;
-  background-color: $primary-color;
-
+  background-color: rgba($primary-color, 0.8);
+  margin-top: 0rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -157,25 +158,26 @@
   }
 
   .remember-hoola-hoo {
-    display: inline-block;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    margin: 0 18rem;
-    font-size: 25px;
-    text-align: left;
-    width: 240px;
+    white-space: nowrap;
+    margin: 0.5rem 10.5rem;
+  }
+  .checkbox {
+    vertical-align: top;
+    display:inline-block;
+  }
+  .checkbox-label {
+    white-space: normal;
+    display:inline-block;
+    margin: 0.5rem -10rem;
   }
 }
 
 .official-login-pic {
   margin-left: 2rem;
-  margin-top: 8rem;
+  margin-top: 7rem;
 }
 
 .student-login-pic {
   margin-left: -5rem;
-  margin-top: 13rem;
+  margin-top: 14rem;
 }

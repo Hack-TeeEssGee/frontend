@@ -1,8 +1,31 @@
-import UilEyeSlash from "@iconscout/react-unicons/icons/uil-eye-slash";
-import UilEye from "@iconscout/react-unicons/icons/uil-eye";
 import StudentPic from "../../assets/student.png";
+import { useEffect, useState } from "react";
 
 const StudentLogin = () => {
+
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
+
+    useEffect(() => {
+        const tempEmail = localStorage.getItem("officialEmail");
+        if (tempEmail !== null) {
+            setUserEmail(tempEmail);
+            setRememberMe(true);
+        }
+    }, [])
+
+    const emailChangeHandler = (email) => {
+        if(rememberMe) localStorage.setItem("officialEmail", email);
+        setUserEmail(email);
+    }
+
+    const rememberMeChangeHandler = () => {
+        if (!rememberMe) localStorage.setItem("officialEmail", userEmail);
+        else localStorage.removeItem("officialEmail");
+        setRememberMe(!rememberMe);
+    }
+
     return (
       <div className="student-login-portal">
         <div className="login-wrapper">
@@ -12,21 +35,17 @@ const StudentLogin = () => {
             <div className="invisible">
                 Enter Your Institute Mail ID
             </div>
-            <div className="enter-box">
-                dasananya8303@gmail.com
-            </div>
+            <input type="email" value={userEmail} onChange={(e) => {emailChangeHandler(e.target.value)}} className="enter-box">
+            </input> 
             <button className="signin-button">Get OTP</button>
             <div className="invisible">
                 Enter OTP sent to Institute Mail ID
             </div>
-            <div className="enter-box">
-                **********
-                <div className="image-eye">
-                    <UilEyeSlash size={30}/>
-                </div>
-            </div>
+            <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
+            </input>
             <div className="remember-hoola-hoo">
-                Remember me
+            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
+            <label class="checkbox-label" for="officialRememberMe">Remember Me</label>
             </div>
             <button className="signin-button">Sign In</button>
         </div>

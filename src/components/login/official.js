@@ -42,9 +42,10 @@ const OfficialLogin = () => {
             </div>
             <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
             </input>
-            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo">
-            </input>
-            <label for="officialRememberMe">Remember Me</label>
+            <div className="remember-hoola-hoo">
+            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
+            <label class="checkbox-label" for="officialRememberMe">Remember Me</label>
+            </div>
             <button className="signin-button">Sign In</button>
         </div>
         <div className="official-login-pic">
