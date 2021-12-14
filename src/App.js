@@ -13,7 +13,7 @@ function App() {
         <Route path="/student-profile" element={<StudentProfile />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/society-point" element={<SocietyPoint />} />
-        <Route path="/views/quickinfo" element={<QuickInfo />} />
+        <Route path="/quickinfo" element={<QuickInfo />} />
         <Route path="/login/" element={<LoginPage />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
