@@ -7,12 +7,32 @@ import UilUsersAlt from "@iconscout/react-unicons/icons/uil-users-alt";
 import UilStar from "@iconscout/react-unicons/icons/uil-star";
 import UilInfo from "@iconscout/react-unicons/icons/uil-info-circle";
 import { useState } from "react";
+import sampleCertificateData from "../assets/sampleCertificateData.json";
 
-const CertificateListWrapper = () => {
+const CertificateListWrapper = (props) => {
 
     return (
         <div className="certificate-list-wrapper">
-
+            {
+                sampleCertificateData.map((certificate, index) => {
+                    
+                    if (props.mode === certificate.category) {
+                        return (
+                            <div key={index} className="certificate">
+                                <img alt="event-cert" src={certificate.certLink} />
+                                <div>
+                                    <div className="event-name">{certificate.eventName}</div>
+                                    <div className="event-position">{certificate.position}</div>
+                                </div>
+                                <button className="download-cert" onClick={() => window.open(certificate.certLink, "_blank")}>Download Certificate</button>
+                            </div>
+                        )
+                    }
+                    else {
+                        return (null);
+                    }
+                })
+            }
         </div>
     )
 }
@@ -102,7 +122,9 @@ const StudentProfile = () => {
             <div className="container">
                 <button onClick={() => window.location.href=`${window.location.origin}/`}>HOME</button>
                 <div className="title">{title}</div>
-                <BodyContent/>
+                <BodyContent
+                    mode={dashboardListData.listData[currentSelection].option}
+                />
             </div>
         </div>
     )
