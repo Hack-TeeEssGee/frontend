@@ -1,50 +1,41 @@
 .quick-info {
   background-color: $primary-color;
-  height:100vh;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-  h1 {text-align: center;}
-  button {text-align: center;}
-  .button {
-  background-color: $primary-color;
-  border: none;
-  color: $primary-color;
-  padding: 15px 32px;
+h1 {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 50%;
+  margin-top: 0;
 }
+button {
+  text-align: center;
+}
+
 .block {
   display: block;
-  width: 98%;
+  width: 90%;
   border: none;
   background-color: #333;
-  padding: 17px 28px;
-  font-size: 30px;
+  margin: 1.2rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   text-align: center;
   color: #eee;
-    border-radius: 20px;
-     font-weight: bold;
+  border-radius: 20px;
+  font-weight: 600;
+
+  @include sm {
+    font-size: 1.5rem;
+  }
 }
 
-
- 
-
-.button1 {
-    line-height: 12px;
-    width: 140px;
-    font-size: 18pt;
-    margin-top: 10px;
-    margin-right: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-     font-weight: bold;
+.return-btn {
+  align-self: flex-end;
+  font-weight: bold;
+  margin: 2rem 2.5rem;
 }
-
- 
