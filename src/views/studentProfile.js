@@ -8,6 +8,33 @@ import UilStar from "@iconscout/react-unicons/icons/uil-star";
 import UilInfo from "@iconscout/react-unicons/icons/uil-info-circle";
 import { useState } from "react";
 
+const CertificateListWrapper = () => {
+
+    return (
+        <div className="certificate-list-wrapper">
+
+        </div>
+    )
+}
+
+const CertificateUploader = () => {
+
+    return (
+        <div className="certificate-uploader">
+
+        </div>
+    )
+}
+
+const GrievanceForm = () => {
+
+    return (
+        <div className="grievance-form">
+
+        </div>
+    )
+}
+
 const StudentProfile = () => {
 
     const dashboardHeaderData = {
@@ -49,6 +76,21 @@ const StudentProfile = () => {
 
     const [currentSelection, setCurrentSelection] = useState(dashboardListData.defaultSelection);
 
+    var title, BodyContent;
+
+    if (currentSelection >= 0 && currentSelection <= 3) {
+        title = "EVENTS PARTICIPATED";
+        BodyContent = CertificateListWrapper;
+    }
+    else if (currentSelection === 4) {
+        title = "UPLOAD CERTIFICATE";
+        BodyContent = CertificateUploader;
+    }
+    else {
+        title = "GRIEVANCE FORM";
+        BodyContent = GrievanceForm;
+    }
+
     return (
         <div className="student-profile">
             <Dashboard
@@ -57,6 +99,11 @@ const StudentProfile = () => {
                 currentSelection={currentSelection}
                 changeSelection={setCurrentSelection}
             />
+            <div className="container">
+                <button onClick={() => window.location.href=`${window.location.origin}/`}>HOME</button>
+                <div className="title">{title}</div>
+                <BodyContent/>
+            </div>
         </div>
     )
 }
