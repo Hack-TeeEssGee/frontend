@@ -58,6 +58,7 @@
       display: flex;
       align-items: center;
       padding: 1rem 20%;
+      cursor: pointer;
 
       &[isselected="true"] {
         background-color: $primary-color-highlight;
