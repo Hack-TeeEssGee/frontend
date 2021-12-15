@@ -87,5 +87,60 @@
         }
       }
     }
+    .grievance-form{
+      input, textarea{
+        background-color: $primary-grey;
+        border-radius: 10px;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #F58840;
+        font-size: 1.4rem;
+      }
+      .grievance-name {
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        flex-wrap: wrap;
+        
+        .input-box {
+          padding: 0.4em 0.4em 0.4em 0.4rem;
+          width: 300px;
+          height: 60px;
+          margin: 70px;
+          margin-bottom: 40px;
+          @include md {
+            margin: 10px;
+            width: 40%;
+          }
+          @include sm{
+            margin: 10px;
+            width: 100%;
+            font-size: 1rem;
+          }
+        }
+      }
+      .grievance-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .grievance-box {
+          padding: 0.4em 0.4em 0.4em 0.4rem;
+          max-width: 100%;
+          margin-bottom: 40px;
+          @include sm {
+            font-size: 1rem;
+          }
+        }
+        .add-button {
+          border-radius: 10px;
+          width: 150px;
+          align-self: center;
+          background-color: #F58840;
+          font-weight: bold;
+          margin: 0;
+        }
+      }
+    }
   }
 }
