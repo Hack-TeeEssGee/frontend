@@ -8,7 +8,7 @@ const StudentLogin = () => {
     const [rememberMe, setRememberMe] = useState(false);
 
     useEffect(() => {
-        const tempEmail = localStorage.getItem("officialEmail");
+        const tempEmail = localStorage.getItem("studentEmail");
         if (tempEmail !== null) {
             setUserEmail(tempEmail);
             setRememberMe(true);
@@ -16,13 +16,13 @@ const StudentLogin = () => {
     }, [])
 
     const emailChangeHandler = (email) => {
-        if(rememberMe) localStorage.setItem("officialEmail", email);
+        if(rememberMe) localStorage.setItem("studentEmail", email);
         setUserEmail(email);
     }
 
     const rememberMeChangeHandler = () => {
-        if (!rememberMe) localStorage.setItem("officialEmail", userEmail);
-        else localStorage.removeItem("officialEmail");
+        if (!rememberMe) localStorage.setItem("studentEmail", userEmail);
+        else localStorage.removeItem("studentEmail");
         setRememberMe(!rememberMe);
     }
 
@@ -44,8 +44,8 @@ const StudentLogin = () => {
             <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
             </input>
             <div className="remember-hoola-hoo">
-            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
-            <label class="checkbox-label" for="officialRememberMe">Remember Me</label>
+            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
+            <label class="checkbox-label" for="studentRememberMe">Remember Me</label>
             </div>
             <button className="signin-button">Sign In</button>
         </div>
