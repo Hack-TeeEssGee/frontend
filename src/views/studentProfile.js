@@ -48,9 +48,23 @@ const CertificateUploader = () => {
 
 const GrievanceForm = () => {
 
+    const [userName, setUserName] = useState("");
+    const [userRoll, setUserRoll] = useState("");
+    const [userGrievance, setUserGrievance] = useState("");
+
     return (
         <div className="grievance-form">
-
+            <div className="grievance-name">
+                <input type="text" placeholder="Enter your name" value={userName} onChange={(e) => {setUserName(e.target.value)}} className="input-box">
+                </input> 
+                <input type="text" placeholder="Enter your roll number" value={userRoll} onChange={(e) => {setUserRoll(e.target.value)}} className="input-box">
+                </input>
+            </div>
+            <div className="grievance-content">
+                <textarea cols="50" rows="8" placeholder="Type your grievance" value={userGrievance} onChange={(e) => {setUserGrievance(e.target.value)}} className="grievance-box">
+                </textarea>
+                <button className="add-button">Add +</button>
+            </div>
         </div>
     )
 }
