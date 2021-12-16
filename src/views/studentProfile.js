@@ -15,7 +15,7 @@ const CertificateListWrapper = (props) => {
         <div className="certificate-list-wrapper">
             {
                 sampleCertificateData.map((certificate, index) => {
-                    
+
                     if (props.mode === certificate.category) {
                         return (
                             <div key={index} className="certificate">
@@ -40,8 +40,25 @@ const CertificateListWrapper = (props) => {
 const CertificateUploader = () => {
 
     return (
-        <div className="certificate-uploader">
+        <div className="box">
+            <div className="certificate-uploader">
+                <div className="certificate-name">
+                    <input type="text" class="type-1" placeholder="Enter name of event" >
+                    </input>
+                    <input type="text" class="type-1" placeholder="Enter Position" >
+                    </input>
 
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Custom Upload
+                    </label>
+                    <input id="file-upload" type="file" />
+                </div>
+
+                <div className="certificate-content">
+
+                    <button className="add-button">Add +</button>
+                </div>
+            </div>
         </div>
     )
 }
@@ -55,13 +72,13 @@ const GrievanceForm = () => {
     return (
         <div className="grievance-form">
             <div className="grievance-name">
-                <input type="text" placeholder="Enter your name" value={userName} onChange={(e) => {setUserName(e.target.value)}} className="input-box">
-                </input> 
-                <input type="text" placeholder="Enter your roll number" value={userRoll} onChange={(e) => {setUserRoll(e.target.value)}} className="input-box">
+                <input type="text" placeholder="Enter your name" value={userName} onChange={(e) => { setUserName(e.target.value) }} className="input-box">
+                </input>
+                <input type="text" placeholder="Enter your roll number" value={userRoll} onChange={(e) => { setUserRoll(e.target.value) }} className="input-box">
                 </input>
             </div>
             <div className="grievance-content">
-                <textarea cols="50" rows="8" placeholder="Type your grievance" value={userGrievance} onChange={(e) => {setUserGrievance(e.target.value)}} className="grievance-box">
+                <textarea cols="50" rows="8" placeholder="Type your grievance" value={userGrievance} onChange={(e) => { setUserGrievance(e.target.value) }} className="grievance-box">
                 </textarea>
                 <button className="add-button">Add +</button>
             </div>
@@ -134,7 +151,7 @@ const StudentProfile = () => {
                 changeSelection={setCurrentSelection}
             />
             <div className="container">
-                <button onClick={() => window.location.href=`${window.location.origin}/`}>HOME</button>
+                <button onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
                 <div className="title">{title}</div>
                 <BodyContent
                     mode={dashboardListData.listData[currentSelection].option}
