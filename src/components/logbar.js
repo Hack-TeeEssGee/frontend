@@ -1,4 +1,6 @@
 import { useState } from "react";
+import UilBars from "@iconscout/react-unicons/icons/uil-bars";
+import UilTimes from "@iconscout/react-unicons/icons/uil-times";
 
 const Logbar = () => {
   const [isMobLogbarOpen, setIsMobLogbarOpen] = useState(false);
@@ -9,6 +11,7 @@ const Logbar = () => {
         className="pizza"
         onClick={() => setIsMobLogbarOpen(!isMobLogbarOpen)}
       >
+        {isMobLogbarOpen ? <UilTimes /> : <UilBars />}
       </div>
 
       <div className="logbar-links">
