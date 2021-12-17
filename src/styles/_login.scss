@@ -63,46 +63,48 @@
   }
 }
 
-.official-login-portal {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100vh;
-  width: 100vh;
-  margin: 5rem 0;
-  text-align: left;
-}
-
+.official-login-portal,
 .student-login-portal {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   margin: 5rem 0;
   text-align: left;
 }
 
 .login-wrapper {
-  width: 100%;
   margin: 4rem 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
 
+  @include smd {
+    width: 100vw;
+  }
+
   .heading {
     display: inline-block;
     flex-direction: column;
     align-items: center;
-    width: 1000px;
     justify-content: space-evenly;
     margin: 4rem 4rem;
     font-family: Overpass;
     font-style: normal;
     font-weight: 800;
-    font-size: 60px;
+    font-size: 3.8rem;
     color: $login-page-texts;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @include smd {
+      font-size: 3rem;
+    }
+
+    @include sm {
+      margin: 2rem;
+    }
   }
 
   .invisible {
@@ -114,15 +116,19 @@
     font-family: Nunito;
     font-style: normal;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.4rem;
     text-align: left;
     color: $login-page-texts;
+
+    @include sm {
+      font-size: 2rem;
+    }
   }
 
   .enter-box {
     display: inline-block;
     min-height: 60px;
-    width: 700px;
+    width: 90%;
     border-style: solid;
     border-color: $heading-color;
     flex-direction: column;
@@ -132,12 +138,10 @@
     border-radius: 50px;
     margin: 1rem 3.5rem;
     color: $primary-color;
-    font-size: 20px;
+    font-size: 1.2rem;
 
-    .image-eye {
-      text-align: right;
-      margin: -2rem 0rem;
-      margin-bottom: -0.25rem;
+    @include smd {
+      margin: 1rem;
     }
   }
 
@@ -147,37 +151,58 @@
     border-style: solid;
     border-color: $heading-color;
     border-radius: 10px;
-    width: 700px;
+    width: 90%;
     min-height: 75px;
     border-radius: 50px;
     margin: 1rem 3.5rem;
     font-family: Nunito;
     font-style: normal;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 2.2rem;
+
+    @include smd {
+      margin: 1rem;
+    }
   }
 
   .remember-hoola-hoo {
     white-space: nowrap;
-    margin: 0.5rem 10.5rem;
+    margin: 0.5rem auto;
   }
   .checkbox {
     vertical-align: top;
-    display:inline-block;
+    display: inline-block;
   }
   .checkbox-label {
     white-space: normal;
-    display:inline-block;
-    margin: 0.5rem -10rem;
+    display: inline-block;
+    margin: 0.5rem;
+    font-size: 1.4rem;
   }
 }
 
 .official-login-pic {
   margin-left: 2rem;
   margin-top: 7rem;
+
+  img {
+    width: 35vw;
+  }
+
+  @include smd {
+    display: none;
+  }
 }
 
 .student-login-pic {
   margin-left: -5rem;
   margin-top: 14rem;
+
+  img {
+    width: 35vw;
+  }
+
+  @include smd {
+    display: none;
+  }
 }
