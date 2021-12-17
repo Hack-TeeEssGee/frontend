@@ -27,6 +27,16 @@
     .grievance-form {
       width: 100%;
       padding: 2rem;
+
+      .add-button {
+        border-radius: 10px;
+        font-size: 1.4rem;
+        width: 10rem;
+        align-self: center;
+        background-color: #f58840;
+        font-weight: bold;
+        margin: 0;
+      }
     }
 
     .certificate {
@@ -87,23 +97,24 @@
         }
       }
     }
-    .certificate-uploader,
-    .grievance-form{
-      input, textarea{
+
+    .grievance-form {
+      input,
+      textarea {
         background-color: $primary-grey;
         border-radius: 10px;
         border-style: solid;
         border-width: 3px;
-        border-color: #F58840;
+        border-color: #f58840;
         font-size: 1.4rem;
       }
-      .certificate-name,
+
       .grievance-name {
         display: flex;
         flex-direction: row;
-        justify-content:center;
+        justify-content: center;
         flex-wrap: wrap;
-        
+
         .input-box {
           padding: 0.4em 0.4em 0.4em 0.4rem;
           width: 300px;
@@ -114,19 +125,19 @@
             margin: 10px;
             width: 40%;
           }
-          @include sm{
+          @include sm {
             margin: 10px;
             width: 100%;
             font-size: 1rem;
           }
         }
       }
-      .certificate-content,
+
       .grievance-content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         .grievance-box {
           padding: 0.4em 0.4em 0.4em 0.4rem;
           max-width: 100%;
@@ -139,100 +150,80 @@
           border-radius: 10px;
           width: 150px;
           align-self: center;
-          background-color: #F58840;
+          background-color: #f58840;
           font-weight: bold;
           margin: 0;
         }
       }
     }
-    
-    
 
-
-.box {
-
-  position: relative;
-  overflow: hidden;
-  display: center;
-  text-align: center;  
-  top: 10%;
+    .certificate-uploader {
+      text-align: center;
       border-radius: 10px;
-  width:360px;
-  padding: 10px;
-background-color: #d67433;
-  margin: 0;
-  
-}
+      width: 40rem;
+      padding: 2rem;
+      background-color: rgba($login-orange, 0.3);
+      margin: 2rem 1rem;
 
+      @include md {
+        width: 30rem;
+      }
+
+      @include sm {
+        width: 90%;
+      }
+
+      .type-1 {
+        border-radius: 10px;
+        border: 4px solid rgba($login-orange, 0.6);
+        transition: 0.5s border-color;
+        width: 90%;
+        margin: 1rem;
+        height: 3.5rem;
+        outline: none;
+        padding: 1rem 1.5rem;
+        background-color: transparent;
+        font-size: 1.4rem;
+
+        @include sm {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          border: 4px solid $login-orange;
+          outline: none;
+        }
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .custom-file-upload {
+        border: 4px solid rgba($login-orange, 0.6);
+        display: inline-block;
+        padding: 0.6rem 1.5rem;
+        height: 3.5rem;
+        border-radius: 10px;
+        transition: 0.5s border-color;
+        width: 90%;
+        margin: 1rem;
+        font-size: 1.4rem;
+        color: #666;
+        text-align: left;
+
+        @include sm {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          border: 4px solid $login-orange;
+        }
+      }
+
+      .add-button {
+        margin: 1rem;
+      }
+    }
   }
-.type-1 {
-  border-radius:10px;
-  border: 1px solid #eee;
-  transition: .5s border-color;
-    width: 600px;
-      margin: 10px;
-       height: 50px;
-    
-}
-.type-1:hover {
-  border: 1px solid #aaa;
-}
-
-.type-2 {
-  border-radius:10px;
-  border: 0px solid #eee;
-  transition: .5s border-color;
-    width: 700px;
-      margin: 10px;
-       height: 50px;
-    
-}
-.type-2:hover {
-  border: 0px solid #aaa;
-}
-
-}
-
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.btn {
-  border: 2px solid gray;
-  color: #2d2d2d;
-  background-color: #d67433;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-    border-radius:10px;
-  border: 1px solid #eee;
-  transition: .5s border-color;
-    width: 275px;
-      // margin: 10px;
-       height: 50px;
-}
-
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
-input[type="file"] {
-    display: none;
-}
-.custom-file-upload {
-    border: 1px solid $primary-grey;;
-    display: inline-block;
-    padding: 6px 12px;
-       height: 50px;
-         border-radius:10px;
-  transition: .5s border-color;
-    width: 700px;
-      margin: 10px;
-    font-size:x-large;
 }

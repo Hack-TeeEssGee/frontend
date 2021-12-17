@@ -40,25 +40,16 @@ const CertificateListWrapper = (props) => {
 const CertificateUploader = () => {
 
     return (
-        <div className="box">
-            <div className="certificate-uploader">
-                <div className="certificate-name">
-                    <input type="text" class="type-1" placeholder="Enter name of event" >
-                    </input>
-                    <input type="text" class="type-1" placeholder="Enter Position" >
-                    </input>
-
-                    <label for="file-upload" class="custom-file-upload">
-                        <i class="fa fa-cloud-upload"></i> Custom Upload
-                    </label>
-                    <input id="file-upload" type="file" />
-                </div>
-
-                <div className="certificate-content">
-
-                    <button className="add-button">Add +</button>
-                </div>
-            </div>
+        <div className="certificate-uploader">
+            <input type="text" className="type-1" placeholder="Enter name of event" >
+            </input>
+            <input type="text" className="type-1" placeholder="Enter Position" >
+            </input>
+            <label htmlFor="file-upload" className="custom-file-upload">
+                &#8613; &nbsp; Upload Certificate File
+            </label>
+            <input id="file-upload" type="file" />
+            <button className="add-button">Add +</button>
         </div>
     )
 }
