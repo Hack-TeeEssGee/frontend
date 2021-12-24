@@ -1,5 +1,6 @@
 import StudentPic from "../../assets/student.png";
 import { useEffect, useState } from "react";
+import verifyEmail from "../../utils/verifyEmail";
 
 const StudentLogin = () => {
 
@@ -26,6 +27,23 @@ const StudentLogin = () => {
         setRememberMe(!rememberMe);
     }
 
+    const sendOTP = () => {
+
+        if (verifyEmail(userEmail)) {
+            
+            //send OTP to mail.
+        }
+        else {
+
+            //invalid email. notify user.
+        }
+    }
+
+    const verifyUser = () => {
+
+        //verify OTP.
+    }
+
     return (
       <div className="student-login-portal">
         <div className="login-wrapper">
@@ -37,7 +55,7 @@ const StudentLogin = () => {
             </div>
             <input type="email" value={userEmail} onChange={(e) => {emailChangeHandler(e.target.value)}} className="enter-box">
             </input> 
-            <button className="signin-button">Get OTP</button>
+            <button className="signin-button" onClick={() => sendOTP()}>Get OTP</button>
             <div className="invisible">
                 Enter OTP sent to Institute Mail ID
             </div>
@@ -47,7 +65,7 @@ const StudentLogin = () => {
             <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
             <label className="checkbox-label" htmlFor="studentRememberMe">Remember Me</label>
             </div>
-            <button className="signin-button">Sign In</button>
+            <button className="signin-button" onClick={() => verifyUser()} >Sign In</button>
         </div>
         <div className="student-login-pic">
             <img src={StudentPic} alt="student"></img>

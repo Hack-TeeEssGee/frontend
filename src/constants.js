@@ -13,3 +13,5 @@ else if (process.env.NODE_ENV === "development") {
 }
 
 export { BACKEND_URL, FRONTEND_URL };
+
+export const AUTH_URL = `${BACKEND_URL}/authenticate`;
