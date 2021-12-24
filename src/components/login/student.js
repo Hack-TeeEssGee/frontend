@@ -56,7 +56,7 @@ const StudentLogin = () => {
             otp: userPassword,
             verification_key: code
         })
-            .then((response) => console.log(response))
+            .then((response) => window.location.href=`${window.location.origin}`)
             .catch((err) => console.log(err));
     }
 
