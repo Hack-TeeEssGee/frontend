@@ -1,12 +1,15 @@
 import StudentPic from "../../assets/student.png";
 import { useEffect, useState } from "react";
 import verifyEmail from "../../utils/verifyEmail";
+import axios from "axios";
+import { AUTH_URL } from "../../constants";
 
 const StudentLogin = () => {
 
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
+    const [code, setCode] = useState("");
 
     useEffect(() => {
         const tempEmail = localStorage.getItem("studentEmail");
@@ -32,6 +35,9 @@ const StudentLogin = () => {
         if (verifyEmail(userEmail)) {
             
             //send OTP to mail.
+            axios.post(`${AUTH_URL}/otp`, { email: userEmail })
+                .then((response) => setCode(response.data.Details))
+                .catch((err) => console.log(err));
         }
         else {
 
@@ -42,6 +48,13 @@ const StudentLogin = () => {
     const verifyUser = () => {
 
         //verify OTP.
+        axios.post(`${AUTH_URL}/student/login`, {
+            check: userEmail,
+            otp: userPassword,
+            verification_key: code
+        })
+            .then((response) => console.log(response))
+            .catch((err) => console.log(err));
     }
 
     return (
