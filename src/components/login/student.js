@@ -45,7 +45,7 @@ const StudentLogin = () => {
             </input>
             <div className="remember-hoola-hoo">
             <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
-            <label class="checkbox-label" for="studentRememberMe">Remember Me</label>
+            <label className="checkbox-label" htmlFor="studentRememberMe">Remember Me</label>
             </div>
             <button className="signin-button">Sign In</button>
         </div>

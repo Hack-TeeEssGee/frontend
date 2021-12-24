@@ -6,7 +6,7 @@ const Logbar = () => {
   const [isMobLogbarOpen, setIsMobLogbarOpen] = useState(false);
 
   return (
-    <div className="logbar" isOpen={String(isMobLogbarOpen)}>
+    <div className="logbar" isopen={String(isMobLogbarOpen)}>
       <div
         className="pizza"
         onClick={() => setIsMobLogbarOpen(!isMobLogbarOpen)}
