@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import verifyEmail from "../../utils/verifyEmail";
 import axios from "axios";
 import { AUTH_URL } from "../../constants";
+import Session from "supertokens-auth-react/recipe/session";
+
+Session.addAxiosInterceptors(axios);
 
 const StudentLogin = () => {
 
