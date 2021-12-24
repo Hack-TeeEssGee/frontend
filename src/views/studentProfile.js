@@ -8,6 +8,8 @@ import UilStar from "@iconscout/react-unicons/icons/uil-star";
 import UilInfo from "@iconscout/react-unicons/icons/uil-info-circle";
 import { useState } from "react";
 import sampleCertificateData from "../assets/sampleCertificateData.json";
+import onLogout from "../utils/logout";
+import { SessionAuth } from "supertokens-auth-react/recipe/session";
 
 const CertificateListWrapper = (props) => {
 
@@ -134,21 +136,24 @@ const StudentProfile = () => {
     }
 
     return (
-        <div className="student-profile">
-            <Dashboard
-                headerData={dashboardHeaderData}
-                listData={dashboardListData}
-                currentSelection={currentSelection}
-                changeSelection={setCurrentSelection}
-            />
-            <div className="container">
-                <button onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
-                <div className="title">{title}</div>
-                <BodyContent
-                    mode={dashboardListData.listData[currentSelection].option}
+        <SessionAuth requireAuth={true} redirectToLogin={() => window.location.href = `${window.location.origin}/login?role=student`}>
+            <div className="student-profile">
+                <Dashboard
+                    headerData={dashboardHeaderData}
+                    listData={dashboardListData}
+                    currentSelection={currentSelection}
+                    changeSelection={setCurrentSelection}
                 />
+                <div className="container">
+                    <button onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+                    <button onClick={() => onLogout()}>LOGOUT</button>
+                    <div className="title">{title}</div>
+                    <BodyContent
+                        mode={dashboardListData.listData[currentSelection].option}
+                    />
+                </div>
             </div>
-        </div>
+        </SessionAuth>
     )
 }
 
