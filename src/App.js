@@ -26,16 +26,22 @@ SuperTokens.init({
 function App() {
   return (
     <BrowserRouter>
-      <SessionAuth>
+      <SessionAuth requireAuth={true} redirectToLogin={() => window.location.href = `${window.location.origin}/login?role=student`}>
         <Routes>
           <Route path="/student-profile" element={<StudentProfile />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/society-point" element={<SocietyPoint />} />
-          <Route path="/quickinfo" element={<QuickInfo />} />
-          <Route path="/login/" element={<LoginPage />} />
+        </Routes>
+      </SessionAuth>
+      <SessionAuth>
+        <Routes>
           <Route path="/" element={<LandingPage />} />
         </Routes>
       </SessionAuth>
+      <Routes>
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/society-point" element={<SocietyPoint />} />
+        <Route path="/quickinfo" element={<QuickInfo />} />
+        <Route path="/login/" element={<LoginPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
