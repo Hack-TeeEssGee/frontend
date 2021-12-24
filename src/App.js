@@ -8,6 +8,7 @@ import StudentProfile from "./views/studentProfile";
 
 import SuperTokens from "supertokens-auth-react";
 import Session from "supertokens-auth-react/recipe/session";
+import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import { BACKEND_URL, FRONTEND_URL } from "./constants";
 
 SuperTokens.init({
@@ -26,7 +27,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/student-profile" element={<StudentProfile />} />
+        <Route path="/student-profile" element={
+          <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=student`}}>
+            {/*Components that require to be protected by authentication*/}
+            <StudentProfile />
+          </SessionAuth>
+        } />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/society-point" element={<SocietyPoint />} />
         <Route path="/quickinfo" element={<QuickInfo />} />
