@@ -1,11 +1,19 @@
 import OfficialPic from "../../assets/official.png";
 import { useEffect, useState } from "react";
+import verifyEmail from "../../utils/verifyEmail";
+import axios from "axios";
+import { AUTH_URL } from "../../constants";
+import Session from "supertokens-auth-react/recipe/session";
 
-const OfficialLogin = () => {
+Session.addAxiosInterceptors(axios);
+
+const OfficialLogin = (props) => {
 
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
+
+    const role = props.role;
 
     useEffect(() => {
         const tempEmail = localStorage.getItem("officialEmail");
@@ -24,6 +32,27 @@ const OfficialLogin = () => {
         if (!rememberMe) localStorage.setItem("officialEmail", userEmail);
         else localStorage.removeItem("officialEmail");
         setRememberMe(!rememberMe);
+    }
+
+    const verifyUser = () => {
+
+        if (verifyEmail(userEmail)) {
+            
+            //verify email, password and role.
+            axios.post(`${AUTH_URL}/official/login`, {
+                check: userEmail,
+                password: userPassword,
+                role: role
+            })
+                .then((response) => window.location.href=`${window.location.origin}`)
+                .catch((err) => console.log(err));
+        }
+        else {
+
+            //invalid email. notify user
+        }
+
+        
     }
 
     return (
@@ -46,7 +75,7 @@ const OfficialLogin = () => {
                 <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
                 <label className="checkbox-label" htmlFor="officialRememberMe">Remember Me</label>
             </div>
-            <button className="signin-button">Sign In</button>
+            <button className="signin-button" onClick={() => verifyUser()}>Sign In</button>
         </div>
         <div className="official-login-pic">
             <img src={OfficialPic} alt="official"></img>
