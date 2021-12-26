@@ -81,9 +81,25 @@ const GrievanceForm = () => {
 
 const StudentProfile = () => {
 
+    const studentData = {
+        name: "",
+        email: ""
+    };
+
+    try {
+        
+        studentData.name = JSON.parse(localStorage.getItem("student_metadata"))["name"];
+        studentData.email = JSON.parse(localStorage.getItem("student_metadata"))["email"];
+        
+    } catch (err) {
+
+        //notify user to login again
+        window.location.href = `${window.location.origin}`
+    }
+
     const dashboardHeaderData = {
-        title: "Chirag Ghosh",
-        subtitle: "chiragghosh@kgpian.iitkgp.ac.in",
+        title: studentData.name,
+        subtitle: studentData.email,
         icon: UilUserCircle
     }
 
