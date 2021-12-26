@@ -20,7 +20,7 @@
     min-height: 100vh;
     background-color: rgba($primary-color, 1);
 
-    &[isOpen="false"] {
+    &[isopen="false"] {
       min-height: 3.5rem;
       .logbar-links {
         display: none;

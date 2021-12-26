@@ -4,11 +4,15 @@ import EventCalendar from "../components/landing/eventCalendar";
 import LandingEvents from "../components/landing/landingEvents";
 import LoginPortal from "../components/landing/loginPortal";
 import Navbar from "../components/navbar";
+import { SessionAuth } from "supertokens-auth-react/recipe/session";
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <Navbar />
+
+      <SessionAuth requireAuth={false}>
+        <Navbar />
+      </SessionAuth>
 
       <div className="hero">
         <div className="hero-title">KGPverse</div>
