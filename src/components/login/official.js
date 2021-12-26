@@ -40,7 +40,7 @@ const OfficialLogin = (props) => {
             
             //verify email, password and role.
             axios.post(`${AUTH_URL}/official/login`, {
-                check: userEmail,
+                email: userEmail,
                 password: userPassword,
                 role: role
             })
