@@ -56,7 +56,16 @@ const StudentLogin = () => {
             otp: userPassword,
             verification_key: code
         })
-            .then((response) => window.location.href=`${window.location.origin}`)
+            .then((response) => {
+                console.log(response);
+                const studentMetadata = {
+                    email: response.data.email,
+                    name: response.data.name,
+                    roll_no: response.data.roll_no,
+                }
+                localStorage.setItem("student_metadata", JSON.stringify(studentMetadata));
+                window.location.href = `${window.location.origin}`
+            })
             .catch((err) => console.log(err));
     }
 
