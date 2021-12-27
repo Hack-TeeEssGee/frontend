@@ -2,9 +2,27 @@ import { useState } from "react";
 import tsgLogo from "../assets/tsg-logo.png";
 import UilBars from "@iconscout/react-unicons/icons/uil-bars";
 import UilTimes from "@iconscout/react-unicons/icons/uil-times";
+import { useSessionContext } from 'supertokens-auth-react/recipe/session';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [isMobNavbarOpen, setIsMobNavbarOpen] = useState(false);
+
+  let { accessTokenPayload } = useSessionContext();
+  
+  const buttonProperties = {
+    text: "Sign in",
+    clickHandler: () => {
+      props.loginPortalRef?.current?.scrollIntoView({behavior: "smooth"});
+    }
+  }
+
+  if (accessTokenPayload.role === "student") {
+
+    buttonProperties.text = "Student Profile";
+    buttonProperties.clickHandler = () => {
+      window.location.href=`${window.location.origin}/student-profile`
+    }
+  }
 
   return (
     <div className="navbar" isopen={String(isMobNavbarOpen)}>
@@ -26,7 +44,7 @@ const Navbar = () => {
         <a href="/">Societies</a>
         <a href="/">Student Point</a>
         <a href="./quickinfo">Quick Info</a>
-        <button>Sign In</button>
+        <button onClick={buttonProperties.clickHandler}>{buttonProperties.text}</button>
       </div>
     </div>
   );

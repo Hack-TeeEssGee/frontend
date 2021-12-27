@@ -30,9 +30,9 @@ const loginPortalData = [
   }
 ]
 
-const LoginPortal = () => {
+const LoginPortal = ({innerRef}) => {
   return (
-    <div className="login-portal">
+    <div className="login-portal" ref={innerRef}>
       <h1>Login Portal</h1>
       <div className="login-cards-wrapper">
         {

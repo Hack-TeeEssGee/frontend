@@ -5,13 +5,17 @@ import LandingEvents from "../components/landing/landingEvents";
 import LoginPortal from "../components/landing/loginPortal";
 import Navbar from "../components/navbar";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
+import { useRef } from "react";
 
 const LandingPage = () => {
+
+  const loginPortalRef = useRef(null);
+
   return (
     <div className="landing-page">
 
       <SessionAuth requireAuth={false}>
-        <Navbar />
+        <Navbar loginPortalRef={loginPortalRef} />
       </SessionAuth>
 
       <div className="hero">
@@ -30,7 +34,7 @@ const LandingPage = () => {
 
       <EventCalendar />
 
-      <LoginPortal />
+      <LoginPortal innerRef={loginPortalRef} />
 
       <Footer />
     </div>
