@@ -11,6 +11,9 @@ import Session from "supertokens-auth-react/recipe/session";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import { BACKEND_URL, FRONTEND_URL } from "./constants";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 SuperTokens.init({
   appInfo: {
       // learn more about this on https://supertokens.io/docs/session/appinfo
@@ -25,21 +28,35 @@ SuperTokens.init({
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/student-profile" element={
-          <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=student`}}>
-            {/*Components that require to be protected by authentication*/}
-            <StudentProfile />
-          </SessionAuth>
-        } />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/society-point" element={<SocietyPoint />} />
-        <Route path="/quickinfo" element={<QuickInfo />} />
-        <Route path="/login/" element={<LoginPage />} />
-        <Route path="/" element={<LandingPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/student-profile" element={
+            <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=student`}}>
+              {/*Components that require to be protected by authentication*/}
+              <StudentProfile />
+            </SessionAuth>
+          } />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/society-point" element={<SocietyPoint />} />
+          <Route path="/quickinfo" element={<QuickInfo />} />
+          <Route path="/login/" element={<LoginPage />} />
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
