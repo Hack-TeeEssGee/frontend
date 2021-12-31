@@ -10,6 +10,7 @@ import SuperTokens from "supertokens-auth-react";
 import Session from "supertokens-auth-react/recipe/session";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import { BACKEND_URL, FRONTEND_URL } from "./constants";
+import EventUpload from "./views/eventUpload";
 import OfficialEventCert from "./views/officialEventCert";
 
 import { ToastContainer } from 'react-toastify';
@@ -60,6 +61,7 @@ function App() {
               <EventsPage />
             </SessionAuth>
           } />
+          <Route path="/events/upload" element={<EventUpload />} />
           <Route path="/society-point" element={<SocietyPoint />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />
