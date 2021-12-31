@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Logbar from "../components/logbar";
+import OfficialLogin from "../components/login/official";
+import StudentLogin from "../components/login/student"
 
 const LoginPage = () => {
 
@@ -13,7 +16,8 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
-            This is {role} login page.
+            <Logbar />
+            {role === "student" ? <StudentLogin /> : <OfficialLogin role={role} />}
         </div>
     )
 }

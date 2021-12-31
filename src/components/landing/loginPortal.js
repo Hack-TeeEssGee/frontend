@@ -30,15 +30,15 @@ const loginPortalData = [
   }
 ]
 
-const LoginPortal = () => {
+const LoginPortal = ({innerRef}) => {
   return (
-    <div className="login-portal">
+    <div className="login-portal" ref={innerRef}>
       <h1>Login Portal</h1>
       <div className="login-cards-wrapper">
         {
           loginPortalData.map((card) => {
             return (
-              <div className="login-card" color={card.color}>
+              <div key={card.role} className="login-card" color={card.color}>
                 <card.icon size={100}/>
                 <button className="login-card-button" onClick={() => window.location.href=`${window.location.origin}/login?role=${card.url}`}>{card.role}</button>
               </div>
