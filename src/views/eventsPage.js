@@ -1,12 +1,37 @@
 import Dashboard from "../components/dashboard";
 import { UilGameStructure, UilMusic, UilSetting, UilVolleyball, UilUsersAlt, UilInfoCircle } from '@iconscout/react-unicons';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
 
 const RecentEvents = (props) => {
 
+    const [eventsList, setEventsList] = useState([]);
+
+    useEffect(() => {
+
+        axios.get(`${BACKEND_URL}/event`)
+            .then((Response) => setEventsList(Response.data.events))
+            .catch((err) => console.log(err));
+    }, []);
+
     return (
         <div className="recent-events">
+            {eventsList.map((event, index) => {
+                if (event.category === props.mode) {
+                    return (
+                        <div key={index} className="event-box">
+                            <img src={event.location} alt="event-poster"></img>
+                            <div className="event-title">{event.name}</div>
+                            <a className="event-link" href={event.fb_post_link}>View Full Post</a>
+                        </div>
+                    )
+                }
+                else {
+                    return null;
+                }
+            })}
         </div>
     )
 }

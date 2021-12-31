@@ -60,6 +60,36 @@
       }
     }
   }
+
+  .recent-events {
+    display: inline-block;
+    margin: 3rem;
+
+    .event-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+
+      img {
+        width: 20rem;
+      }
+
+      .event-title {
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .event-link {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        font-size: 1.3rem;
+        background-color: rgba($login-orange, 0.6);
+      }
+    }
+  }
 }
 
 .official-event-certificate {
