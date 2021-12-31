@@ -35,6 +35,31 @@
       }
     }
   }
+
+  .event-results {
+    width: 100%;
+
+    .category-list {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+      background-color: $primary-color;
+      font-size: 1.4rem;
+      border-radius: 10px;
+
+      .category {
+        width: 33.33%;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .active {
+        background-color: $primary-color-highlight;
+      }
+    }
+  }
 }
 
 .official-event-certificate {

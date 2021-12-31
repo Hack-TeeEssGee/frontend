@@ -13,8 +13,19 @@ const RecentEvents = (props) => {
 
 const EventResults = () => {
 
+    const mainCategoryList = ["Inter-IIT", "General Championship", "Events"];
+
+    const [mainCategory, setMainCategory] = useState(mainCategoryList[0]);
+
     return (
         <div className="event-results">
+            <div className="category-list">
+                {mainCategoryList.map((category, index) => {
+                    return (
+                        <div className={`category ${category === mainCategory ? "active" : ""}`} onClick={() => {setMainCategory(mainCategoryList[index])}}>{category}</div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
