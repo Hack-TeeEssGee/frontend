@@ -12,7 +12,7 @@ const LandingPage = () => {
   const loginPortalRef = useRef(null);
   const eventRef = useRef(null);
 
-  const handleBackClick = () => eventRef.current.scrollIntoView({behavior: "smooth", top: "600px"});
+  const handleBackClick = () => eventRef.current.scrollIntoView({behavior: "smooth"});
 
   return (
     <div className="landing-page">
