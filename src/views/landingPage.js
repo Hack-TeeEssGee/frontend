@@ -10,6 +10,9 @@ import { useRef } from "react";
 const LandingPage = () => {
 
   const loginPortalRef = useRef(null);
+  const eventRef = useRef(null);
+
+  const handleBackClick = () => eventRef.current.scrollIntoView({behavior: "smooth"});
 
   return (
     <div className="landing-page">
@@ -26,11 +29,11 @@ const LandingPage = () => {
           <br />
           Made by the KGPians for the KGPians
         </div>
-        <button className="hero-btn">Learn More</button>
+        <button className="hero-btn" onClick={handleBackClick}>Learn More</button>
         <img src={iitkgp} alt="IITKGP Main Building"></img>
       </div>
 
-      <LandingEvents />
+      <LandingEvents innerRef={eventRef}/>
 
       <EventCalendar />
 
@@ -39,6 +42,6 @@ const LandingPage = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default LandingPage;
