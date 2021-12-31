@@ -12,6 +12,7 @@ const EventUpload = () => {
                 &#8613; &nbsp; Upload Poster of the Event
             </label>
             <input id="file-upload" type="file" />
+
             <button className="add-button">Add +</button>
         </div>
     )
