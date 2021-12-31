@@ -50,8 +50,16 @@ function App() {
               <StudentProfile />
             </SessionAuth>
           } />
-          <Route path="/events/certs" element={<OfficialEventCert />} />
-          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/certs" element={
+            <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=tsg`}}>
+              <OfficialEventCert />
+            </SessionAuth>
+          } />
+          <Route path="/events" element={
+            <SessionAuth>
+              <EventsPage />
+            </SessionAuth>
+          } />
           <Route path="/society-point" element={<SocietyPoint />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />

@@ -51,6 +51,7 @@ const OfficialEventCert = () => {
 
     return (
         <div className="official-event-certificate">
+            <button onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
             <div className="title">TSG Event Certificates Uploader</div>
             <div className="wrapper">
                 <Dropdown
