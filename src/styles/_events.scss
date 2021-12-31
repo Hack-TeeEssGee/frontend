@@ -3,3 +3,104 @@
 .events-page {
   background-color: $primary-color;
 }
+
+.event-upload{
+      text-align: center;
+      border-radius: 10px;
+      width: 40rem;
+      padding: 2rem;
+      background-color: rgba($login-orange, 0.3);
+      margin: 20rem 40rem;
+
+      @include md {
+        width: 30rem;
+      }
+
+      @include sm {
+        width: 90%;
+      }
+
+      .type-1 {
+        border-radius: 10px;
+        border: 4px solid rgba($login-orange, 0.6);
+        transition: 0.5s border-color;
+        width: 90%;
+        margin: 1rem;
+        height: 3.5rem;
+        outline: none;
+        padding: 1rem 1.5rem;
+        background-color: transparent;
+        font-size: 1.4rem;
+
+        @include sm {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          border: 4px solid $login-orange;
+          outline: none;
+        }
+      }
+
+      .date-picker {
+        border-radius: 10px;
+        border: 4px solid rgba($login-orange, 0.6);
+        transition: 0.5s border-color;
+        width: 90%;
+        margin: 1rem;
+        height: 3.5rem;
+        outline: none;
+        padding: 1rem 1.5rem;
+        background-color: transparent;
+        font-size: 1.4rem;
+        color: $text-secondary-color;
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          cursor: pointer;
+          border-radius: 4px;
+          margin-right: 2px;
+          opacity: 0.6;
+          filter: invert(100%);
+          filter: brightness(50%);
+        }
+
+        @include sm {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          border: 4px solid $login-orange;
+          outline: none;
+        }
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .custom-file-upload {
+        border: 4px solid rgba($login-orange, 0.6);
+        display: inline-block;
+        padding: 0.6rem 1.5rem;
+        height: 3.5rem;
+        border-radius: 10px;
+        transition: 0.5s border-color;
+        width: 90%;
+        margin: 1rem;
+        font-size: 1.4rem;
+        color: #666;
+        text-align: left;
+
+        @include sm {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          border: 4px solid $login-orange;
+        }
+      }
+
+      .add-button {
+        margin: 1rem;
+      }
+}
