@@ -12,7 +12,7 @@ const LandingPage = () => {
   const loginPortalRef = useRef(null);
   const eventRef = useRef(null);
 
-  const handleBackClick = () => eventRef.current.scrollIntoView({behavior: "smooth"});
+  const handleBackClick = () => eventRef.current.scrollIntoView({behavior: "smooth", top: "600px"});
 
   return (
     <div className="landing-page">
@@ -30,10 +30,10 @@ const LandingPage = () => {
           Made by the KGPians for the KGPians
         </div>
         <button className="hero-btn" onClick={handleBackClick}>Learn More</button>
-        <img src={iitkgp} alt="IITKGP Main Building" ref={eventRef}></img>
+        <img src={iitkgp} alt="IITKGP Main Building"></img>
       </div>
 
-      <LandingEvents />
+      <LandingEvents innerRef={eventRef}/>
 
       <EventCalendar />
 

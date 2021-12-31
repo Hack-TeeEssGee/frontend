@@ -8,7 +8,7 @@ const demoEventsData = [
   'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
 ]
 
-const LandingEvents = () => {
+const LandingEvents = ({innerRef}) => {
 
   const [current, setCurrent] = useState(0);
   const length = demoEventsData.length;
@@ -32,7 +32,7 @@ const LandingEvents = () => {
 
 
   return (
-    <div className="landing-events">
+    <div className="landing-events" ref={innerRef}>
       <h1>Events</h1>
       <div className="carousel-wrapper">
         <section className='slider'>
