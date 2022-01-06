@@ -4,6 +4,7 @@ import verifyEmail from "../../utils/verifyEmail";
 import axios from "axios";
 import { AUTH_URL } from "../../constants";
 import Session from "supertokens-auth-react/recipe/session";
+import { toast } from 'react-toastify';
 
 Session.addAxiosInterceptors(axios);
 
@@ -41,10 +42,11 @@ const StudentLogin = () => {
             axios.post(`${AUTH_URL}/otp`, { email: userEmail })
                 .then((response) => setCode(response.data.Details))
                 .catch((err) => console.log(err));
+            toast.success('OTP sent');
         }
         else {
-
             //invalid email. notify user.
+            toast.error('Please check your e-mail');
         }
     }
 
@@ -65,8 +67,12 @@ const StudentLogin = () => {
                 }
                 localStorage.setItem("student_metadata", JSON.stringify(studentMetadata));
                 window.location.href = `${window.location.origin}`
+                toast.success('Login successful');
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                toast.error('Login error');
+            });
     }
 
     return (
