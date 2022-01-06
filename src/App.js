@@ -52,9 +52,9 @@ function App() {
             </SessionAuth>
           } />
           <Route path="/events/certs" element={
-            // <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=tsg`}}>
+            <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=tsg`}}>
               <OfficialEventCert />
-            // </SessionAuth>
+            </SessionAuth>
           } />
           <Route path="/events" element={
             <SessionAuth>
