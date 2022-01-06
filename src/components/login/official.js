@@ -66,16 +66,17 @@ const OfficialLogin = (props) => {
             </div>
             <input type="email" value={userEmail} onChange={(e) => {emailChangeHandler(e.target.value)}} className="enter-box">
             </input> 
+            <br/><br/>
             <div className="invisible">
                 Enter your Password
             </div>
             <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
             </input>
-            <div className="remember-hoola-hoo">
+                <div className="remember-hoola-hoo">
+                <button className="button signin-button" onClick={() => verifyUser()}>Sign In</button>
                 <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
                 <label className="checkbox-label" htmlFor="officialRememberMe">Remember Me</label>
             </div>
-            <button className="button signin-button" onClick={() => verifyUser()}>Sign In</button>
         </div>
         <div className="official-login-pic">
             <img src={OfficialPic} alt="official"></img>
