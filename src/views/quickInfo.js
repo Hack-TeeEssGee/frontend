@@ -3,8 +3,9 @@ const QuickInfo = () => {
     return (
 
         <div className="quick-info">
-
-            <button type="button" class="button return-btn" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
+            <div className="nav-button-wrapper">
+                <button type="button" class="button" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
+            </div>
             <h1>QUICK INFO</h1>
             <button type="button" class="block">Archive-Statistics of CDC</button>
             <button type="button" class="block">Quick Links</button>

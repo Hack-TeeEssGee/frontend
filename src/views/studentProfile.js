@@ -161,8 +161,10 @@ const StudentProfile = () => {
                     changeSelection={setCurrentSelection}
                 />
                 <div className="container">
-                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
-                    <button className="button" onClick={() => onLogout()}>LOGOUT</button>
+                    <div className="nav-button-wrapper">
+                        <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+                        <button className="button" onClick={() => onLogout()}>LOGOUT</button>
+                    </div>
                     <div className="title">{title}</div>
                     <BodyContent
                         mode={dashboardListData.listData[currentSelection].option}

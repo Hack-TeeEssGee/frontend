@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Logbar from "../components/logbar";
 import OfficialLogin from "../components/login/official";
 import StudentLogin from "../components/login/student"
 
@@ -16,7 +15,9 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
-            <Logbar />
+            <div className="nav-button-wrapper">
+                <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>Go Back</button>
+            </div>
             {role === "student" ? <StudentLogin /> : <OfficialLogin role={role} />}
         </div>
     )
