@@ -75,7 +75,7 @@ const OfficialLogin = (props) => {
                 <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
                 <label className="checkbox-label" htmlFor="officialRememberMe">Remember Me</label>
             </div>
-            <button className="signin-button" onClick={() => verifyUser()}>Sign In</button>
+            <button className="button signin-button" onClick={() => verifyUser()}>Sign In</button>
         </div>
         <div className="official-login-pic">
             <img src={OfficialPic} alt="official"></img>

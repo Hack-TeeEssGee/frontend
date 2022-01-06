@@ -51,7 +51,7 @@ const OfficialEventCert = () => {
 
     return (
         <div className="official-event-certificate">
-            <button onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+            <button className="button" onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
             <div className="title">TSG Event Certificates Uploader</div>
             <div className="wrapper">
                 <Dropdown
@@ -72,7 +72,7 @@ const OfficialEventCert = () => {
                     &#8613; &nbsp; Upload Certificate File
                 </label>
                 <input id="file-upload" type="file" accept="image/png, image/jpeg" onChange={(e) => {setCertificate(e.target.files[0])}} />
-                <button className="add-button" onClick={() => {handleSubmit()}}>Add +</button>
+                <button className="button add-button" onClick={() => {handleSubmit()}}>Add +</button>
             </div>
         </div>
     )

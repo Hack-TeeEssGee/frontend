@@ -115,9 +115,9 @@ const EventsPage = () => {
             />
             <div className="container">
                 <div className="button-wrapper">
-                    <button onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
-                    {accessTokenPayload.role === "tsg" && <button onClick={() => window.location.href = `${window.location.origin}/events/upload`}>ADD EVENT</button>}
-                    {accessTokenPayload.role === "tsg" &&  <button onClick={() => window.location.href = `${window.location.origin}/events/certs`}>UPLOAD CERTIFICATE</button>}
+                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+                    {accessTokenPayload.role === "tsg" && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload`}>ADD EVENT</button>}
+                    {accessTokenPayload.role === "tsg" &&  <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/certs`}>UPLOAD CERTIFICATE</button>}
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent

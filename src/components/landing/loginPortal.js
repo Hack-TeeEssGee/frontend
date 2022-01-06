@@ -40,7 +40,7 @@ const LoginPortal = ({innerRef}) => {
             return (
               <div key={card.role} className="login-card" color={card.color}>
                 <card.icon size={100}/>
-                <button className="login-card-button" onClick={() => window.location.href=`${window.location.origin}/login?role=${card.url}`}>{card.role}</button>
+                <button className="button login-card-button" onClick={() => window.location.href=`${window.location.origin}/login?role=${card.url}`}>{card.role}</button>
               </div>
             )
           })
