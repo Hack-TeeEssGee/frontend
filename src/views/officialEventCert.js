@@ -49,7 +49,7 @@ const OfficialEventCert = () => {
         })
             .then(res => { 
                 console.log(res);
-                toast.success('Upload successful');
+                toast.success('Certificate upload successful');
             })
             .catch (err=> { 
                 console.log(err);

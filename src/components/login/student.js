@@ -40,9 +40,14 @@ const StudentLogin = () => {
             
             //send OTP to mail.
             axios.post(`${AUTH_URL}/otp`, { email: userEmail })
-                .then((response) => setCode(response.data.Details))
-                .catch((err) => console.log(err));
-            toast.success('OTP sent');
+                .then((response) =>  {
+                    setCode(response.data.Details);
+                    toast.success('OTP sent');
+                    })
+                .catch((err) => { 
+                    console.log(err);
+                    toast.error('Please try again');
+                });
         }
         else {
             //invalid email. notify user.

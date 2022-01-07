@@ -33,7 +33,7 @@ const EventUpload = () => {
         })
             .then(res => { 
                 console.log(res);
-                toast.success('Event uploaded');
+                toast.success('Event upload successful');
             })
             .catch (err=> { 
                 console.log(err);
