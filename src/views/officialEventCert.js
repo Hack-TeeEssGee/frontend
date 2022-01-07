@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
+import { toast } from 'react-toastify';
+
 
 const OfficialEventCert = () => {
 
@@ -45,8 +47,14 @@ const OfficialEventCert = () => {
                 'content-type': 'multipart/form-data'
             }
         })
-            .then(res => { console.log(res) })
-            .catch (err=> { console.log(err) });
+            .then(res => { 
+                console.log(res);
+                toast.success('Certificate upload successful');
+            })
+            .catch (err=> { 
+                console.log(err);
+                toast.error('Upload error');
+            });
     }
 
     return (

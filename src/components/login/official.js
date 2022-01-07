@@ -4,6 +4,7 @@ import verifyEmail from "../../utils/verifyEmail";
 import axios from "axios";
 import { AUTH_URL } from "../../constants";
 import Session from "supertokens-auth-react/recipe/session";
+import { toast } from 'react-toastify';
 
 Session.addAxiosInterceptors(axios);
 
@@ -44,12 +45,19 @@ const OfficialLogin = (props) => {
                 password: userPassword,
                 role: role
             })
-                .then((response) => window.location.href=`${window.location.origin}`)
-                .catch((err) => console.log(err));
+                .then((response) => {
+                    window.location.href=`${window.location.origin}`
+                    toast.success('Login successful');
+                })
+                .catch((err) => {
+                    console.log(err);
+                    toast.error('Login error');
+                });
         }
         else {
 
             //invalid email. notify user
+            toast.error('Please check your e-mail');
         }
 
         

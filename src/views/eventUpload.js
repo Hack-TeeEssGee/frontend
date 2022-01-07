@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
+import { toast } from 'react-toastify';
 
 const EventUpload = () => {
 
@@ -30,8 +31,14 @@ const EventUpload = () => {
                 'content-type': 'multipart/form-data'
             }
         })
-            .then(res => { console.log(res) })
-            .catch (err=> { console.log(err) });
+            .then(res => { 
+                console.log(res);
+                toast.success('Event upload successful');
+            })
+            .catch (err=> { 
+                console.log(err);
+                toast.error('Upload error'); 
+            });
     }
 
     return (
