@@ -91,17 +91,18 @@ const StudentLogin = () => {
             </div>
             <input type="email" value={userEmail} onChange={(e) => {emailChangeHandler(e.target.value)}} className="enter-box">
             </input> 
-            <button className="signin-button" onClick={() => sendOTP()}>Get OTP</button>
+            <div className="remember-hoola-hoo">
+                <button className="button signin-button" onClick={() => sendOTP()}>Get OTP</button>
+                <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
+                <label className="checkbox-label" htmlFor="studentRememberMe">Remember Me</label>
+            </div>
+            <br/><br/>
             <div className="invisible">
                 Enter OTP sent to Institute Mail ID
             </div>
-            <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
+            <input type="text" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
             </input>
-            <div className="remember-hoola-hoo">
-            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
-            <label className="checkbox-label" htmlFor="studentRememberMe">Remember Me</label>
-            </div>
-            <button className="signin-button" onClick={() => verifyUser()} >Sign In</button>
+            <button className="button signin-button" onClick={() => verifyUser()} >Sign In</button>
         </div>
         <div className="student-login-pic">
             <img src={StudentPic} alt="student"></img>

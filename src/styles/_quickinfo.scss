@@ -1,7 +1,7 @@
 .quick-info {
   background-color: $primary-color;
   min-height: 100vh;
-  padding-bottom: 3rem;
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,10 +32,4 @@ button {
   @include sm {
     font-size: 1.5rem;
   }
-}
-
-.return-btn {
-  align-self: flex-end;
-  font-weight: bold;
-  margin: 2rem 2.5rem;
 }

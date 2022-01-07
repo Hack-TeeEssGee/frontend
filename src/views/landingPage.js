@@ -29,7 +29,7 @@ const LandingPage = () => {
           <br />
           Made by the KGPians for the KGPians
         </div>
-        <button className="hero-btn" onClick={handleBackClick}>Learn More</button>
+        <button className="button hero-btn" onClick={handleBackClick}>Learn More</button>
         <img src={iitkgp} alt="IITKGP Main Building"></img>
       </div>
 

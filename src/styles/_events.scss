@@ -24,16 +24,6 @@
         flex-direction: column;
       }
     }
-
-    button {
-      align-self: flex-end;
-      margin: 1.5rem 2rem 0 0;
-
-      @include sm {
-        font-size: 1rem;
-        padding: 0.6rem 0.8rem;
-      }
-    }
   }
 
   .event-results {

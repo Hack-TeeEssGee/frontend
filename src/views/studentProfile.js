@@ -26,7 +26,7 @@ const CertificateListWrapper = (props) => {
                                     <div className="event-name">{certificate.eventName}</div>
                                     <div className="event-position">{certificate.position}</div>
                                 </div>
-                                <button className="download-cert" onClick={() => window.open(certificate.certLink, "_blank")}>Download Certificate</button>
+                                <button className="button download-cert" onClick={() => window.open(certificate.certLink, "_blank")}>Download Certificate</button>
                             </div>
                         )
                     }
@@ -51,7 +51,7 @@ const CertificateUploader = () => {
                 &#8613; &nbsp; Upload Certificate File
             </label>
             <input id="file-upload" type="file" />
-            <button className="add-button">Add +</button>
+            <button className="button add-button">Add +</button>
         </div>
     )
 }
@@ -73,7 +73,7 @@ const GrievanceForm = () => {
             <div className="grievance-content">
                 <textarea cols="50" rows="8" placeholder="Type your grievance" value={userGrievance} onChange={(e) => { setUserGrievance(e.target.value) }} className="grievance-box">
                 </textarea>
-                <button className="add-button">Add +</button>
+                <button className="button add-button">Add +</button>
             </div>
         </div>
     )
@@ -161,8 +161,10 @@ const StudentProfile = () => {
                     changeSelection={setCurrentSelection}
                 />
                 <div className="container">
-                    <button onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
-                    <button onClick={() => onLogout()}>LOGOUT</button>
+                    <div className="nav-button-wrapper">
+                        <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+                        <button className="button" onClick={() => onLogout()}>LOGOUT</button>
+                    </div>
                     <div className="title">{title}</div>
                     <BodyContent
                         mode={dashboardListData.listData[currentSelection].option}

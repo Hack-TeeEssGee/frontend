@@ -43,7 +43,7 @@ const EventUpload = () => {
 
     return (
         <div className="event-upload-wrapper">
-            <button onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+            <button className='button' onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
             <div className="event-upload">
                 <div className="title">TSG Events Uploader</div>
                 <input type="text" className="type-1" placeholder="Enter name of event" onChange={(event) => {setName(event.target.value)}} >
@@ -81,7 +81,7 @@ const EventUpload = () => {
                 </label>
                 <input id="file-upload" type="file" onChange={(event) => {setPoster(event.target.files[0])}} />
 
-                <button className="add-button" onClick={() => {handleSubmit()}}>Add +</button>
+                <button className="button add-button" onClick={() => {handleSubmit()}}>Add +</button>
             </div>
         </div>
     )

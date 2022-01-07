@@ -9,7 +9,6 @@ body {
   background-color: $primary-grey;
 }
 
-button,
 .button {
   background-color: $secondary-color;
   color: $heading-color;
@@ -45,6 +44,12 @@ h1 {
   @include sm {
     font-size: 2.5rem;
   }
+}
+
+.nav-button-wrapper {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
 }
 
 .title {

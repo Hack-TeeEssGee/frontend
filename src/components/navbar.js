@@ -44,7 +44,7 @@ const Navbar = (props) => {
         <a href="/society-point">Societies</a>
         <a href="/student-profile">Student Point</a>
         <a href="/quickinfo">Quick Info</a>
-        <button onClick={buttonProperties.clickHandler}>{buttonProperties.text}</button>
+        <button className="button" onClick={buttonProperties.clickHandler}>{buttonProperties.text}</button>
       </div>
     </div>
   );
