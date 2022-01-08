@@ -6,27 +6,37 @@ import UilBall from "@iconscout/react-unicons/icons/uil-volleyball";
 import UilUsersAlt from "@iconscout/react-unicons/icons/uil-users-alt";
 import UilStar from "@iconscout/react-unicons/icons/uil-star";
 import UilInfo from "@iconscout/react-unicons/icons/uil-info-circle";
-import { useState } from "react";
-import sampleCertificateData from "../assets/sampleCertificateData.json";
+import { useState, useEffect } from "react";
 import onLogout from "../utils/logout";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
 
 const CertificateListWrapper = (props) => {
+
+    const [certificateList, setCertificateList] = useState([]);
+
+    useEffect(() => {
+
+        axios.post(`${BACKEND_URL}/student/dashboard`, { email: JSON.parse(localStorage.getItem("student_metadata"))["email"] })
+            .then((response) => setCertificateList(response.data.certificate_list))
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <div className="certificate-list-wrapper">
             {
-                sampleCertificateData.map((certificate, index) => {
+                certificateList.map((certificate, index) => {
 
                     if (props.mode === certificate.category) {
                         return (
                             <div key={index} className="certificate">
-                                <img alt="event-cert" src={certificate.certLink} />
+                                <img alt="event-cert" src={certificate.event_image} />
                                 <div>
-                                    <div className="event-name">{certificate.eventName}</div>
-                                    <div className="event-position">{certificate.position}</div>
+                                    <div className="event-name">{certificate.name}</div>
+                                    <div className="event-position">{`certificate.position`}</div>
                                 </div>
-                                <button className="button download-cert" onClick={() => window.open(certificate.certLink, "_blank")}>Download Certificate</button>
+                                <button className="button download-cert" onClick={() => window.open(`${BACKEND_URL}/student?id=${certificate.certificate_id}&email=${JSON.parse(localStorage.getItem("student_metadata"))["email"]}`, "_blank")}>Download Certificate</button>
                             </div>
                         )
                     }
