@@ -1,3 +1,26 @@
 .society-point {
-  background-color: $primary-color;
+  min-height: 100vh;
+  background: linear-gradient(rgba(#aaa, 0.5), rgba(#aaa, 0.5)),
+    url("../assets/background.jpg");
+  background-size: cover;
+  padding: 2rem;
+}
+
+.society-card {
+  display: inline-block;
+  margin: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #eee;
+
+  img {
+    width: 30rem;
+  }
+
+  .society-title {
+    max-width: 30rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 1.4rem;
+  }
 }
