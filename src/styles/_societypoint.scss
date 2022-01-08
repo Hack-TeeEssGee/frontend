@@ -1,6 +1,7 @@
 .society-point {
   min-height: 100vh;
-  background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8));
+  background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
+    url("../assets/background.jpg");
   background-size: cover;
   padding: 2rem;
 
@@ -33,9 +34,9 @@
 
   .society-title {
     max-width: 30rem;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     text-align: center;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 }
