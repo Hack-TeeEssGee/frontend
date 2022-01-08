@@ -23,6 +23,9 @@ const SocietyPoint = () => {
 
     return (
         <div className="society-point">
+            <div className="nav-button-wrapper">
+                <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+            </div>
             <div className="title">SOCIETIES</div>
             <div className="society-list">
                 {
