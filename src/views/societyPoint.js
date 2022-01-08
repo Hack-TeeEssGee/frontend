@@ -23,11 +23,14 @@ const SocietyPoint = () => {
 
     return (
         <div className="society-point">
-            {
-                societyList.map((society, index) => {
-                    return (<SocietyCard key={index} name={society.name} image={society.imgURL} />);
-                })
-            }
+            <div className="title">SOCIETIES</div>
+            <div className="society-list">
+                {
+                    societyList.map((society, index) => {
+                        return (<SocietyCard key={index} name={society.name} image={society.imgURL} />);
+                    })
+                }
+            </div>
         </div>
     )
 }
