@@ -7,6 +7,10 @@
 
   .title {
     font-size: 3.5rem;
+
+    @include sm {
+      margin-top: 3rem;
+    }
   }
 }
 
@@ -30,6 +34,10 @@
 
   img {
     width: 30rem;
+
+    @include sm {
+      width: 100%;
+    }
   }
 
   .society-title {
