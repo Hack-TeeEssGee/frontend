@@ -34,7 +34,7 @@ const CertificateListWrapper = (props) => {
                                 <img alt="event-cert" src={certificate.event_image} />
                                 <div>
                                     <div className="event-name">{certificate.name}</div>
-                                    <div className="event-position">{`certificate.position`}</div>
+                                    <div className="event-position">{certificate.position}</div>
                                 </div>
                                 <button className="button download-cert" onClick={() => window.open(`${BACKEND_URL}/student?id=${certificate.certificate_id}&email=${JSON.parse(localStorage.getItem("student_metadata"))["email"]}`, "_blank")}>Download Certificate</button>
                             </div>
