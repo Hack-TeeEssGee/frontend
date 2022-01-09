@@ -43,11 +43,15 @@ const EventUpload = () => {
 
     return (
         <div className="event-upload-wrapper">
-            <button className='button' onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+            <div className="nav-button-wrapper">
+                <button className='button' onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+            </div>
             <div className="event-upload">
                 <div className="title">TSG Events Uploader</div>
-                <input type="text" className="type-1" placeholder="Enter name of event" onChange={(event) => {setName(event.target.value)}} >
+                <label className="label">Enter name of Event</label>
+                <input type="text" className="type-1" onChange={(event) => {setName(event.target.value)}} >
                 </input>
+                <label className="label">Select category of Event</label>
                 <Dropdown
                     options={categoryList}
                     value={categoryList[0]}
@@ -59,6 +63,7 @@ const EventUpload = () => {
                     arrowClassName="dropdown-arrow"
                     menuClassName="dropdown-menu"
                 />
+                <label className="label">Enter link to Event</label>
                 <input type="text" className="type-1" placeholder="Enter Link of the Event" onChange={(event) => {setLink(event.target.value)}}>
                 </input>
                 <div className="date-picker-list">
@@ -77,8 +82,9 @@ const EventUpload = () => {
                         </input>
                     </div>
                 </div>
+                <label className="label">Upload Poster of the Event</label>
                 <label htmlFor="file-upload" className="custom-file-upload">
-                    &#8613; &nbsp; Upload Poster of the Event
+                    &#8613; &nbsp; No file selected
                 </label>
                 <input id="file-upload" type="file" onChange={(event) => {setPoster(event.target.files[0])}} />
 

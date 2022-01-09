@@ -14,8 +14,8 @@
   text-align: center;
   border-radius: 10px;
   width: 60rem;
-  padding: 2rem;
-  margin: 2rem;
+  padding: 1rem 2rem;
+  margin: 0 2rem;
   display: flex;
   flex-direction: column;
 
@@ -24,13 +24,36 @@
   }
 
   @include sm {
-    width: 90%;
+    width: 95%;
+    margin: 5rem 2rem;
+  }
+
+  label {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 2.4rem;
+    color: #333;
+    margin-top: 1rem;
+
+    @include sm {
+      font-weight: 1.5rem;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  .title {
+    @include sm {
+      margin: 2rem 0;
+      font-size: 2.5rem;
+    }
   }
 
   .dropdown {
     border: 3px solid rgba(#000, 0.3);
     background-color: rgba($primary-color, 0.6);
-    width: 90%;
+    width: 95%;
     margin: 1rem;
     height: 3.5rem;
     padding: 0;
@@ -66,7 +89,7 @@
     border: 3px solid rgba(#000, 0.3);
     background-color: rgba($primary-color, 0.6);
     transition: 0.5s border-color;
-    width: 90%;
+    width: 95%;
     margin: 1rem;
     height: 3.5rem;
     outline: none;
@@ -87,11 +110,6 @@
     display: flex;
     width: 100%;
 
-    label {
-      font-size: 1.4rem;
-      font-weight: 400;
-    }
-
     div {
       display: flex;
       flex-direction: column;
@@ -104,7 +122,7 @@
     border: 3px solid rgba(#000, 0.3);
     background-color: rgba($primary-color, 0.6);
     transition: 0.5s border-color;
-    width: 90%;
+    width: 95%;
     margin: 1rem;
     height: 3.5rem;
     outline: none;
@@ -143,7 +161,7 @@
     height: 3.5rem;
     border-radius: 10px;
     transition: 0.5s border-color;
-    width: 90%;
+    width: 95%;
     margin: 1rem;
     font-size: 1.4rem;
     color: #666;
@@ -159,7 +177,11 @@
   }
 
   .add-button {
-    width: 90%;
-    margin: 1rem;
+    width: 95%;
+    margin: 2rem 1rem;
+    border: 3px solid rgba(#000, 0.6);
+    background-color: rgba($primary-color, 1);
+    font-size: 1.8rem;
+    font-weight: 600;
   }
 }
