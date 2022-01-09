@@ -57,6 +57,7 @@ const EventUpload = () => {
                     controlClassName="dropdown-control"
                     placeholderClassName="dropdown-placeholder"
                     arrowClassName="dropdown-arrow"
+                    menuClassName="dropdown-menu"
                 />
                 <input type="text" className="type-1" placeholder="Enter Link of the Event" onChange={(event) => {setLink(event.target.value)}}>
                 </input>
