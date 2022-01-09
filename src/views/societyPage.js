@@ -41,7 +41,7 @@ const SocietyPage = () => {
 
     const dashboardListData = {
         defaultSelection: 0,
-        specialSelection: -1, //Enter -1 for none
+        specialSelection: 2, //Enter -1 for none
         listData: [
             {
                 option: "Upcoming Events",
@@ -84,6 +84,9 @@ const SocietyPage = () => {
                 changeSelection={setCurrentSelection}
             />
             <div className="container">
+                <div className="nav-button-wrapper">
+                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/society-point`}>GO BACK</button>
+                </div>
                 <div className="title">{title}</div>
                 <BodyContent
                     mode={dashboardListData.listData[currentSelection].option}

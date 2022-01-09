@@ -15,5 +15,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .title {
+      @include md {
+        padding-top: 5rem;
+      }
+      @include sm {
+        padding-top: 6rem;
+      }
+    }
   }
 }
