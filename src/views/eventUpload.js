@@ -14,7 +14,14 @@ const EventUpload = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [poster, setPoster] = useState(null);
-    const [category, setCategory] = useState({ label: categoryList[0], value: categoryList[0]});
+    const [category, setCategory] = useState({ label: categoryList[0], value: categoryList[0] });
+    const [fileName, setFileName] = useState("No file selected");
+
+    const fileUploader = (event) => {
+
+        setFileName(event.target.files[0].name);
+        setPoster(event.target.files[0]);
+    }
 
     const handleSubmit = () => {
 
@@ -84,9 +91,9 @@ const EventUpload = () => {
                 </div>
                 <label className="label">Upload Poster of the Event</label>
                 <label htmlFor="file-upload" className="custom-file-upload">
-                    &#8613; &nbsp; No file selected
+                    &#8613; &nbsp; {fileName}
                 </label>
-                <input id="file-upload" type="file" onChange={(event) => {setPoster(event.target.files[0])}} />
+                <input id="file-upload" type="file" onChange={(event) => fileUploader(event)} />
 
                 <button className="button add-button" onClick={() => {handleSubmit()}}>Add +</button>
             </div>
