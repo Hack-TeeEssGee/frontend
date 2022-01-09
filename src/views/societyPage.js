@@ -35,7 +35,8 @@ const SocietyPage = () => {
     const dashboardHeaderData = {
         title: society?.name,
         subtitle: society?.email,
-        icon: UilBill
+        icon: society?.imgURL,
+        isImage: true
     }
 
     const dashboardListData = {
