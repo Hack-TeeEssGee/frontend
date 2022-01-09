@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 import SocietyCard from "../components/societyCard";
 
 const SocietyPoint = () => {
@@ -21,6 +23,18 @@ const SocietyPoint = () => {
         },
     ]
 
+    useEffect(() => {
+
+        localStorage.setItem("societyList", JSON.stringify(societyList));
+        toast.info("Click on a card to explore more.");
+    }, []);
+
+    const societyCardClickHandler = (name) => {
+
+        console.log("hello")
+        window.location.href = `${window.location.origin}/society-point/society?index=${name}`;
+    }
+
     return (
         <div className="society-point">
             <div className="nav-button-wrapper">
@@ -30,7 +44,7 @@ const SocietyPoint = () => {
             <div className="society-list">
                 {
                     societyList.map((society, index) => {
-                        return (<SocietyCard key={index} name={society.name} image={society.imgURL} />);
+                        return (<SocietyCard key={index} name={society.name} image={society.imgURL} clickHandler={societyCardClickHandler} index={index} />);
                     })
                 }
             </div>

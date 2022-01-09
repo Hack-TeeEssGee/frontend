@@ -15,6 +15,7 @@ import OfficialEventCert from "./views/officialEventCert";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocietyPage from "./views/societyPage";
 
 SuperTokens.init({
   appInfo: {
@@ -62,6 +63,7 @@ function App() {
             </SessionAuth>
           } />
           <Route path="/events/upload" element={<EventUpload />} />
+          <Route path="/society-point/society" element={<SocietyPage />} />
           <Route path="/society-point" element={<SocietyPoint />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />
