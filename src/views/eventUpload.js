@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
@@ -7,8 +7,9 @@ import { toast } from 'react-toastify';
 
 const EventUpload = () => {
 
-    const categoryList = ["Technology", "Sports and Games", "Social and Cultural", "Students' Welfare"]
+    var categoryList = ["Technology", "Sports and Games", "Social and Cultural", "Students' Welfare"]
 
+    const [organiser, setOrganiser] = useState("tsg");
     const [name, setName] = useState("");
     const [link, setLink] = useState("");
     const [startDate, setStartDate] = useState(new Date());
@@ -16,6 +17,21 @@ const EventUpload = () => {
     const [poster, setPoster] = useState(null);
     const [category, setCategory] = useState({ label: categoryList[0], value: categoryList[0] });
     const [fileName, setFileName] = useState("No file selected");
+
+    useEffect(() => {
+
+        const URLParams = new URLSearchParams(window.location.search);
+        setOrganiser(URLParams.get("organiser"));
+
+    }, []);
+
+    if (organiser !== "tsg" && organiser !== category.value) {
+
+        setCategory({
+            label: organiser,
+            value: organiser
+        })
+    }
 
     const fileUploader = (event) => {
 
@@ -51,17 +67,17 @@ const EventUpload = () => {
     return (
         <div className="event-upload-wrapper">
             <div className="nav-button-wrapper">
-                <button className='button' onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+                <button className='button' onClick={() => window.location.href = `${window.location.origin}/${organiser === "tsg" ? "events" : "society-point"}`}>GO BACK</button>
             </div>
             <div className="event-upload">
-                <div className="title">TSG Events Uploader</div>
+                <div className="title">{organiser === "tsg" ? "TSG" : "Society"} Events Uploader</div>
                 <label className="label">Enter name of Event</label>
                 <input type="text" className="type-1" onChange={(event) => {setName(event.target.value)}} >
                 </input>
-                <label className="label">Select category of Event</label>
+                <label className="label">{organiser === "tsg" ? "Select category of Event" : "Organising Body"}</label>
                 <Dropdown
                     options={categoryList}
-                    value={categoryList[0]}
+                    value={category}
                     placeholder="Select an event"
                     onChange={setCategory}
                     className="dropdown"
@@ -69,6 +85,7 @@ const EventUpload = () => {
                     placeholderClassName="dropdown-placeholder"
                     arrowClassName="dropdown-arrow"
                     menuClassName="dropdown-menu"
+                    disabled={organiser !== "tsg"}
                 />
                 <label className="label">Enter link to Event</label>
                 <input type="text" className="type-1" placeholder="Enter Link of the Event" onChange={(event) => {setLink(event.target.value)}}>
