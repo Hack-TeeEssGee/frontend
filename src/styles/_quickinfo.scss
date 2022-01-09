@@ -19,13 +19,13 @@ button {
   display: block;
   width: 90%;
   border: none;
-  background-color: #333;
+  background-color: $text-primary-color;
   margin: 1.2rem;
   padding: 1rem 1.5rem;
   font-size: 1.8rem;
   cursor: pointer;
   text-align: center;
-  color: #eee;
+  color: $primary-grey;
   border-radius: 20px;
   font-weight: 600;
 

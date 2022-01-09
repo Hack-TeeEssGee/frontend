@@ -1,7 +1,7 @@
 // Note : this file contains styling of events page. for events in landing, check _landing.scss
 
 .events-page {
-  background-color: #eee;
+  background-color: $primary-grey;
   display: flex;
   overflow: hidden;
 
@@ -59,8 +59,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #fff;
-      box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+      background-color: $primary-white;
+      box-shadow: 4px 4px 10px rgba($color: $heading-color, $alpha: 0.1);
 
       img {
         width: 30rem;
@@ -125,7 +125,7 @@
     &-control {
       background-color: transparent;
       text-align: left;
-      color: #666;
+      color: $text-secondary-color;
       font-size: 1.4rem;
     }
   }
@@ -214,7 +214,7 @@
     width: 90%;
     margin: 1rem;
     font-size: 1.4rem;
-    color: #666;
+    color: $text-secondary-color;
     text-align: left;
 
     @include sm {
@@ -277,7 +277,7 @@
       &-control {
         background-color: transparent;
         text-align: left;
-        color: #666;
+        color: $text-secondary-color;
         font-size: 1.4rem;
       }
     }
@@ -318,7 +318,7 @@
       width: 90%;
       margin: 1rem;
       font-size: 1.4rem;
-      color: #666;
+      color: $text-secondary-color;
       text-align: left;
 
       @include sm {
