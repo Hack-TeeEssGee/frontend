@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { UilSchedule, UilHistory, UilBill } from '@iconscout/react-unicons';
 import Dashboard from "../components/dashboard";
+import { useSessionContext } from "supertokens-auth-react/recipe/session";
 
 const EventWrapper = () => {
 
@@ -24,6 +25,8 @@ const SocietyPage = () => {
 
     const [society, setSociety] = useState({});
 
+    let { accessTokenPayload } = useSessionContext();
+
     useEffect(() => {
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -41,7 +44,7 @@ const SocietyPage = () => {
 
     const dashboardListData = {
         defaultSelection: 0,
-        specialSelection: 2, //Enter -1 for none
+        specialSelection: -1, //Enter -1 for none
         listData: [
             {
                 option: "Upcoming Events",
@@ -50,12 +53,16 @@ const SocietyPage = () => {
             {
                 option: "Past Events",
                 icon: UilHistory
-            },
-            {
-                option: "Bill Reimbursement Portal",
-                icon: UilBill
             }
         ]
+    }
+
+    if (accessTokenPayload.role === "tsg" || accessTokenPayload.role === "admin" || accessTokenPayload.role === "society") {
+        dashboardListData.listData.push({
+            option: "Bill Reimbursement Portal",
+            icon: UilBill
+        })
+        dashboardListData.specialSelection = 2;
     }
 
     const [currentSelection, setCurrentSelection] = useState(dashboardListData.defaultSelection);

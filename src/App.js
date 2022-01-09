@@ -63,7 +63,11 @@ function App() {
             </SessionAuth>
           } />
           <Route path="/events/upload" element={<EventUpload />} />
-          <Route path="/society-point/society" element={<SocietyPage />} />
+          <Route path="/society-point/society" element={
+            <SessionAuth>
+              <SocietyPage />
+            </SessionAuth>
+          } />
           <Route path="/society-point" element={<SocietyPoint />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />
