@@ -6,7 +6,7 @@ const DashboardHeader = (props) => {
 
     return (
         <div className="dashboard-header">
-            <props.icon size={100} />
+            {props?.isImage ? <img src={props.icon} alt="dashboard-img"></img> : <props.icon size={100} />}
             <div className="title">{props.title}</div>
             <div className="subtitle">{props.subtitle}</div>
         </div>
