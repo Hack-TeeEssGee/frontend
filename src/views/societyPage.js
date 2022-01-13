@@ -38,7 +38,7 @@ const SocietyPage = () => {
     const dashboardHeaderData = {
         title: society?.name,
         subtitle: society?.email,
-        icon: society?.imgURL,
+        icon: society?.logo,
         isImage: true
     }
 
