@@ -11,12 +11,15 @@ const SocietyPoint = () => {
     useEffect(() => {
 
         axios.get(`${BACKEND_URL}/society/`)
-            .then((response) => setSocietyList(response.data.societies))
+            .then((response) => {
+                setSocietyList(response.data.societies)
+            })
             .catch((err) => console.log(err));
 
-        localStorage.setItem("societyList", JSON.stringify(societyList));
         toast.info("Click on a card to explore more.");
     }, []);
+
+    localStorage.setItem("societyList", JSON.stringify(societyList));
 
     const societyCardClickHandler = (name) => {
 
