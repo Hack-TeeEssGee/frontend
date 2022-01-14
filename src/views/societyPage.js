@@ -2,12 +2,31 @@ import { useEffect, useState } from "react"
 import { UilSchedule, UilHistory, UilBill } from '@iconscout/react-unicons';
 import Dashboard from "../components/dashboard";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
+import { filterEvents } from "../utils/society";
 
-const EventWrapper = () => {
+const EventWrapper = (props) => {
+
+    const [eventList, setEventList] = useState([]);
+
+    useEffect(() => {
+        
+        axios.get(`${BACKEND_URL}/event/${props.society.id}`)
+            .then((response) => setEventList(filterEvents(response.data.events, props.mode)))
+            .catch((err) => console.log(err));
+    }, [props]);
+
+
 
     return (
         <div className="event-wrapper">
-            Show events here
+            {eventList.map((event, index) => {
+
+                return (
+                    <div key={index}>{event.name}</div>
+                )
+            })}
         </div>
     )
 }
@@ -97,7 +116,8 @@ const SocietyPage = () => {
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent
-                    mode={dashboardListData.listData[currentSelection].option}
+                    mode={currentSelection}
+                    society={society}
                 />
             </div>
         </div>

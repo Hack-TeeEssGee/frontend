@@ -4,7 +4,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
 import { toast } from 'react-toastify';
-import getSocietyID from '../utils/society';
+import { getSocietyID } from '../utils/society';
 
 const EventUpload = () => {
 
