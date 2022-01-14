@@ -4,6 +4,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
 import { toast } from 'react-toastify';
+import getSocietyID from '../utils/society';
 
 const EventUpload = () => {
 
@@ -43,25 +44,47 @@ const EventUpload = () => {
 
         const formData = new FormData();
         formData.append('name', name);
-        formData.append('category', category.value);
         formData.append('fb_post_link', link);
         formData.append('start_date', startDate);
         formData.append('end_date', endDate);
         formData.append('image', poster);
 
-        axios.post(`${BACKEND_URL}/event/upload`, formData, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-            .then(res => { 
-                console.log(res);
-                toast.success('Event upload successful');
+        if (organiser === "tsg") {
+            
+            formData.append('category', category.value);
+
+            axios.post(`${BACKEND_URL}/event/upload/tsg`, formData, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
             })
-            .catch (err=> { 
-                console.log(err);
-                toast.error('Upload error'); 
-            });
+                .then(res => { 
+                    console.log(res);
+                    toast.success('Event upload successful');
+                })
+                .catch (err=> { 
+                    console.log(err);
+                    toast.error('Upload error'); 
+                });
+        }
+        else {
+
+            formData.append('society_id', getSocietyID(organiser));
+
+            axios.post(`${BACKEND_URL}/event/upload/society`, formData, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+                .then(res => { 
+                    console.log(res);
+                    toast.success('Event upload successful');
+                })
+                .catch (err=> { 
+                    console.log(err);
+                    toast.error('Upload error'); 
+                });
+        }
     }
 
     return (

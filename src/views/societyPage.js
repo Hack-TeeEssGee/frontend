@@ -93,6 +93,7 @@ const SocietyPage = () => {
             <div className="container">
                 <div className="nav-button-wrapper">
                     <button className="button" onClick={() => window.location.href = `${window.location.origin}/society-point`}>GO BACK</button>
+                    {accessTokenPayload.role === "society" && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload?organiser=${society.name}`}>ADD EVENT</button>}
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent

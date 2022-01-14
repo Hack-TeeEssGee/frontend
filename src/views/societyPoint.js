@@ -10,6 +10,7 @@ const SocietyPoint = () => {
 
     useEffect(() => {
 
+        if (localStorage.getItem("societyList") !== null) setSocietyList(JSON.parse(localStorage.getItem("societyList")));
         axios.get(`${BACKEND_URL}/society/`)
             .then((response) => {
                 setSocietyList(response.data.societies)
