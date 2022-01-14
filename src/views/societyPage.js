@@ -5,13 +5,14 @@ import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import { filterEvents } from "../utils/society";
+import EventCard from "../components/eventCard";
 
 const EventWrapper = (props) => {
 
     const [eventList, setEventList] = useState([]);
 
     useEffect(() => {
-        
+
         axios.get(`${BACKEND_URL}/event/${props.society.id}`)
             .then((response) => setEventList(filterEvents(response.data.events, props.mode)))
             .catch((err) => console.log(err));
@@ -24,7 +25,7 @@ const EventWrapper = (props) => {
             {eventList.map((event, index) => {
 
                 return (
-                    <div key={index}>{event.name}</div>
+                    <EventCard key={index} event={event} />
                 )
             })}
         </div>
