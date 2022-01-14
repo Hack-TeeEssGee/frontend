@@ -1,7 +1,9 @@
 // Note : this file contains styling of events page. for events in landing, check _landing.scss
 
 .events-page {
-  background-color: #eee;
+  background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
+    url("../assets/background.jpg");
+  background-size: cover;
   display: flex;
   overflow: hidden;
 
@@ -47,36 +49,6 @@
 
       .active {
         background-color: $primary-color-highlight;
-      }
-    }
-  }
-
-  .recent-events {
-    display: inline-block;
-    margin: 3rem;
-
-    .event-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #fff;
-      box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
-
-      img {
-        width: 30rem;
-      }
-
-      .event-title {
-        padding: 1rem;
-        font-size: 1.5rem;
-      }
-
-      .event-link {
-        width: 100%;
-        text-align: center;
-        padding: 0.8rem;
-        font-size: 1.3rem;
-        background-color: rgba($login-orange, 0.6);
       }
     }
   }
