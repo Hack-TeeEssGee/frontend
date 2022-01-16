@@ -37,14 +37,33 @@ const BillReimbursement = (props) => {
 
     const [billList, setBillList] = useState([]);
 
+    const modifyBillList = (oldBillList) => {
+
+        const newBillList = [];
+
+        oldBillList.map((oldBill) => {
+            const newBill = {
+                id: oldBill.id,
+                name: oldBill.name,
+                description: oldBill.description,
+                amount: "Rs. " + oldBill.amount,
+                remark: oldBill.remark,
+                status: oldBill.status
+            }
+            newBillList.push(newBill);
+        })
+
+        return newBillList;
+    }
+
     useEffect(() => {
 
         axios.get(`${BACKEND_URL}/society/bill/${props.society.id}`)
-            .then((response) => setBillList(response.data.bills))
+            .then((response) => setBillList(modifyBillList(response.data.bills)))
             .catch((err) => console.log(err));
     }, [props]);
 
-    const data = useMemo(() => [...billList], []);
+    const data = useMemo(() => [...billList], [billList]);
 
     const columns = useMemo(() => [
         {
