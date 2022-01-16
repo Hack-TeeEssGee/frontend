@@ -26,3 +26,33 @@
     }
   }
 }
+
+.bill-reimbursement {
+  table {
+    margin-top: 3rem;
+    width: 90vw;
+    border-radius: 20px;
+    overflow: hidden;
+
+    thead {
+      background-color: $primary-color;
+    }
+
+    th,
+    td {
+      padding: 0.8rem 1.2rem;
+      font-size: 1.2rem;
+
+      @include sm {
+        font-size: 1rem;
+        word-wrap: break-word;
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: #ddd;
+      }
+    }
+  }
+}

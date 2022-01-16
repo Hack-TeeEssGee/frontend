@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { UilSchedule, UilHistory, UilBill } from '@iconscout/react-unicons';
 import Dashboard from "../components/dashboard";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
@@ -6,6 +6,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import { filterEvents } from "../utils/society";
 import EventCard from "../components/eventCard";
+import { useTable } from 'react-table';
 
 const EventWrapper = (props) => {
 
@@ -32,11 +33,103 @@ const EventWrapper = (props) => {
     )
 }
 
-const BillReimbursement = () => {
+const BillReimbursement = (props) => {
+
+    const [billList, setBillList] = useState([]);
+
+    useEffect(() => {
+
+        axios.get(`${BACKEND_URL}/society/bill/${props.society.id}`)
+            .then((response) => setBillList(response.data.bills))
+            .catch((err) => console.log(err));
+    }, [props]);
+
+    const data = useMemo(() => [...billList], []);
+
+    const columns = useMemo(() => [
+        {
+            Header: "Name",
+            accessor: "name"
+        },
+        {
+            Header: "Description",
+            accessor: "description"
+        },
+        {
+            Header: "Amount",
+            accessor: "amount"
+        },
+        {
+            Header: "Remark",
+            accessor: "remark"
+        },
+        {
+            Header: "Status",
+            accessor: "status"
+        }
+    ], []);
+
+    const tableInstance = useTable({ columns, data });
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+    } = tableInstance;
+
+    const TableComponent = () => {
+
+        return (
+            // apply the table props
+            <table {...getTableProps()}>
+                <thead>
+                    {// Loop over the header rows
+                    headerGroups.map(headerGroup => (
+                    // Apply the header row props
+                    <tr {...headerGroup.getHeaderGroupProps()}>
+                        {// Loop over the headers in each row
+                        headerGroup.headers.map(column => (
+                        // Apply the header cell props
+                        <th {...column.getHeaderProps()}>
+                            {// Render the header
+                            column.render('Header')}
+                        </th>
+                        ))}
+                    </tr>
+                    ))}
+                </thead>
+                {/* Apply the table body props */}
+                <tbody {...getTableBodyProps()}>
+                    {// Loop over the table rows
+                    rows.map(row => {
+                    // Prepare the row for display
+                    prepareRow(row)
+                    return (
+                        // Apply the row props
+                        <tr {...row.getRowProps()}>
+                        {// Loop over the rows cells
+                        row.cells.map(cell => {
+                            // Apply the cell props
+                            return (
+                            <td {...cell.getCellProps()}>
+                                {// Render the cell contents
+                                cell.render('Cell')}
+                            </td>
+                            )
+                        })}
+                        </tr>
+                    )
+                    })}
+                </tbody>
+            </table>
+        )
+    }
 
     return (
         <div className="bill-reimbursement">
-            Billing area
+            <TableComponent />
         </div>
     )
 }
