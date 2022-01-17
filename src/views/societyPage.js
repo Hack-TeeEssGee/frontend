@@ -7,6 +7,8 @@ import { BACKEND_URL } from "../constants";
 import { filterEvents } from "../utils/society";
 import EventCard from "../components/eventCard";
 import { useTable } from 'react-table';
+import TableComponent from "../components/table";
+import { toast } from "react-toastify";
 
 const EventWrapper = (props) => {
 
@@ -88,67 +90,90 @@ const BillReimbursement = (props) => {
         }
     ], []);
 
-    const tableInstance = useTable({ columns, data });
 
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-    } = tableInstance;
+    const [newBillName, setNewBillName] = useState("");
+    const [newBillDesc, setNewBillDesc] = useState("");
+    const [newBillAmount, setNewBillAmount] = useState(null);
+    const [newBillFile, setNewBillFile] = useState(null);
+    const [billFileName, setBillFileName] = useState("No file selected");
 
-    const TableComponent = () => {
+    const newBillData = useMemo(() => [{
+        name: newBillName,
+        description: newBillDesc,
+        amount: newBillAmount,
+        bill: billFileName
+    }], [newBillName, newBillDesc, newBillAmount, billFileName]);
 
-        return (
-            // apply the table props
-            <table {...getTableProps()} cellpadding="0" cellspacing="0">
-                <thead>
-                    {// Loop over the header rows
-                    headerGroups.map(headerGroup => (
-                    // Apply the header row props
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {// Loop over the headers in each row
-                        headerGroup.headers.map(column => (
-                        // Apply the header cell props
-                        <th {...column.getHeaderProps()}>
-                            {// Render the header
-                            column.render('Header')}
-                        </th>
-                        ))}
-                    </tr>
-                    ))}
-                </thead>
-                {/* Apply the table body props */}
-                <tbody {...getTableBodyProps()}>
-                    {// Loop over the table rows
-                    rows.map(row => {
-                    // Prepare the row for display
-                    prepareRow(row)
-                    return (
-                        // Apply the row props
-                        <tr {...row.getRowProps()}>
-                        {// Loop over the rows cells
-                        row.cells.map(cell => {
-                            // Apply the cell props
-                            return (
-                            <td {...cell.getCellProps()}>
-                                {// Render the cell contents
-                                cell.render('Cell')}
-                            </td>
-                            )
-                        })}
-                        </tr>
-                    )
-                    })}
-                </tbody>
-            </table>
-        )
+    const fileUploader = (event) => {
+
+        setBillFileName(event.target.files[0].name);
+        setNewBillFile(event.target.files[0]);
     }
+
+    const submitNewForm = () => {
+
+        const formData = new FormData();
+        formData.append("name", newBillName);
+        formData.append("description", newBillDesc);
+        formData.append("amount", newBillAmount);
+        formData.append("society_id", props.society.id);
+        formData.append("image", newBillFile);
+
+        toast.info("Uploading bill");
+
+        axios.post(`${BACKEND_URL}/society/bill/upload`, formData, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+            .then((response) => {
+                console.log(response);
+                toast.success("Successfully uploaded Bill");
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error("Error uploading bill");
+            });
+    }
+
+    const newBillColumns = useMemo(() => [
+        {
+            Header: "Name",
+            accessor: "name",
+            Cell: ({ cell: { value } }) => <input type="text" placeholder="Enter name of bill" value={value} onChange={(event) => setNewBillName(event.target.value)} />
+        },
+        {
+            Header: "Description",
+            accessor: "description",
+            Cell: ({ cell: { value } }) => <input type="text" placeholder="Enter description" value={value} onChange={(event) => setNewBillDesc(event.target.value)} />
+        },
+        {
+            Header: "Amount",
+            accessor: "amount",
+            Cell: ({ cell: { value } }) => <input type="number" placeholder="Enter amount" value={value} onChange={(event) => setNewBillAmount(event.target.value)} />
+        },
+        {
+            Header: "Bill",
+            accessor: "bill",
+            Cell: ({ cell: { value } }) => (
+                <div>
+                    <label htmlFor="file-upload">
+                        &#8613; &nbsp; {value}
+                    </label>
+                    <input type="file" id="file-upload" onChange={(event) => fileUploader(event)} />
+                </div>
+            )
+        }
+    ], []);
+
 
     return (
         <div className="bill-reimbursement">
-            <TableComponent />
+            <div className="title">Add new Bill</div>
+            <TableComponent data={newBillData} columns={newBillColumns} />
+            <button className="button" onClick={submitNewForm}>Add</button>
+            <div className="title">Existing Bills</div>
+            <TableComponent data={data} columns={columns} />
         </div>
     )
 }
@@ -231,6 +256,7 @@ const SocietyPage = () => {
                 <BodyContent
                     mode={currentSelection}
                     society={society}
+                    role={accessTokenPayload.role}
                 />
             </div>
         </div>

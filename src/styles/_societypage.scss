@@ -28,6 +28,28 @@
 }
 
 .bill-reimbursement {
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 5rem;
+    text-transform: uppercase;
+  }
+
+  .button {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ddd;
+    border: 1px solid rgba(#333, 0.8);
+    border-top: 0;
+    border-radius: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
   table {
     margin-top: 3rem;
     width: 90vw;
@@ -48,6 +70,21 @@
       @include sm {
         font-size: 1rem;
         word-wrap: break-word;
+      }
+    }
+
+    td {
+      input {
+        width: 100%;
+        height: 2rem;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-size: 1.4rem;
+      }
+
+      input[type="file"] {
+        display: none;
       }
     }
 
