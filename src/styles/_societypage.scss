@@ -31,8 +31,8 @@
   table {
     margin-top: 3rem;
     width: 90vw;
-    border-radius: 20px;
-    overflow: hidden;
+    border: 1px solid rgba(#333, 0.8);
+    box-shadow: 4px 6px 12px rgba(#000, 0.2);
 
     thead {
       background-color: $primary-color;
@@ -42,6 +42,8 @@
     td {
       padding: 0.8rem 1.2rem;
       font-size: 1.2rem;
+      text-align: center;
+      border: 1px solid rgba(#666, 0.5);
 
       @include sm {
         font-size: 1rem;

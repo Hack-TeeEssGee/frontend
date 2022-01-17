@@ -102,7 +102,7 @@ const BillReimbursement = (props) => {
 
         return (
             // apply the table props
-            <table {...getTableProps()}>
+            <table {...getTableProps()} cellpadding="0" cellspacing="0">
                 <thead>
                     {// Loop over the header rows
                     headerGroups.map(headerGroup => (
