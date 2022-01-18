@@ -8,6 +8,7 @@ import { filterEvents } from "../utils/society";
 import EventCard from "../components/eventCard";
 import TableComponent from "../components/table";
 import { toast } from "react-toastify";
+import BillStatusUpdater from "../components/billStatusUpdater";
 
 const EventWrapper = (props) => {
 
@@ -45,6 +46,7 @@ const BillReimbursement = (props) => {
         oldBillList.map((oldBill) => {
             const newBill = {
                 id: oldBill.id,
+                ID: oldBill.id, //duplicated ID for react-table
                 name: oldBill.name,
                 description: oldBill.description,
                 amount: "Rs. " + oldBill.amount,
@@ -60,9 +62,57 @@ const BillReimbursement = (props) => {
     useEffect(() => {
 
         axios.get(`${BACKEND_URL}/society/bill/${props.society.id}`)
-            .then((response) => setBillList(modifyBillList(response.data.bills)))
+            .then((response) => {
+                setBillList(modifyBillList(response.data.bills))
+                localStorage.setItem("billList", JSON.stringify(modifyBillList(response.data.bills)));
+            })
             .catch((err) => console.log(err));
     }, [props]);
+
+    const [billToBeModified, setBillToBeModified] = useState({});
+    const [showModifyWindow, setShowModifyWindow] = useState(false);
+
+    const modifyAdminBill = (id) => {
+
+        const savedBillList = JSON.parse(localStorage.getItem("billList"));
+
+        savedBillList.forEach((bill) => {
+            if (bill.id === id) {
+                setBillToBeModified(bill);
+                setShowModifyWindow(true);
+            }
+        })
+    }
+
+    const handleModifiedBillSubmit = (id, remark, status) => {
+
+        const modifiedBillList = billList.map((bill) => {
+            if (bill.id === id) {
+                bill.remark = remark;
+                bill.status = status;
+
+                axios.put(`${BACKEND_URL}/admin/bill`, {
+                    id: id,
+                    remark: remark,
+                    status: status
+                })
+                    .then((res) => {
+                        console.log(res);
+                        toast.success("Successfully modified bill");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        toast.error("Could not modify bill");
+                    })
+
+            }
+            return bill;
+        })
+
+        localStorage.setItem("billList", JSON.stringify(modifiedBillList));
+        setBillList(modifiedBillList);
+        setShowModifyWindow(false);
+    }
 
     const data = useMemo(() => [...billList], [billList]);
 
@@ -94,6 +144,11 @@ const BillReimbursement = (props) => {
             Header: "Bill",
             accessor: "id",
             Cell: ({ cell: { value } }) => <a href={`${BACKEND_URL}/admin/bill/${value}`} target="_blank" >Download</a>
+        },
+        {
+            Header: "Change Status",
+            accessor: "ID",
+            Cell: ({ cell: { value } }) => <button className="button" onClick={() => modifyAdminBill(value)}>Click here</button>
         })
     }
 
@@ -176,6 +231,7 @@ const BillReimbursement = (props) => {
 
     return (
         <div className="bill-reimbursement">
+            {showModifyWindow && <BillStatusUpdater bill={billToBeModified} handleSubmit={handleModifiedBillSubmit} close={() => setShowModifyWindow(false)} />}
             {props.role === "society" ?
                 <>
                     <div className="title">Add new Bill</div>
