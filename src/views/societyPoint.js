@@ -1,33 +1,26 @@
-import { useEffect } from "react";
+import axios from 'axios';
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import SocietyCard from "../components/societyCard";
+import { BACKEND_URL } from '../constants';
 
 const SocietyPoint = () => {
 
-    const societyList = [
-        {
-            name: "Kharagpur Open Source Society",
-            imgURL: "https://raw.githubusercontent.com/kossiitkgp/design/master/logo/exported/koss-logo-square.png"
-        },
-        {
-            name: "TFPS",
-            imgURL: "https://i.postimg.cc/0jWnG6pR/adam-birkett-GD7-VU0daia-Q-unsplash.jpg"
-        },
-        {
-            name: "Technology Robotix Society",
-            imgURL: "https://i.postimg.cc/0jWnG6pR/adam-birkett-GD7-VU0daia-Q-unsplash.jpg"
-        },
-        {
-            name: "Code Club",
-            imgURL: "https://i.postimg.cc/0jWnG6pR/adam-birkett-GD7-VU0daia-Q-unsplash.jpg"
-        },
-    ]
+    const [societyList, setSocietyList] = useState([]);
 
     useEffect(() => {
 
-        localStorage.setItem("societyList", JSON.stringify(societyList));
+        if (localStorage.getItem("societyList") !== null) setSocietyList(JSON.parse(localStorage.getItem("societyList")));
+        axios.get(`${BACKEND_URL}/society/`)
+            .then((response) => {
+                setSocietyList(response.data.societies)
+            })
+            .catch((err) => console.log(err));
+
         toast.info("Click on a card to explore more.");
     }, []);
+
+    localStorage.setItem("societyList", JSON.stringify(societyList));
 
     const societyCardClickHandler = (name) => {
 
@@ -44,7 +37,7 @@ const SocietyPoint = () => {
             <div className="society-list">
                 {
                     societyList.map((society, index) => {
-                        return (<SocietyCard key={index} name={society.name} image={society.imgURL} clickHandler={societyCardClickHandler} index={index} />);
+                        return (<SocietyCard key={index} name={society.name} image={society.logo} clickHandler={societyCardClickHandler} index={index} />);
                     })
                 }
             </div>

@@ -1,0 +1,57 @@
+.event-wrapper {
+  width: 90%;
+  margin-top: 4rem;
+
+  @include sm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.event-card {
+  background-color: #fff;
+  display: inline-block;
+  box-shadow: 4px 4px 25px rgba($color: #000000, $alpha: 0.4);
+  margin: 2rem;
+  vertical-align: top;
+
+  img {
+    width: 25rem;
+
+    @include sm {
+      width: 20rem;
+    }
+  }
+
+  .event-title {
+    width: 24rem;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+
+    @include sm {
+      width: 19rem;
+    }
+  }
+
+  .event-date-wrapper {
+    margin: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    color: #666;
+  }
+
+  .event-link {
+    display: block;
+    background-color: $login-orange;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: 500;
+  }
+}
