@@ -86,6 +86,8 @@ const BillReimbursement = (props) => {
 
     const handleModifiedBillSubmit = (id, remark, status) => {
 
+        toast.info("Changing bill status");
+
         const modifiedBillList = billList.map((bill) => {
             if (bill.id === id) {
                 bill.remark = remark;

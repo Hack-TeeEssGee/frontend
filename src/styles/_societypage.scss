@@ -71,11 +71,33 @@
 
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
 
-      div {
+      @include sm {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+      }
+
+      .title {
         font-size: 2rem;
+        margin: 2rem 0;
+        padding: 0;
+
+        span {
+          font-size: 1.5rem;
+          color: #333;
+        }
+
+        @include sm {
+          margin: 1rem 0 2rem 0;
+        }
+      }
+
+      svg {
+        align-self: flex-start;
+        margin: 1rem 1.5rem;
+        cursor: pointer;
       }
 
       input {
@@ -89,10 +111,41 @@
         font-size: 1.2rem;
       }
 
+      label {
+        font-size: 1.2rem;
+      }
+
+      .dropdown {
+        width: auto;
+
+        &-control {
+          background-color: transparent;
+          border-radius: 10px;
+        }
+
+        &-menu {
+          background-color: rgba($primary-color, 1);
+
+          .Dropdown-option:hover {
+            background-color: $primary-color-highlight;
+          }
+
+          .is-selected {
+            background-color: $primary-color-highlight;
+          }
+        }
+      }
+
       button {
         width: 18rem;
         border: none;
         border-radius: 10px;
+        margin-top: 2rem;
+        background-color: rgba($primary-color, 0.5);
+
+        &:hover {
+          background-color: rgba($primary-color, 0.8);
+        }
       }
     }
   }
