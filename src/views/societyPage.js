@@ -6,7 +6,6 @@ import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import { filterEvents } from "../utils/society";
 import EventCard from "../components/eventCard";
-import { useTable } from 'react-table';
 import TableComponent from "../components/table";
 import { toast } from "react-toastify";
 
@@ -90,6 +89,14 @@ const BillReimbursement = (props) => {
         }
     ], []);
 
+    if (props.role === "admin") {
+        columns.push({
+            Header: "Bill",
+            accessor: "id",
+            Cell: ({ cell: { value } }) => <a href={`${BACKEND_URL}/admin/bill/${value}`} target="_blank" >Download</a>
+        })
+    }
+
 
     const [newBillName, setNewBillName] = useState("");
     const [newBillDesc, setNewBillDesc] = useState("");
@@ -169,9 +176,13 @@ const BillReimbursement = (props) => {
 
     return (
         <div className="bill-reimbursement">
-            <div className="title">Add new Bill</div>
-            <TableComponent data={newBillData} columns={newBillColumns} />
-            <button className="button" onClick={submitNewForm}>Add</button>
+            {props.role === "society" ?
+                <>
+                    <div className="title">Add new Bill</div>
+                    <TableComponent data={newBillData} columns={newBillColumns} />
+                    <button className="button" onClick={submitNewForm}>Add</button>
+                </>
+            : null}
             <div className="title">Existing Bills</div>
             <TableComponent data={data} columns={columns} />
         </div>
@@ -250,7 +261,7 @@ const SocietyPage = () => {
             <div className="container">
                 <div className="nav-button-wrapper">
                     <button className="button" onClick={() => window.location.href = `${window.location.origin}/society-point`}>GO BACK</button>
-                    {accessTokenPayload.role === "society" && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload?organiser=${society.name}`}>ADD EVENT</button>}
+                    {accessTokenPayload.role === "society" && currentSelection !== 2 && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload?organiser=${society.name}`}>ADD EVENT</button>}
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent
