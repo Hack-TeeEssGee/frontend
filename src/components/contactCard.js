@@ -4,7 +4,7 @@ const ContactCard = (props) => {
 
     return (
         <div className="contact-card">
-            <img src={props.photo} alt="contact-photo"></img>
+            <img src={props.photo} alt={props.name}></img>
             <div className="contact-name">{props.name}</div>
             <div className="contact-position">{props.position}</div>
             <div className="contact-links">

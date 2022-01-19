@@ -44,12 +44,6 @@ const sampleContactData = {
 
 const ContactsWrapper = (props) => {
 
-    const [contactArray, setContactArray] = useState([]);
-
-    useEffect(() => {
-        setContactArray(props.contactArray);
-    }, [props]);
-
     return (
         <div className="contacts-wrapper">{
             props.contactArray.map((contact) => {
