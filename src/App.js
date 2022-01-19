@@ -9,13 +9,16 @@ import StudentProfile from "./views/studentProfile";
 import SuperTokens from "supertokens-auth-react";
 import Session from "supertokens-auth-react/recipe/session";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
-import { BACKEND_URL, FRONTEND_URL } from "./constants";
+import { BACKEND_URL, FRONTEND_URL, ONESIGNAL_ID } from "./constants";
 import EventUpload from "./views/eventUpload";
 import OfficialEventCert from "./views/officialEventCert";
 
+import OneSignal from 'react-onesignal';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SocietyPage from "./views/societyPage";
+import Contacts from "./views/contacts";
+import { useEffect } from "react";
 
 SuperTokens.init({
   appInfo: {
@@ -30,6 +33,13 @@ SuperTokens.init({
 });
 
 function App() {
+
+  useEffect(() => {
+    OneSignal.init({
+      appId: ONESIGNAL_ID
+    });
+  }, []);
+
   return (
     <div>
       <ToastContainer
@@ -69,6 +79,7 @@ function App() {
             </SessionAuth>
           } />
           <Route path="/society-point" element={<SocietyPoint />} />
+          <Route path="/quickinfo/contacts" element={<Contacts />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />
           <Route path="/" element={<LandingPage />} />

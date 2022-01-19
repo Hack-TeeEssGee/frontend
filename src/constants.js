@@ -15,3 +15,5 @@ else if (process.env.NODE_ENV === "development") {
 export { BACKEND_URL, FRONTEND_URL };
 
 export const AUTH_URL = `${BACKEND_URL}/authenticate`;
+
+export const ONESIGNAL_ID = "f23e745c-2af0-42e7-934f-8fb71bca9dda";

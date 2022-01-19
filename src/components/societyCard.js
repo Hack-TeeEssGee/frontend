@@ -2,7 +2,7 @@ const SocietyCard = (props) => {
 
     return (
         <div className="society-card" onClick={() => props.clickHandler(props.index)}>
-            <img src={props.image} alt="society-photo"></img>
+            <img src={props.image} alt={props.name}></img>
             <div className="society-title">{props.name}</div>
         </div>
     )

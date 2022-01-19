@@ -2,7 +2,7 @@ const EventCard = (props) => {
 
     return (
         <div className="event-card">
-            <img src={props.event.location} alt="event-image"></img>
+            <img src={props.event.location} alt={props.event.name}></img>
             <div className="event-title">{props.event.name}</div>
             <div className="event-date-wrapper">
                 <div>{props.event.start_date}</div>

@@ -15,7 +15,7 @@ const BillStatusUpdater = (props) => {
             label: props.bill.status,
             value: props.bill.status
         });
-    }, []);
+    }, [props]);
 
     return (
         <div className="modify-bill-window-wrapper">

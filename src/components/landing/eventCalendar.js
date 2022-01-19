@@ -16,6 +16,7 @@ const EventCalendar = () => {
       .then((response) => {
         response.data.events.map((event) => {
           eventArray.push(event.name);
+          return event; //not required. added to suppress warning.
         })
         setEventsOfDay(eventArray);
       })

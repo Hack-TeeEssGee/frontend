@@ -54,6 +54,7 @@ const BillReimbursement = (props) => {
                 status: oldBill.status
             }
             newBillList.push(newBill);
+            return newBill; //not required. added to suppress warning.
         })
 
         return newBillList;
@@ -145,7 +146,7 @@ const BillReimbursement = (props) => {
         columns.push({
             Header: "Bill",
             accessor: "id",
-            Cell: ({ cell: { value } }) => <a href={`${BACKEND_URL}/admin/bill/${value}`} target="_blank" >Download</a>
+            Cell: ({ cell: { value } }) => <a href={`${BACKEND_URL}/admin/bill/${value}`} target="_blank" rel="noreferrer noopener" >Download</a>
         },
         {
             Header: "Change Status",
