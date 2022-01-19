@@ -1,6 +1,7 @@
 import Dashboard from "../components/dashboard";
 import ContactCard from "../components/contactCard";
 import { UilGameStructure, UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
+import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
 
 const sampleContactData = {
@@ -64,7 +65,8 @@ const Contacts = () => {
     const dashboardHeaderData = {
         title: "TSG Contacts",
         subtitle: "",
-        icon: UilGameStructure
+        icon: tsgLogo,
+        isImage: true
     }
 
     const dashboardListData = {

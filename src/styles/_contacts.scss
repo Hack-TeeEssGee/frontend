@@ -25,6 +25,10 @@
         flex-direction: column;
       }
     }
+
+    .title {
+      margin: 3rem 0;
+    }
   }
 }
 
@@ -39,12 +43,21 @@
 
   img {
     width: 25rem;
+
+    @include sm {
+      width: 20rem;
+    }
   }
 
   .contact-name {
     font-size: 1.5rem;
     font-weight: 600;
     padding-top: 1rem;
+    max-width: 24rem;
+
+    @include sm {
+      max-width: 19rem;
+    }
   }
 
   .contact-position {
@@ -58,5 +71,11 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+
+    svg {
+      @include sm {
+        transform: scale(75%);
+      }
+    }
   }
 }
