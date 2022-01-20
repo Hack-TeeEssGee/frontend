@@ -100,7 +100,7 @@
       &-control {
         background-color: transparent;
         text-align: left;
-        color: #666;
+        color: $text-secondary-color;
         font-size: 1.4rem;
       }
     }
@@ -141,7 +141,7 @@
       width: 90%;
       margin: 1rem;
       font-size: 1.4rem;
-      color: #666;
+      color: $text-secondary-color;
       text-align: left;
 
       @include sm {
