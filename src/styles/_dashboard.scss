@@ -10,6 +10,9 @@
   flex-direction: column;
   justify-content: space-between;
 
+  position: fixed;
+  z-index: 100;
+
   &[isopen="false"] {
     width: fit-content;
 

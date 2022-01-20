@@ -1,6 +1,11 @@
 .society-point {
   min-height: 100vh;
-  background-color: $primary-grey;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
   padding: 2rem;
 
   .title {

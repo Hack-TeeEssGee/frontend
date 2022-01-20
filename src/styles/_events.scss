@@ -1,18 +1,19 @@
 // Note : this file contains styling of events page. for events in landing, check _landing.scss
 
 .events-page {
-  // background: linear-gradient(
-  //     rgba($primary-grey, 0.9),
-  //     rgba($primary-grey, 0.9)
-  //   ),
-  //   url("../assets/background.jpg");
-  // background-size: cover;
-  background-color: $primary-color;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
+  // background-color: $primary-grey;
   display: flex;
   overflow: hidden;
   color: $text-primary-color;
 
   .container {
+    min-height: 100vh;
     max-height: 100vh;
     overflow-y: scroll;
     width: 100%;

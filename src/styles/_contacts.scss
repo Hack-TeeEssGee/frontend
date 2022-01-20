@@ -1,5 +1,10 @@
 .contacts {
-  background-color: $primary-grey;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
 
   display: flex;
   overflow: hidden;
