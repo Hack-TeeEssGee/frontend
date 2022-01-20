@@ -1,66 +1,7 @@
 //styling file for login page. For login-portal in loanding page styling check _landing.scss
 
 .login-page {
-  background-color: $primary-white;
-}
-
-.logbar {
-  position: fixed;
-  top: 0;
-  min-height: 10vh;
-  min-width: 100%;
-  background-color: rgba($primary-color, 0.8);
-  margin-top: 0rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  @include smd {
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: rgba($primary-color, 1);
-
-    &[isopen="false"] {
-      min-height: 3.5rem;
-      .logbar-links {
-        display: none;
-      }
-    }
-  }
-
-  .pizza {
-    display: none;
-    position: fixed;
-    top: 1rem;
-    left: 1.5rem;
-    transition: all 0.2s ease-in-out;
-
-    &:active {
-      transform: rotateY(90deg);
-    }
-
-    @include smd {
-      display: block;
-    }
-  }
-
-  &-links {
-    width: 60%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    @include smd {
-      flex-direction: column;
-      min-height: 60vh;
-    }
-
-    button {
-      padding: 0.6rem 1rem;
-      align-items: center;
-      float: right;
-    }
-  }
+  background-color: $primary-grey;
 }
 
 .official-login-portal,
@@ -94,7 +35,7 @@
     font-style: normal;
     font-weight: 800;
     font-size: 3.8rem;
-    color: $login-page-texts;
+    color: $text-secondary-color;
     text-shadow: 0px 4px 4px rgba($heading-color, 0.1);
     text-align: center;
 
@@ -118,7 +59,7 @@
     font-weight: 600;
     font-size: 1.8rem;
     text-align: left;
-    color: $login-page-texts;
+    color: $text-secondary-color;
 
     @include smd {
       font-size: 1.6rem;
@@ -129,16 +70,23 @@
   .enter-box {
     display: inline-block;
     border-style: solid;
-    background-color: rgba($primary-color, 0.5);
-    border-color: $heading-color;
+    background-color: rgba($primary-color, 1);
+    border-color: $text-secondary-color;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     padding: 1rem 1.5rem;
     border-radius: 10px;
     margin: 1rem 3.5rem;
-    color: $text-primary-color;
+    color: $text-secondary-color;
     font-size: 1.2rem;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $heading-color;
+      outline: none;
+    }
 
     @include smd {
       margin: 1rem;
@@ -148,7 +96,7 @@
   button {
     display: inline-block;
     background-color: $primary-color;
-    color: $text-primary-color;
+    color: $text-secondary-color;
     border: 2px solid $heading-color;
     width: 10rem;
     border-radius: 10px;
@@ -176,6 +124,7 @@
     display: inline-block;
     margin: 0.5rem;
     font-size: 1.4rem;
+    color: $text-secondary-color;
   }
 }
 
