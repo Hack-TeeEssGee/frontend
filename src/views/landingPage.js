@@ -1,4 +1,3 @@
-import iitkgp from "../assets/iitkgp.jpeg";
 import Footer from "../components/footer";
 import EventCalendar from "../components/landing/eventCalendar";
 import LandingEvents from "../components/landing/landingEvents";
@@ -30,7 +29,6 @@ const LandingPage = () => {
           Made by the KGPians for the KGPians
         </div>
         <button className="button hero-btn" onClick={handleBackClick}>Learn More</button>
-        <img src={iitkgp} alt="IITKGP Main Building"></img>
       </div>
 
       <LandingEvents innerRef={eventRef}/>

@@ -2,7 +2,7 @@
   position: fixed;
   min-height: 10vh;
   width: 100%;
-  background-color: rgba($primary-color, 0.8);
+  background-color: rgba($primary-grey, 0.3);
 
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
     background-color: rgba($primary-color, 1);
 
     .navbar-logo img {
-      width: 8rem;
+      width: 2.5rem;
     }
 
     &[isopen="false"] {
@@ -72,6 +72,6 @@
   }
 
   img {
-    width: 4rem;
+    width: 2.5rem;
   }
 }
