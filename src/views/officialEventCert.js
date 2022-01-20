@@ -71,6 +71,7 @@ const OfficialEventCert = () => {
                     controlClassName="dropdown-control"
                     placeholderClassName="dropdown-placeholder"
                     arrowClassName="dropdown-arrow"
+                    menuClassName="dropdown-menu"
                 />
                 <input type="text" className="type-1" placeholder="Enter email of Student" onChange={(e) => {setEmail(e.target.value)}} >
                 </input>

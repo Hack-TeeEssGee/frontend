@@ -1,11 +1,16 @@
 // Note : this file contains styling of events page. for events in landing, check _landing.scss
 
 .events-page {
-  background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
-    url("../assets/background.jpg");
-  background-size: cover;
+  // background: linear-gradient(
+  //     rgba($primary-grey, 0.9),
+  //     rgba($primary-grey, 0.9)
+  //   ),
+  //   url("../assets/background.jpg");
+  // background-size: cover;
+  background-color: $primary-color;
   display: flex;
   overflow: hidden;
+  color: $text-primary-color;
 
   .container {
     max-height: 100vh;
@@ -15,17 +20,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .button-wrapper {
-      margin: 2rem 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-
-      @include sm {
-        flex-direction: column;
-      }
-    }
   }
 
   .event-results {
@@ -63,19 +57,22 @@
   justify-content: center;
 
   .title {
-    margin-bottom: 5rem;
+    margin: 2rem;
   }
 
   .wrapper {
     text-align: center;
     border-radius: 10px;
-    width: 40rem;
+    width: 80rem;
     padding: 2rem;
-    background-color: rgba($login-orange, 0.3);
-    margin: 2rem 1rem;
+    margin: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @include md {
-      width: 30rem;
+      width: 40rem;
     }
 
     @include sm {
@@ -83,46 +80,31 @@
     }
 
     .dropdown {
-      border: 4px solid rgba($login-orange, 0.6);
-      margin: 1.2rem 1.6rem;
-      height: 3.5rem;
-      outline: none;
-      padding: 0;
-      background-color: transparent;
-      font-size: 1.4rem;
-      border-radius: 10px;
-
-      &-placeholder {
-        margin: 0;
-        padding: 0.2rem 1rem;
-      }
-
-      &-control {
-        background-color: transparent;
-        text-align: left;
-        color: $text-secondary-color;
-        font-size: 1.4rem;
-      }
+      width: 90%;
     }
 
     .type-1 {
       border-radius: 10px;
-      border: 4px solid rgba($login-orange, 0.6);
+      border-style: solid;
+      border-color: $text-secondary-color;
+      background-color: rgba($primary-color, 1);
       transition: 0.5s border-color;
+      color: $text-secondary-color;
       width: 90%;
       margin: 1rem;
       height: 3.5rem;
       outline: none;
       padding: 1rem 1.5rem;
-      background-color: transparent;
       font-size: 1.4rem;
 
       @include sm {
         font-size: 1.2rem;
       }
 
-      &:hover {
-        border: 4px solid $login-orange;
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $heading-color;
         outline: none;
       }
     }
@@ -132,7 +114,10 @@
     }
 
     .custom-file-upload {
-      border: 4px solid rgba($login-orange, 0.6);
+      border-radius: 10px;
+      border-style: solid;
+      border-color: $text-secondary-color;
+      background-color: rgba($primary-color, 1);
       display: inline-block;
       padding: 0.6rem 1.5rem;
       height: 3.5rem;
@@ -148,13 +133,24 @@
         font-size: 1.2rem;
       }
 
-      &:hover {
-        border: 4px solid $login-orange;
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $heading-color;
+        outline: none;
       }
     }
 
     .add-button {
-      margin: 1rem;
+      width: 90%;
+      margin: 2rem 1rem;
+      border-radius: 10px;
+      border-style: solid;
+      border-color: $heading-color;
+      background-color: rgba($primary-color, 1);
+      color: $text-secondary-color;
+      font-size: 1.8rem;
+      font-weight: 600;
     }
   }
 }

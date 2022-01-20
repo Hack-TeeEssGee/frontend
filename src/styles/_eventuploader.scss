@@ -1,7 +1,10 @@
 .event-upload-wrapper {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
+  background: linear-gradient(
+      rgba($primary-grey, 0.95),
+      rgba($primary-grey, 0.95)
+    ),
     url("../assets/background.jpg");
   background-size: cover;
   display: flex;
@@ -33,7 +36,7 @@
     font-weight: 600;
     text-align: left;
     padding-left: 2.4rem;
-    color: #333;
+    color: $text-secondary-color;
     margin-top: 1rem;
 
     @include sm {
@@ -52,8 +55,10 @@
 
   .type-1 {
     border-radius: 10px;
-    border: 3px solid rgba(#000, 0.3);
-    background-color: rgba($primary-color, 0.6);
+    border-style: solid;
+    border-color: $text-secondary-color;
+    background-color: rgba($primary-color, 1);
+    color: $text-secondary-color;
     transition: 0.5s border-color;
     width: 95%;
     margin: 1rem;
@@ -66,8 +71,10 @@
       font-size: 1.2rem;
     }
 
-    &:hover {
-      border: 3px solid rgba(#000, 1);
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $heading-color;
       outline: none;
     }
   }
@@ -85,8 +92,9 @@
 
   .date-picker {
     border-radius: 10px;
-    border: 3px solid rgba(#000, 0.3);
-    background-color: rgba($primary-color, 0.6);
+    border-style: solid;
+    border-color: $text-secondary-color;
+    background-color: rgba($primary-color, 1);
     transition: 0.5s border-color;
     width: 95%;
     margin: 1rem;
@@ -109,8 +117,10 @@
       font-size: 1.2rem;
     }
 
-    &:hover {
-      border: 3px solid rgba(#000, 1);
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $heading-color;
       outline: none;
     }
   }
@@ -120,33 +130,39 @@
   }
 
   .custom-file-upload {
-    border: 3px solid rgba(#000, 0.3);
-    background-color: rgba($primary-color, 0.6);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: $text-secondary-color;
+    background-color: rgba($primary-color, 1);
     display: inline-block;
     padding: 0.6rem 1.5rem;
     height: 3.5rem;
-    border-radius: 10px;
     transition: 0.5s border-color;
     width: 95%;
     margin: 1rem;
     font-size: 1.4rem;
-    color: #666;
     text-align: left;
 
     @include sm {
       font-size: 1.2rem;
     }
 
-    &:hover {
-      border: 3px solid rgba(#000, 1);
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $heading-color;
+      outline: none;
     }
   }
 
   .add-button {
     width: 95%;
     margin: 2rem 1rem;
-    border: 3px solid rgba(#000, 0.6);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: $heading-color;
     background-color: rgba($primary-color, 1);
+    color: $text-secondary-color;
     font-size: 1.8rem;
     font-weight: 600;
   }

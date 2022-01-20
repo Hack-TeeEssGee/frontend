@@ -9,6 +9,10 @@ body {
   background-color: $primary-grey;
 }
 
+::-webkit-scrollbar {
+  background: $primary-color-highlight;
+}
+
 .button {
   background-color: $secondary-color;
   color: $primary-color;
@@ -49,9 +53,19 @@ h1 {
 }
 
 .nav-button-wrapper {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  @include sm {
+    padding: 1rem;
+
+    .button {
+      padding: 0.4rem 0.8rem;
+      font-size: 1.1rem;
+    }
+  }
 }
 
 .title {
@@ -59,6 +73,7 @@ h1 {
   font-weight: 700;
   margin: 1rem;
   text-align: center;
+  color: $text-primary-color;
 
   @include smd {
     font-size: 2rem;
@@ -66,36 +81,60 @@ h1 {
   }
 }
 
-.dropdown {
-  border: 3px solid rgba(#000, 0.3);
-  background-color: rgba($primary-color, 0.6);
-  width: 95%;
-  margin: 1rem;
-  height: 3.5rem;
-  padding: 0;
-  font-size: 1.4rem;
-  border-radius: 10px;
-
-  &-placeholder {
-    margin: 0;
-    padding: 0.2rem 1rem;
-  }
-
-  &-arrow {
-    transform: translateY(7px);
-  }
-
-  &-control {
-    background-color: transparent;
-    outline: none;
-    text-align: left;
-    color: #000;
+body {
+  .dropdown {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: $text-secondary-color;
+    background-color: rgba($primary-color, 1);
+    width: 95%;
+    margin: 1rem;
+    height: 3.5rem;
+    padding: 0;
     font-size: 1.4rem;
-    border: none;
-  }
 
-  &-menu {
-    border: none;
-    outline: none;
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $heading-color;
+      outline: none;
+    }
+
+    &-placeholder {
+      margin: 0;
+      padding: 0.2rem 1rem;
+    }
+
+    &-arrow {
+      transform: translateY(7px);
+    }
+
+    &-control {
+      background-color: transparent;
+      outline: none;
+      text-align: left;
+      color: $text-secondary-color;
+      font-size: 1.4rem;
+      border: none;
+    }
+
+    &-menu {
+      background-color: $primary-color;
+      color: $text-secondary-color;
+      border: none;
+      outline: none;
+    }
+
+    .Dropdown-option {
+      color: $text-secondary-color;
+
+      &:hover {
+        background-color: $primary-color-highlight;
+      }
+    }
+
+    .Dropdown-option.is-selected {
+      background-color: $primary-color-highlight;
+    }
   }
 }
