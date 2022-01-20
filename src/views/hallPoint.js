@@ -8,8 +8,8 @@ const HallPoint = () => {
 
     const hallList = [
         {
-            name: "Azad Hall of Residance",
-            imgURL: "https://avatars.githubusercontent.com/u/13926292?s=200&v=4"
+            name: "Azad",
+            imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgj9_zmEZKB20iDV5dpHz6jdTqN5W14GAIFPHDg2S2DPhPKJq3eXIpDI9ISDPpEbo4hc&usqp=CAU"
         },
         {
             name: "RK",

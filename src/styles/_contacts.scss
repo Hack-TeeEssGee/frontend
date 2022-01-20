@@ -1,7 +1,5 @@
 .contacts {
-  background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
-    url("../assets/background.jpg");
-  background-size: cover;
+  background-color: $primary-grey;
 
   display: flex;
   overflow: hidden;
@@ -10,39 +8,33 @@
     max-height: 100vh;
     overflow-y: scroll;
     width: 100%;
+    padding: 0 2rem;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .button-wrapper {
-      margin: 2rem 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-
-      @include sm {
-        flex-direction: column;
-      }
+    @include sm {
+      padding: 0;
     }
 
     .title {
-      margin: 3rem 0;
+      margin: 1rem 0 2rem 0;
     }
   }
 }
 
 .contact-card {
-  background-color: #fff;
-  display: flex;
+  background: linear-gradient(30deg, $login-black 30%, $login-red);
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 6px 12px 20px rgba(#000, 0.1);
+  margin: 2rem;
 
   img {
-    width: 25rem;
+    width: 23rem;
+    padding: 1rem;
+    border-radius: 30px;
+    opacity: 0.9;
 
     @include sm {
       width: 20rem;
@@ -54,6 +46,7 @@
     font-weight: 600;
     padding-top: 1rem;
     max-width: 24rem;
+    color: $text-secondary-color;
 
     @include sm {
       max-width: 19rem;
@@ -61,9 +54,10 @@
   }
 
   .contact-position {
-    color: #666;
+    color: $text-secondary-color;
     font-size: 1.2rem;
     padding: 0.5rem 0 1rem 0;
+    font-weight: 400;
   }
 
   .contact-links {

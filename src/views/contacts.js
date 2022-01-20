@@ -114,10 +114,8 @@ const Contacts = () => {
                 changeSelection={setCurrentSelection}
             />
             <div className="container">
-                <div className="button-wrapper">
-                    <div className="nav-button-wrapper">
-                        <button className="button" onClick={() => window.location.href = `${window.location.origin}/quickinfo`}>GO BACK</button>
-                    </div>
+                <div className="nav-button-wrapper">
+                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/quickinfo`}>GO BACK</button>
                 </div>
                 <div className="title">CONTACTS</div>
                 <ContactsWrapper
