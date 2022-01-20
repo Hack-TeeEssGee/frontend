@@ -1,5 +1,5 @@
 import { useState } from "react";
-import tsgLogo from "../assets/tsg-logo.png";
+import icon from "../assets/icon.png";
 import UilBars from "@iconscout/react-unicons/icons/uil-bars";
 import UilTimes from "@iconscout/react-unicons/icons/uil-times";
 import { useSessionContext } from 'supertokens-auth-react/recipe/session';
@@ -34,7 +34,7 @@ const Navbar = (props) => {
       </div>
 
       <div className="navbar-logo">
-        <img src={tsgLogo} alt="tsg-logo"></img>
+        <img src={icon} alt="tsg-logo"></img>
       </div>
 
       <div className="navbar-links">

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import { UilCommentAltLines, UilScenery, UilBill, UilEnvelopeAdd, UilFacebookF, UilPhone, UilEnvelope } from '@iconscout/react-unicons';
+import { UilCommentAltLines, UilScenery, UilEnvelopeAdd } from '@iconscout/react-unicons';
 import Dashboard from "../components/dashboard";
-import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import ContactCard from "../components/contactCard";
 const AboutUs = () => {
 
@@ -69,24 +68,12 @@ const ContactUs = () => {
 
     return (
         <div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
 
         </div >
 
@@ -97,8 +84,6 @@ const ContactUs = () => {
 const HallPage = () => {
 
     const [hall, setHall] = useState({});
-
-    let { accessTokenPayload } = useSessionContext();
 
     useEffect(() => {
 
@@ -132,14 +117,6 @@ const HallPage = () => {
                 icon: UilEnvelopeAdd
             }
         ]
-    }
-
-    if (accessTokenPayload.role === "tsg" || accessTokenPayload.role === "admin" || accessTokenPayload.role === "hall") {
-        dashboardListData.listData.push({
-            option: "Contact Us",
-            icon: UilBill
-        })
-        dashboardListData.specialSelection = 2;
     }
 
     const [currentSelection, setCurrentSelection] = useState(dashboardListData.defaultSelection);

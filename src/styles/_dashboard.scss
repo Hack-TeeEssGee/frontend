@@ -1,5 +1,6 @@
 .dashboard {
   background-color: $primary-color;
+  color: $text-primary-color;
   width: 35rem;
   min-height: 100vh;
   max-height: 100vh;
@@ -8,6 +9,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  position: fixed;
+  z-index: 100;
 
   &[isopen="false"] {
     width: fit-content;
@@ -46,7 +50,7 @@
     }
 
     .subtitle {
-      color: $text-primary-color;
+      color: $text-secondary-color;
       font-size: 1.2rem;
     }
 

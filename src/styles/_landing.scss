@@ -5,17 +5,23 @@
 .hero {
   min-height: 100vh;
   max-height: 100vh;
-  background-color: $primary-color;
+  background: linear-gradient(
+      rgba($primary-grey, 0.8),
+      rgba($primary-grey, 0.8)
+    ),
+    url("../assets/iitkgp.jpg");
+  background-size: cover;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 10rem;
   text-align: center;
-  margin-bottom: 20rem;
+  color: $heading-color;
 
   &-title {
     font-size: 8rem;
     font-weight: 700;
+    margin-bottom: 1rem;
 
     @include sm {
       font-size: 5rem;
@@ -23,7 +29,9 @@
   }
 
   &-subtitle {
+    font-size: 1.8rem;
     color: $text-primary-color;
+    font-weight: 500;
   }
 
   &-btn {
@@ -47,14 +55,15 @@
 .login-portal {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-height: 40vh;
-  margin: 5rem 0;
+  min-height: 100vh;
 }
 
 .landing-events {
   h1 {
-    margin: 5rem 0 5rem 0;
+    margin-bottom: 5rem;
+    font-size: 4rem;
   }
 
   .slider {
@@ -144,7 +153,7 @@
   }
 
   .calendar-wrapper {
-    background-color: $text-primary-color;
+    background-color: $primary-grey;
     color: $primary-grey;
     text-align: center;
     border-radius: 10px;
@@ -157,13 +166,18 @@
     }
 
     .react-calendar__tile--active {
-      background-color: $primary-grey;
+      background-color: $text-secondary-color;
       color: $text-primary-color;
+
+      abbr {
+        color: $primary-grey;
+        font-weight: 500;
+      }
     }
 
     .react-calendar__navigation {
       display: flex;
-      border-bottom: 2px solid $primary-grey;
+      border-bottom: 2px solid $text-secondary-color;
 
       button {
         flex-grow: 1;
@@ -173,12 +187,13 @@
     }
 
     button {
-      background-color: $text-primary-color;
+      background-color: $primary-grey;
       box-shadow: none;
       margin: 0;
       padding: 0;
       border-radius: 10px;
-      color: $primary-grey;
+      color: $text-primary-color;
+      font-size: 1.1rem;
     }
 
     abbr {
@@ -196,8 +211,8 @@
   .event-box {
     width: 35rem;
     margin: 2rem;
-    background-color: $text-primary-color;
-    color: $primary-grey;
+    background-color: $primary-grey;
+    color: $text-primary-color;
     font-size: 1.2rem;
     border-radius: 10px;
 
@@ -213,7 +228,7 @@
       width: 90%;
       margin: 1.5rem 0.5rem 1rem 0.5rem;
       padding-bottom: 0.6rem;
-      border-bottom: 2px solid $primary-grey;
+      border-bottom: 2px solid $text-secondary-color;
       font-size: 1.5rem;
       text-align: center;
     }
@@ -244,25 +259,16 @@
     padding: 1.5rem 2rem;
     border-radius: 20px;
     margin: 1rem 2rem;
-
-    &[color="green"] {
-      background-color: rgba($primary-color, 0.5);
-    }
-    &[color="pink"] {
-      background-color: rgba($login-pink, 0.25);
-    }
-    &[color="orange"] {
-      background-color: rgba($login-orange, 0.25);
-    }
-    &[color="blue"] {
-      background-color: rgba($login-blue, 0.25);
-    }
+    background: linear-gradient(30deg, $login-black 30%, $login-red);
+    color: $text-secondary-color;
 
     button {
-      background-color: $heading-color;
-      color: $primary-grey;
+      background-color: transparent;
+      color: $text-secondary-color;
+      font-size: 1.5rem;
       border-radius: 10px;
       min-width: 10rem;
+      box-shadow: none;
     }
   }
 }
