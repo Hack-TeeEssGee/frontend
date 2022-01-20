@@ -1,5 +1,7 @@
 import { UilEnvelope, UilPhone, UilFacebookF, UilInstagram, UilGlobe } from '@iconscout/react-unicons';
 import { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
+
 
 const sampleFacultyData = {
     "name": "Raghavendra Kaushik",
@@ -37,9 +39,9 @@ const Faculty = () => {
                 <div className="faculty-details-wrapper">Research Area: {sampleFacultyData["research-area"]}</div>
             </div>
             <div className="faculty-handle">
-                <a href={`mailto:${sampleFacultyData.email}`}><UilEnvelope color="purple" size={40} /></a>
-                <a href={sampleFacultyData.phone} color="orangered"><UilPhone size={40} /></a>
-                <a href={sampleFacultyData.website} color="lightblue"><UilGlobe size={40} /></a>
+                <button onClick={() => window.location.href=`mailto:${sampleFacultyData.email}`}><UilEnvelope color="purple" size={40} /></button>
+                <button onClick={() =>  {navigator.clipboard.writeText(`${sampleFacultyData.phone}`); toast.success('Phone number copied to clipboard'); }} color="orangered"><UilPhone size={40} /></button>
+                <button onClick={() => window.location.href=`${sampleFacultyData.website}`} color="lightblue"><UilGlobe size={40} /></button>
             </div>
         </div >
     )
