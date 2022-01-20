@@ -1,0 +1,33 @@
+.faculty {
+    background-color: $primary-color;
+    min-height: 100vh;
+    padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.faculty-img {
+    img {
+        border-radius: 50%;
+        height: 200px;
+    }
+}
+.faculty-name {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.faculty-details {
+    text-align: center;
+    font-size: 1.2rem;
+    color: $login-page-texts;
+    font-weight: 700;
+    .faculty-details-wrapper {
+        margin: 10px;
+    }
+}
+.faculty-handle {
+    a {
+        margin: 10px;
+    }
+}

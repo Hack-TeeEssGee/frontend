@@ -7,12 +7,12 @@ const QuickInfo = () => {
                 <button type="button" class="button" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
             </div>
             <h1>QUICK INFO</h1>
-            <button type="button" class="block">Archive-Statistics of CDC</button>
-            <button type="button" class="block">Quick Links</button>
-            <button type="button" class="block">Contacts</button>
-            <button type="button" class="block">Hall of Residence</button>
-            <button type="button" class="block">Societies</button>
-            <button type="button" class="block">Faculty</button>
+            <button type="button" class="block" onClick={() => window.location.href=`${window.location.origin}/cdc`}>Archive-Statistics of CDC</button>
+            <button type="button" class="block" onClick={() => window.location.href=`${window.location.origin}/quicklinks`}>Quick Links</button>
+            <button type="button" class="block" onClick={() => window.location.href=`${window.location.origin}/quickinfo/contacts`}>Contacts</button>
+            <button type="button" class="block" onClick={() => window.location.href=`${window.location.origin}/hall-point`}>Hall of Residence</button>
+            <button type="button" class="block" onClick={() => window.location.href=`${window.location.origin}/society-point`}>Societies</button>
+            <button type="button" class="block" onClick={() => window.location.href=`${window.location.origin}/faculty`}>Faculty</button>
 
         </div >
 
