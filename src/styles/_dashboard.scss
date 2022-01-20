@@ -1,5 +1,6 @@
 .dashboard {
-  background-color: $primary-color;
+  background-color: $primary-grey;
+  color: $text-secondary-color;
   width: 35rem;
   min-height: 100vh;
   max-height: 100vh;
@@ -46,7 +47,7 @@
     }
 
     .subtitle {
-      color: $text-primary-color;
+      color: $text-secondary-color;
       font-size: 1.2rem;
     }
 
