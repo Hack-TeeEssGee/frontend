@@ -1,4 +1,4 @@
-.society-point {
+.hall-point {
   min-height: 100vh;
   background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
     url("../assets/background.jpg");
@@ -14,7 +14,7 @@
   }
 }
 
-.society-card {
+.hall-card {
   display: inline-block;
   margin: 2rem 3rem;
   border-radius: 10px;
@@ -40,7 +40,7 @@
     }
   }
 
-  .society-title {
+  .hall-title {
     max-width: 25rem;
     padding: 1.5rem;
     text-align: center;

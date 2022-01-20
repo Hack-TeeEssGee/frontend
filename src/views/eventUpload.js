@@ -1,63 +1,116 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
 import { toast } from 'react-toastify';
+import { getSocietyID } from '../utils/society';
 
 const EventUpload = () => {
 
-    const categoryList = ["Technology", "Sports and Games", "Social and Cultural", "Students' Welfare"]
+    var categoryList = ["Technology", "Sports and Games", "Social and Cultural", "Students' Welfare"]
 
+    const [organiser, setOrganiser] = useState("tsg");
     const [name, setName] = useState("");
     const [link, setLink] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [poster, setPoster] = useState(null);
-    const [category, setCategory] = useState({ label: categoryList[0], value: categoryList[0]});
+    const [category, setCategory] = useState({ label: categoryList[0], value: categoryList[0] });
+    const [fileName, setFileName] = useState("No file selected");
+
+    useEffect(() => {
+
+        const URLParams = new URLSearchParams(window.location.search);
+        setOrganiser(URLParams.get("organiser"));
+
+    }, []);
+
+    if (organiser !== "tsg" && organiser !== category.value) {
+
+        setCategory({
+            label: organiser,
+            value: organiser
+        })
+    }
+
+    const fileUploader = (event) => {
+
+        setFileName(event.target.files[0].name);
+        setPoster(event.target.files[0]);
+    }
 
     const handleSubmit = () => {
 
         const formData = new FormData();
         formData.append('name', name);
-        formData.append('category', category.value);
         formData.append('fb_post_link', link);
         formData.append('start_date', startDate);
         formData.append('end_date', endDate);
         formData.append('image', poster);
 
-        axios.post(`${BACKEND_URL}/event/upload`, formData, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-            .then(res => { 
-                console.log(res);
-                toast.success('Event upload successful');
+        if (organiser === "tsg") {
+            
+            formData.append('category', category.value);
+
+            axios.post(`${BACKEND_URL}/event/upload/tsg`, formData, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
             })
-            .catch (err=> { 
-                console.log(err);
-                toast.error('Upload error'); 
-            });
+                .then(res => { 
+                    console.log(res);
+                    toast.success('Event upload successful');
+                })
+                .catch (err=> { 
+                    console.log(err);
+                    toast.error('Upload error'); 
+                });
+        }
+        else {
+
+            formData.append('society_id', getSocietyID(organiser));
+
+            axios.post(`${BACKEND_URL}/event/upload/society`, formData, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+                .then(res => { 
+                    console.log(res);
+                    toast.success('Event upload successful');
+                })
+                .catch (err=> { 
+                    console.log(err);
+                    toast.error('Upload error'); 
+                });
+        }
     }
 
     return (
         <div className="event-upload-wrapper">
-            <button className='button' onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+            <div className="nav-button-wrapper">
+                <button className='button' onClick={() => window.location.href = `${window.location.origin}/${organiser === "tsg" ? "events" : "society-point"}`}>GO BACK</button>
+            </div>
             <div className="event-upload">
-                <div className="title">TSG Events Uploader</div>
-                <input type="text" className="type-1" placeholder="Enter name of event" onChange={(event) => {setName(event.target.value)}} >
+                <div className="title">{organiser === "tsg" ? "TSG" : "Society"} Events Uploader</div>
+                <label className="label">Enter name of Event</label>
+                <input type="text" className="type-1" onChange={(event) => {setName(event.target.value)}} >
                 </input>
+                <label className="label">{organiser === "tsg" ? "Select category of Event" : "Organising Body"}</label>
                 <Dropdown
                     options={categoryList}
-                    value={categoryList[0]}
+                    value={category}
                     placeholder="Select an event"
                     onChange={setCategory}
                     className="dropdown"
                     controlClassName="dropdown-control"
                     placeholderClassName="dropdown-placeholder"
                     arrowClassName="dropdown-arrow"
+                    menuClassName="dropdown-menu"
+                    disabled={organiser !== "tsg"}
                 />
+                <label className="label">Enter link to Event</label>
                 <input type="text" className="type-1" placeholder="Enter Link of the Event" onChange={(event) => {setLink(event.target.value)}}>
                 </input>
                 <div className="date-picker-list">
@@ -76,10 +129,11 @@ const EventUpload = () => {
                         </input>
                     </div>
                 </div>
+                <label className="label">Upload Poster of the Event</label>
                 <label htmlFor="file-upload" className="custom-file-upload">
-                    &#8613; &nbsp; Upload Poster of the Event
+                    &#8613; &nbsp; {fileName}
                 </label>
-                <input id="file-upload" type="file" onChange={(event) => {setPoster(event.target.files[0])}} />
+                <input id="file-upload" type="file" onChange={(event) => fileUploader(event)} />
 
                 <button className="button add-button" onClick={() => {handleSubmit()}}>Add +</button>
             </div>

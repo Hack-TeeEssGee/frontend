@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
+import EventCard from "../components/eventCard";
 
 const RecentEvents = (props) => {
 
@@ -17,15 +18,11 @@ const RecentEvents = (props) => {
     }, []);
 
     return (
-        <div className="recent-events">
+        <div className="event-wrapper">
             {eventsList.map((event, index) => {
                 if (event.category === props.mode) {
                     return (
-                        <div key={index} className="event-box">
-                            <img src={event.location} alt="event-poster"></img>
-                            <div className="event-title">{event.name}</div>
-                            <a className="event-link" href={event.fb_post_link}>View Full Post</a>
-                        </div>
+                        <EventCard key={index} event={event} />
                     )
                 }
                 else {
@@ -117,7 +114,7 @@ const EventsPage = () => {
                 <div className="button-wrapper">
                     <div className="nav-button-wrapper">
                         <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
-                        {accessTokenPayload.role === "tsg" && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload`}>ADD EVENT</button>}
+                        {accessTokenPayload.role === "tsg" && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload?organiser=tsg`}>ADD EVENT</button>}
                         {accessTokenPayload.role === "tsg" &&  <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/certs`}>UPLOAD CERTIFICATE</button>}
                     </div>
                 </div>

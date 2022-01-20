@@ -14,7 +14,8 @@
 
     .dashboard-header {
       div,
-      svg {
+      svg,
+      img {
         display: none;
       }
     }
@@ -47,6 +48,11 @@
     .subtitle {
       color: $text-primary-color;
       font-size: 1.2rem;
+    }
+
+    img {
+      width: 15rem;
+      border-radius: 10px;
     }
   }
 

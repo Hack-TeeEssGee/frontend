@@ -9582,6 +9582,11 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-onesignal@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-onesignal/-/react-onesignal-2.0.2.tgz#b6f5ecf4ef64589b77289678df629a2ac712168c"
+  integrity sha512-jirsWxaKkfoHN3OWNO1462jcWb+8GkIw1zpll7ErYhaYTsLaE789bsx2ZRfmS9bqabi6Of5U0xKdKlIwEfuzzg==
+
 react-refresh@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
@@ -9675,6 +9680,11 @@ react-shadow@^19.0.2:
   dependencies:
     humps "^2.0.1"
     react-use "^15.3.3"
+
+react-table@^7.7.0:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.7.0.tgz#e2ce14d7fe3a559f7444e9ecfe8231ea8373f912"
+  integrity sha512-jBlj70iBwOTvvImsU9t01LjFjy4sXEtclBovl3mTiqjz23Reu0DKnRza4zlLtOPACx6j2/7MrQIthIK1Wi+LIA==
 
 react-toastify@^8.1.0:
   version "8.1.0"
