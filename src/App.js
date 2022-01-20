@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./views/loginPage";
 import EventsPage from "./views/eventsPage";
+import HallPoint from "./views/hallPoint";
+import HallPage from "./views/hallPage";
 import LandingPage from "./views/landingPage";
 import QuickInfo from "./views/quickInfo";
 import SocietyPoint from "./views/societyPoint";
@@ -22,13 +24,13 @@ import { useEffect } from "react";
 
 SuperTokens.init({
   appInfo: {
-      // learn more about this on https://supertokens.io/docs/session/appinfo
-      appName: "kgpverse",
-      apiDomain: BACKEND_URL,
-      websiteDomain: FRONTEND_URL
+    // learn more about this on https://supertokens.io/docs/session/appinfo
+    appName: "kgpverse",
+    apiDomain: BACKEND_URL,
+    websiteDomain: FRONTEND_URL
   },
   recipeList: [
-      Session.init()
+    Session.init()
   ]
 });
 
@@ -57,13 +59,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/student-profile" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=student`}}>
+            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
               {/*Components that require to be protected by authentication*/}
               <StudentProfile />
             </SessionAuth>
           } />
           <Route path="/events/certs" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => {window.location.href=`${window.location.origin}/login?role=tsg`}}>
+            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=tsg` }}>
               <OfficialEventCert />
             </SessionAuth>
           } />
@@ -78,7 +80,13 @@ function App() {
               <SocietyPage />
             </SessionAuth>
           } />
+          <Route path="/hall-point/hall" element={
+            <SessionAuth>
+              <HallPage />
+            </SessionAuth>
+          } />
           <Route path="/society-point" element={<SocietyPoint />} />
+          <Route path="/hall-point" element={<HallPoint />} />
           <Route path="/quickinfo/contacts" element={<Contacts />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />
