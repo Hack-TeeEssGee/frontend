@@ -26,15 +26,6 @@ const TimelineList = (props) => {
     )
 }
 
-const TimelineWrapper = () => {
-
-    return (
-        <div className="timeline-wrapper">{
-            
-        }</div>
-    )
-}
-
 const Cdc = () => {
 
     const [contactList, setContactList] = useState({});
