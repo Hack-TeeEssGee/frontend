@@ -17,6 +17,7 @@
     "react-scripts": "4.0.3",
     "react-table": "^7.7.0",
     "react-toastify": "^8.1.0",
+    "rich-markdown-editor": "^11.21.3",
     "sass": "^1.44.0",
     "supertokens-auth-react": "^0.17.7",
     "web-vitals": "^1.0.1"
