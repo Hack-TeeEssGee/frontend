@@ -1,4 +1,4 @@
-.contacts {
+.cdc {
     background: linear-gradient(rgba(#eee, 0.8), rgba(#eee, 0.8)),
       url("../assets/background.jpg");
     background-size: cover;
@@ -32,49 +32,42 @@
     }
   }
   
-  .contact-card {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 6px 12px 20px rgba(#000, 0.1);
+.timeline {
+    background-color: $primary-color;
+    width: 35rem;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
   
-    img {
-      width: 25rem;
+    // display: flex;
+    // flex-direction: row;
+    justify-content: space-between;
+
   
-      @include sm {
-        width: 20rem;
-      }
-    }
-  
-    .contact-name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      padding-top: 1rem;
-      max-width: 24rem;
-  
-      @include sm {
-        max-width: 19rem;
-      }
-    }
-  
-    .contact-position {
-      color: #666;
-      font-size: 1.2rem;
-      padding: 0.5rem 0 1rem 0;
-    }
-  
-    .contact-links {
-      margin: 1rem 0 1rem 0;
+    .timeline-list {
       width: 100%;
       display: flex;
-      justify-content: space-evenly;
+      flex-direction: row;
+      height: fit-content;
+      .label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .timeline-option {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem;
+        cursor: pointer;
+      
   
-      svg {
-        @include sm {
-          transform: scale(75%);
+        &[isselected="true"] {
+          background-color: $primary-color-highlight;
+        }
+        div {
+          padding-left: 2rem;
         }
       }
     }

@@ -1,68 +1,28 @@
 import Dashboard from "../components/dashboard";
-import ContactCard from "../components/contactCard";
-import { UilGameStructure, UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
+import { UilSetting } from '@iconscout/react-unicons';
 import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
 
-const sampleContactData = {
-    "Office Bearers": [
-        {
-            "name": "Raghavendra Kaushik",
-            "position": "President",
-            "photo": "https://i.imgur.com/saBEwCK.jpg",
-            "email": "cghosh828049@gmail.com",
-            "phone": "+918018212895",
-            "fb": "https://www.favebook.com",
-            "insta": "https://www.instagram.com",
-            "linkedin": "https://www.linkedin.com"
-        },
-    ],
-    "Office Staff": [
-        {
-            "name": "Raghavendra Kaushik",
-            "position": "Attendant",
-            "photo": "https://i.imgur.com/saBEwCK.jpg",
-            "email": "cghosh828049@gmail.com",
-            "phone": "+918018212895",
-            "fb": "https://www.favebook.com",
-            "insta": "https://www.instagram.com",
-            "linkedin": "https://www.linkedin.com"
-        },
-    ],
-    "Secretaries": [
-        {
-            "name": "Raghavendra Kaushik",
-            "position": "Secretary Academic Help",
-            "photo": "https://i.imgur.com/saBEwCK.jpg",
-            "email": "cghosh828049@gmail.com",
-            "phone": "+918018212895",
-            "fb": "https://www.favebook.com",
-            "insta": "https://www.instagram.com",
-            "linkedin": "https://www.linkedin.com"
-        },
-    ]
-}
+const sampleContactData = [];
+
+const timelineData = [
+    1, 2, 3, 4, 5, 6, "Total"
+]   
 
 const TimelineList = (props) => {
     return (
         <div className="timeline-list">
+            <div className="label">Week:</div>
             {
-                props.listData.map((option, index) => {
-                    if (index !== props.specialSelection) {
-                        return (
-                            <li key={index} className="timelien-option" isselected={String(props.currentSelection === index)} onClick={() => {props.changeSelection(index)}}>
-                                <option.icon size={50} />
-                                <div>{option.option}</div>
-                            </li>
-                        )
-                    }
-                    else {
-                        return null;
-                    }
-                })
-            }
+                props.listData.map((index) => {
+                    return (
+                        <li key={index} className="timeline-option" isselected={String(props.currentSelection === index)} onClick={() => {props.changeSelection(index)}}>
+                            { index }
+                        </li>
+                    )
+                }
+            )}
         </div>
-
     )
 }
 
@@ -114,6 +74,7 @@ const Cdc = () => {
     }
 
     const [currentSelection, setCurrentSelection] = useState(dashboardListData.defaultSelection);
+    const [currentWeekSelection, setCurrentWeekSelection] = useState(0);
 
     var contactArray = [];
 
@@ -131,7 +92,7 @@ const Cdc = () => {
     if (contactArray === undefined) contactArray = [];
 
     return (
-        <div className="contacts">
+        <div className="cdc">
             <Dashboard
                 headerData={dashboardHeaderData}
                 listData={dashboardListData}
@@ -144,7 +105,13 @@ const Cdc = () => {
                         <button className="button" onClick={() => window.location.href = `${window.location.origin}/quickinfo`}>GO BACK</button>
                     </div>
                 </div>
-                <div className="title"></div>
+                <div className="timeline">
+                    <TimelineList 
+                    listData={timelineData}
+                    currentSelection={currentWeekSelection}
+                    changeSelection={setCurrentWeekSelection}
+                    />    
+                </div>
 
             </div>
         </div>

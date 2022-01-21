@@ -1,4 +1,4 @@
-import { UilEnvelope, UilPhone, UilFacebookF, UilInstagram, UilGlobe } from '@iconscout/react-unicons';
+import { UilEnvelope, UilPhone, UilGlobe } from '@iconscout/react-unicons';
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 
