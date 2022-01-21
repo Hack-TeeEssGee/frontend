@@ -1,6 +1,6 @@
 import Dashboard from "../components/dashboard";
 import ContactCard from "../components/contactCard";
-import { UilGameStructure, UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
+import { UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
 import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
 
