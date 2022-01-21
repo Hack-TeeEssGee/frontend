@@ -4,18 +4,29 @@ import myTheme from "../utils/markdownTheme";
 
 const NewBlog = () => {
 
-    const [changeFunction, setChangeFunction] = useState(() => { });
+    const [markdownContent, setMarkdownContent] = useState(() => { });
+    const [title, setTitle] = useState("");
+
+    const submitBlog = () => {
+
+        console.log(title);
+        console.log(markdownContent);
+        
+    }
 
     return (
         <div className="new-blog">
-            <div className="title">Create New Blog ....</div>
+            <div className="nav-button-wrapper">
+                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/blog`}>GO BACK</button>
+            </div>
+            <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Enter a title for your blog"></input>
             <div className="new-blog-editor">
                 <Editor
                     theme={myTheme}
-                    onChange={(changeFunc) => setChangeFunction(changeFunc)}
+                    onChange={(changeFunc) => setMarkdownContent(changeFunc)}
                 />
             </div>
-            <button className="button" onClick={() => console.log(changeFunction)}>Submit</button>
+            <button className="button" onClick={() => submitBlog()}>Submit</button>
         </div>
     )
 }
