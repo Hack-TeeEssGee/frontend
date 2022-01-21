@@ -53,8 +53,16 @@
   width: 60%;
   margin: 2rem auto;
 
+  @include smd {
+    width: 90%;
+  }
+
   .title {
     font-size: 4rem;
+
+    @include sm {
+      font-size: 3rem;
+    }
   }
 
   .header-area {
