@@ -21,6 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import { useEffect } from "react";
+import NewBlog from "./views/newBlog";
 
 SuperTokens.init({
   appInfo: {
@@ -58,6 +59,11 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
+          <Route path="/blog/new" element={
+            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
+              <NewBlog />
+            </SessionAuth>
+          } />
           <Route path="/student-profile" element={
             <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
               {/*Components that require to be protected by authentication*/}
