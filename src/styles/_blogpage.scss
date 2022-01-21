@@ -1,0 +1,80 @@
+.blog-page {
+  color: $text-secondary-color;
+  font-size: 1.4rem;
+  width: 100%;
+
+  .button {
+    margin: 1rem;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: $heading-color;
+    background-color: rgba($primary-color, 1);
+    color: $text-secondary-color;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .blog-list {
+    width: 70%;
+    margin: 5rem auto;
+
+    @include smd {
+      width: 90%;
+    }
+  }
+}
+
+.blog-list-card {
+  margin: 3rem 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(15deg, $login-black 20%, rgba($login-red, 0.2));
+  // background-color: $primary-color;
+  box-shadow: 4px 4px 10px rgba($color: $primary-color, $alpha: 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+
+  .blog-title {
+    font-size: 2rem;
+    padding: 0.5rem 0 1rem 0;
+    font-weight: 700;
+    color: $text-primary-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .blog-author,
+  .blog-date {
+    padding: 0.2rem 0;
+  }
+}
+
+.blog-render {
+  width: 60%;
+  margin: 2rem auto;
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .header-area {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem auto 5rem auto;
+
+    @include smd {
+      width: 90%;
+    }
+  }
+}
+
+.blog-page {
+  .blog-render {
+    pre {
+      padding: 1.2rem;
+      code {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
