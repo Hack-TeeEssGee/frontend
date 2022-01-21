@@ -40,10 +40,10 @@ const Navbar = (props) => {
       <div className="navbar-links">
         <a href="/">Home</a>
         <a href="/events">Events</a>
-        <a href="/">News Bulletin</a>
         <a href="/society-point">Societies</a>
         <a href="/student-profile">Student Point</a>
         <a href="/quickinfo">Quick Info</a>
+        <a href="/blog">Blog</a>
         <button className="button" onClick={buttonProperties.clickHandler}>{buttonProperties.text}</button>
       </div>
     </div>
