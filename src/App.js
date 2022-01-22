@@ -61,15 +61,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/student-profile" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
-              {/*Components that require to be protected by authentication*/}
-              <StudentProfile />
-            </SessionAuth>
+            <StudentProfile />
           } />
           <Route path="/events/certs" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=tsg` }}>
-              <OfficialEventCert />
-            </SessionAuth>
+            <OfficialEventCert />
           } />
           <Route path="/events" element={
             <SessionAuth>
