@@ -5,6 +5,7 @@ import axios from "axios";
 import { AUTH_URL } from "../../constants";
 import Session from "supertokens-auth-react/recipe/session";
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 Session.addAxiosInterceptors(axios);
 
@@ -14,6 +15,8 @@ const StudentLogin = () => {
     const [userPassword, setUserPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     const [code, setCode] = useState("");
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         const tempEmail = localStorage.getItem("studentEmail");
@@ -71,7 +74,7 @@ const StudentLogin = () => {
                     roll_no: response.data.roll_no,
                 }
                 localStorage.setItem("student_metadata", JSON.stringify(studentMetadata));
-                window.location.href = `${window.location.origin}`
+                navigate("/");
                 toast.success('Login successful');
             })
             .catch((err) => {

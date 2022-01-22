@@ -1,8 +1,8 @@
 import { signOut } from "supertokens-auth-react/recipe/session";
 
-async function onLogout () {
+async function onLogout (navigate) {
     await signOut();
-    window.location.href = "/";
+    navigate("/");
 }
 
 export default onLogout;

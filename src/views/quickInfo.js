@@ -1,10 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 const QuickInfo = () => {
+
+    let navigate = useNavigate();
 
     return (
 
         <div className="quick-info">
             <div className="nav-button-wrapper">
-                <button type="button" class="button" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
+                <button type="button" class="button" onClick={() => navigate("/")}>HOME</button>
             </div>
             <h1>QUICK INFO</h1>
             <div className="quick-info-button-wrapper">

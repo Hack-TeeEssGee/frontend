@@ -32,6 +32,10 @@
     font-size: 1.8rem;
     color: $text-primary-color;
     font-weight: 500;
+
+    @include sm {
+      font-size: 1.3rem;
+    }
   }
 
   &-btn {

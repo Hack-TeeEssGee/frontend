@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { UilCommentAltLines, UilScenery, UilEnvelopeAdd } from '@iconscout/react-unicons';
 import Dashboard from "../components/dashboard";
 import ContactCard from "../components/contactCard";
+import { useNavigate } from "react-router-dom";
+
 const AboutUs = () => {
 
     return (
@@ -85,6 +87,8 @@ const HallPage = () => {
 
     const [hall, setHall] = useState({});
 
+    let navigate = useNavigate();
+
     useEffect(() => {
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -146,7 +150,7 @@ const HallPage = () => {
             />
             <div className="container">
                 <div className="nav-button-wrapper">
-                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/hall-point`}>GO BACK</button>
+                    <button className="button" onClick={() => navigate("/hall-point")}>GO BACK</button>
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent
