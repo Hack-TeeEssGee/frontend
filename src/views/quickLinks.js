@@ -45,10 +45,10 @@ const genericCardData = [
 
 const QuickPLatformCard = (props) => {
     return (
-        <div className="quick-platform-card" style={{"background-color" : `${props.bgcolor}`}}>
-            <div className="icon"><props.icon size={75} /></div>
+        <div className="quick-platform-card" onClick={() => window.location.href=`${props.link}`}>
+            <div className="icon"><props.icon size={90} /></div>
             <div className="quick-platform-name">
-                <button onClick={() => window.location.href=`${props.link}`}>{ props.title }</button>
+                { props.title }
             </div>
         </div>
     )
