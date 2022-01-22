@@ -26,12 +26,12 @@ const SplashScreen = () => {
                 x : x,
                 y: y
             };
-            this.r =  Math.random()*5 + 2;
-            this.vx = (Math.random()-0.5)*20;
-            this.vy = (Math.random()-0.5)*20;
+            this.r =  Math.random() + 2;
+            this.vx = (Math.random()-0.3)*20;
+            this.vy = (Math.random()-0.3)*20;
             this.accX = 0;
             this.accY = 0;
-            this.friction = Math.random()*0.05 + 0.94;
+            this.friction = Math.random()*0.01 + 0.94;
 
             this.color = colors[Math.floor(Math.random()*6)];
         }
@@ -71,8 +71,10 @@ const SplashScreen = () => {
             wh = canvas.height = window.innerHeight;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.font = "bold "+(ww/10)+"px sans-serif";
+            if(window.innerWidth > 600)
+                ctx.font = "bold " + (ww / 8) + "px sans-serif";
+            else
+            ctx.font = "bold " + (ww / 6) + "px sans-serif";
             ctx.textAlign = "center";
             ctx.fillText("KGPverse", ww/2, wh/2);
 
@@ -81,8 +83,8 @@ const SplashScreen = () => {
             ctx.globalCompositeOperation = "screen";
 
             particles = [];
-            for(var i=0;i<ww;i+=Math.round(ww/150)){
-                for(var j=0;j<wh;j+=Math.round(ww/150)){
+            for(var i=0;i<ww;i+=Math.round(ww/200)){
+                for(var j=0;j<wh;j+=Math.round(ww/200)){
                 if(data[ ((i + j*ww)*4) + 3] > 150){
                     particles.push(new Particle(i,j));
                 }
