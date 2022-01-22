@@ -21,6 +21,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import { useEffect } from "react";
+import NewBlog from "./views/newBlog";
+import BlogPage from "./views/blogPage";
 
 SuperTokens.init({
   appInfo: {
@@ -58,6 +60,16 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
+          <Route path="/blog/new" element={
+            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
+              <NewBlog />
+            </SessionAuth>
+          } />
+          <Route path="/blog" element={
+            <SessionAuth>
+              <BlogPage />
+            </SessionAuth>
+          } />
           <Route path="/student-profile" element={
             <StudentProfile />
           } />
