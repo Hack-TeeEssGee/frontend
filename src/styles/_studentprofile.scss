@@ -23,6 +23,36 @@
       width: 100%;
       padding: 2rem;
 
+      input[type="file"] {
+        display: none;
+      }
+
+      .custom-file-upload {
+        border-radius: 10px;
+        border-style: solid;
+        border-color: $text-secondary-color;
+        background-color: rgba($primary-color, 1);
+        display: inline-block;
+        padding: 0.6rem 1.5rem;
+        height: 3.5rem;
+        transition: 0.5s border-color;
+        width: 50%;
+        margin: 1rem;
+        font-size: 1.4rem;
+        text-align: left;
+        @include sm {
+          font-size: 1.2rem;
+          width: 85%;
+        }
+    
+        &:hover,
+        &:active,
+        &:focus {
+          border-color: $heading-color;
+          outline: none;
+        }
+      }
+
       .add-button {
         border-radius: 10px;
         font-size: 1.4rem;
@@ -118,22 +148,25 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        flex-wrap: wrap;
-
-        .input-box {
-          padding: 0.4em 0.4em 0.4em 0.4rem;
-          width: 300px;
-          height: 60px;
-          margin: 70px;
-          margin-bottom: 40px;
-          @include md {
-            margin: 10px;
-            width: 40%;
-          }
+        align-items: center;
+        @include sm {
+          flex-direction: column;
+        }
+        // flex-wrap: wrap;
+        .type-label {
+          font-size: 1.5rem;
           @include sm {
-            margin: 10px;
+            font-size: 1rem;
+          }
+        }
+        .dropdown {
+          width: 25%;
+          @include sm {
             width: 100%;
             font-size: 1rem;
+          }
+          @include md {
+            width: 50%;
           }
         }
       }
