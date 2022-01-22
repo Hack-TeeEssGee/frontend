@@ -24,7 +24,7 @@ const quickCardData = [
 
 const genericCardData = [
     {
-        "title":"ERP",
+        "title" : "ERP",
         "icon": UilBookReader,
         "link": "http://erp.iitkgp.ac.in/",
         "bgcolor": "#AD8871"
@@ -45,8 +45,8 @@ const genericCardData = [
 
 const QuickPLatformCard = (props) => {
     return (
-        <div className="quick-platform-card">
-            <div className="icon"><props.icon size={40} /></div>
+        <div className="quick-platform-card" style={{"background-color" : `${props.bgcolor}`}}>
+            <div className="icon"><props.icon size={75} /></div>
             <div className="quick-platform-name">
                 <button onClick={() => window.location.href=`${props.link}`}>{ props.title }</button>
             </div>
@@ -79,6 +79,7 @@ const QuickLink = () => {
                 {
                     genericCardData.map((data, index) => {
                         return (<QuickPLatformCard 
+                            title={data.title}
                             icon={data.icon}
                             link={data.link}
                             bgcolor={data.bgcolor}/>
