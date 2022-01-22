@@ -5,18 +5,16 @@ import LoginPortal from "../components/landing/loginPortal";
 import Navbar from "../components/navbar";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import { useRef } from "react";
-import SplashScreen from "./splashScreen";
 
 const LandingPage = () => {
 
   const loginPortalRef = useRef(null);
   const eventRef = useRef(null);
 
-  const handleBackClick = () => eventRef.current.scrollIntoView({behavior: "smooth"});
+  const handleBackClick = () => eventRef.current.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div className="landing-page">
-      <SplashScreen />
       <SessionAuth requireAuth={false}>
         <Navbar loginPortalRef={loginPortalRef} />
       </SessionAuth>
@@ -32,7 +30,7 @@ const LandingPage = () => {
         <button className="button hero-btn" onClick={handleBackClick}>Learn More</button>
       </div>
 
-      <LandingEvents innerRef={eventRef}/>
+      <LandingEvents innerRef={eventRef} />
 
       <EventCalendar />
 

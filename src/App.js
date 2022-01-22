@@ -23,6 +23,7 @@ import Contacts from "./views/contacts";
 import { useEffect } from "react";
 import NewBlog from "./views/newBlog";
 import BlogPage from "./views/blogPage";
+import SplashScreen from "./views/splashScreen";
 
 SuperTokens.init({
   appInfo: {
@@ -44,8 +45,12 @@ function App() {
     });
   }, []);
 
+  console.log(window.location.href);
+  console.log(window.location.origin);
+
   return (
     <div>
+      {window.location.href === (window.location.origin + "/") && <SplashScreen />}
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
