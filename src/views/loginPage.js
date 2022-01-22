@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import OfficialLogin from "../components/login/official";
 import StudentLogin from "../components/login/student"
+import MyParticles from "../components/myParticles";
 
 const LoginPage = () => {
 
@@ -17,6 +18,7 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
+            <MyParticles />
             <div className="nav-button-wrapper">
                 <button className="button" onClick={() => navigate("/")}>HOME</button>
             </div>

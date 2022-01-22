@@ -22,7 +22,6 @@ import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import { useEffect } from "react";
 import SplashScreen from "./views/splashScreen";
-import MyParticles from "./components/myParticles";
 
 SuperTokens.init({
   appInfo: {
@@ -47,7 +46,6 @@ function App() {
   return (
     <div>
       <SplashScreen />
-      <MyParticles />
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
