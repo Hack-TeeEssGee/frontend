@@ -3,6 +3,7 @@ import Editor from "rich-markdown-editor";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import BlogListCard from "../components/blog/blogListCard";
 import myTheme from "../utils/markdownTheme";
+import { useNavigate } from "react-router-dom";
 
 const SampleBlogData = [
     {
@@ -32,6 +33,8 @@ const BlogPage = () => {
 
     let { doesSessionExist } = useSessionContext();
 
+    let navigate = useNavigate();
+
     const blogSelectHandler = (index) => {
         setSelectedBlogIndex(index);
         setListMode(false);
@@ -41,10 +44,10 @@ const BlogPage = () => {
         <div className="blog-page">
             <div className="nav-button-wrapper">
                 {listMode
-                    ? <button className="button" onClick={() => window.location.href = `${window.location.origin}`}>HOME</button>
+                    ? <button className="button" onClick={() => navigate("/")}>HOME</button>
                     : <button className="button" onClick={() => setListMode(true)}>GO BACK</button>
                 }
-                {doesSessionExist && <button className="button" onClick={() => window.location.href = `${window.location.origin}/blog/new`}>CREATE NEW</button>}
+                {doesSessionExist && <button className="button" onClick={() => navigate("/blog/new")}>CREATE NEW</button>}
             </div>
             {listMode && (
                 <>
