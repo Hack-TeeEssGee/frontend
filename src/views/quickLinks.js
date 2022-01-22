@@ -1,7 +1,7 @@
 import { UilBookReader, UilGraduationCap, UilUsersAlt } from '@iconscout/react-unicons';
 import QuickCard from "../components/quickCard";
 import tsgLogo from "../assets/tsg-logo.png";
-
+import { useNavigate } from "react-router-dom";
 
 const quickCardData = [ 
     {
@@ -56,10 +56,12 @@ const QuickPLatformCard = (props) => {
 
 const QuickLink = () => {
 
+    let navigate = useNavigate();
+
     return (
         <div className="quicklink">
             <div className="nav-button-wrapper">
-                <button type="button" class="button" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
+                <button type="button" class="button" onClick={() => navigate("/quickinfo")}>Go Back</button>
             </div>
             <div className="title">QUICK LINKS</div>
             <div className="quick-card-list">

@@ -1,7 +1,7 @@
 import { UilEnvelope, UilPhone, UilGlobe } from '@iconscout/react-unicons';
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
-
+import { useNavigate } from "react-router-dom";
 
 const sampleFacultyData = {
     "name": "Raghavendra Kaushik",
@@ -18,6 +18,8 @@ const Faculty = () => {
 
     const [contactList, setContactList] = useState({});
 
+    let navigate = useNavigate();
+
     useEffect(() => {
         setContactList(sampleFacultyData);
     }, [])
@@ -25,7 +27,7 @@ const Faculty = () => {
     return (
         <div className="faculty">
             <div className="nav-button-wrapper">
-                <button type="button" class="button" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
+                <button type="button" class="button" onClick={() => navigate("/quickinfo")}>Go Back</button>
             </div>
             <div className="faculty-img">
                 <img src={sampleFacultyData.photo} alt="Profile photo"/>
