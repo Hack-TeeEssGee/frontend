@@ -21,7 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import { useEffect } from "react";
-import SplashScreen from "./views/slashScreen";
+import SplashScreen from "./views/splashScreen";
 
 SuperTokens.init({
   appInfo: {
