@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import OfficialLogin from "../components/login/official";
 import StudentLogin from "../components/login/student"
 
 const LoginPage = () => {
 
-    const location = useLocation();
     const [role, setRole] = useState("");
+
+    const location = useLocation();
+    let navigate = useNavigate();
 
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
@@ -16,7 +18,7 @@ const LoginPage = () => {
     return (
         <div className="login-page">
             <div className="nav-button-wrapper">
-                <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>Go Back</button>
+                <button className="button" onClick={() => navigate("/")}>HOME</button>
             </div>
             {role === "student" ? <StudentLogin /> : <OfficialLogin role={role} />}
         </div>

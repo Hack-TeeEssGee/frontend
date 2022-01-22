@@ -4,6 +4,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 
 const OfficialEventCert = () => {
@@ -13,6 +14,8 @@ const OfficialEventCert = () => {
     const [email, setEmail] = useState("");
     const [position, setPosition] = useState("");
     const [certificate, setCertificate] = useState(null);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -59,7 +62,7 @@ const OfficialEventCert = () => {
 
     return (
         <div className="official-event-certificate">
-            <button className="button" onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
+            <button className="button" onClick={() => navigate("/events")}>GO BACK</button>
             <div className="title">TSG Event Certificates Uploader</div>
             <div className="wrapper">
                 <Dropdown

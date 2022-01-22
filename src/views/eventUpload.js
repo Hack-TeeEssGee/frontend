@@ -5,6 +5,7 @@ import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
 import { toast } from 'react-toastify';
 import { getSocietyID } from '../utils/society';
+import { useNavigate } from "react-router-dom";
 
 const EventUpload = () => {
 
@@ -18,6 +19,8 @@ const EventUpload = () => {
     const [poster, setPoster] = useState(null);
     const [category, setCategory] = useState({ label: categoryList[0], value: categoryList[0] });
     const [fileName, setFileName] = useState("No file selected");
+
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -90,7 +93,7 @@ const EventUpload = () => {
     return (
         <div className="event-upload-wrapper">
             <div className="nav-button-wrapper">
-                <button className='button' onClick={() => window.location.href = `${window.location.origin}/${organiser === "tsg" ? "events" : "society-point"}`}>GO BACK</button>
+                <button className='button' onClick={() => navigate(`/${organiser === "tsg" ? "events" : "society-point"}`)}>GO BACK</button>
             </div>
             <div className="event-upload">
                 <div className="title">{organiser === "tsg" ? "TSG" : "Society"} Events Uploader</div>

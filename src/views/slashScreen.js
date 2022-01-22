@@ -1,3 +1,5 @@
+// Reference : https://codepen.io/Mamboleoo/pen/obWGYr
+
 import { useEffect } from "react";
 
 const SplashScreen = () => {

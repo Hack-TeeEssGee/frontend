@@ -5,6 +5,7 @@ import axios from "axios";
 import { AUTH_URL } from "../../constants";
 import Session from "supertokens-auth-react/recipe/session";
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 Session.addAxiosInterceptors(axios);
 
@@ -15,6 +16,8 @@ const OfficialLogin = (props) => {
     const [rememberMe, setRememberMe] = useState(false);
 
     const role = props.role;
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         const tempEmail = localStorage.getItem("officialEmail");
@@ -46,7 +49,7 @@ const OfficialLogin = (props) => {
                 role: role
             })
                 .then((response) => {
-                    window.location.href=`${window.location.origin}`
+                    navigate("/");
                     toast.success('Login successful');
                 })
                 .catch((err) => {

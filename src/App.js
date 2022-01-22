@@ -21,6 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import { useEffect } from "react";
+import SplashScreen from "./views/slashScreen";
 
 SuperTokens.init({
   appInfo: {
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <div>
+      <SplashScreen />
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
