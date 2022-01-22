@@ -18,11 +18,11 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
-            <MyParticles />
             <div className="nav-button-wrapper">
                 <button className="button" onClick={() => navigate("/")}>HOME</button>
             </div>
             {role === "student" ? <StudentLogin /> : <OfficialLogin role={role} />}
+            <MyParticles />
         </div>
     )
 }

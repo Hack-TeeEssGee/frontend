@@ -1,7 +1,6 @@
 // Reference : https://codepen.io/Mamboleoo/pen/obWGYr
 
 import { useEffect } from "react";
-import MyParticles from "../components/myParticles";
 
 const SplashScreen = () => {
 
@@ -112,7 +111,6 @@ const SplashScreen = () => {
     return (
         <div className="splash-screen">
             <canvas id="splash"></canvas>
-            <MyParticles/>
         </div>
     )
 }
