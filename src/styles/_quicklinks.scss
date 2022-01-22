@@ -1,0 +1,44 @@
+.quicklink {
+    background-color: $primary-color;
+    min-height: 100vh;
+    margin: 0px;
+
+    .title {
+        padding-top: 2rem;
+    }
+    .quick-card-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        @include sm {
+            flex-direction: column;
+        }
+    }
+    .quick-platform-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .quick-platform-card {
+            background-color: #729881;
+            display: inline-block;
+            box-shadow: 4px 4px 25px rgba($color: #000000, $alpha: 0.4);
+            margin: 2rem;
+            vertical-align: top;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+            min-width: 18rem;
+            .icon {
+                align-self: center;
+            }
+            .quick-platform-name {
+                align-self: center;
+                button {
+                    background-color: #000000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

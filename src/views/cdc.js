@@ -1,5 +1,5 @@
 import Dashboard from "../components/dashboard";
-import { UilSetting } from '@iconscout/react-unicons';
+import { UilSetting, UilBookmark } from '@iconscout/react-unicons';
 import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
 
@@ -47,40 +47,25 @@ const Cdc = () => {
         listData: [
             {
                 option: "Placements 2021",
-                icon: UilSetting
+                icon: UilBookmark
             },
             {
                 option: "Internship 2021",
-                icon: UilSetting
+                icon: UilBookmark
             },
             {
                 option: "Placements 2020",
-                icon: UilSetting
+                icon: UilBookmark
             },
             {
                 option: "Internships 2020",
-                icon: UilSetting
+                icon: UilBookmark
             }
         ]
     }
 
     const [currentSelection, setCurrentSelection] = useState(dashboardListData.defaultSelection);
     const [currentWeekSelection, setCurrentWeekSelection] = useState(0);
-
-    var contactArray = [];
-
-    if (currentSelection === 0) {
-        console.log(contactList["Office Bearers"])
-        contactArray = contactList["Office Bearers"];
-    }
-    else if (currentSelection === 1) {
-        contactArray = contactList["Office Staff"];
-    }
-    else {
-        contactArray = contactList["Secretaries"];
-    }
-
-    if (contactArray === undefined) contactArray = [];
 
     return (
         <div className="cdc">

@@ -33,11 +33,11 @@
   }
   
 .timeline {
+    margin-top: 3rem;
     background-color: $primary-color;
     width: fit-content;
     max-height: 100vh;
     border-radius: 15px;
-
   
     .timeline-list {
       width: 100%;
@@ -67,6 +67,16 @@
         }
         div {
           padding-left: 2rem;
+        }
+      }
+    }
+    @include sm {
+      .timeline-list {
+        height: 10rem;
+        overflow-y: scroll;
+        flex-direction: column;
+        .timeline-option {
+          padding: 1rem;
         }
       }
     }

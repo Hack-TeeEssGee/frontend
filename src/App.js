@@ -22,6 +22,7 @@ import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import Cdc from "./views/cdc";
 import Faculty from "./views/faculty";
+import QuickLink from "./views/quickLinks";
 import { useEffect } from "react";
 
 SuperTokens.init({
@@ -91,6 +92,7 @@ function App() {
           <Route path="/hall-point" element={<HallPoint />} />
           <Route path="/cdc" element={<Cdc />} />
           <Route path="/faculty" element={<Faculty />} />
+          <Route path="/quicklinks" element={<QuickLink />} />
           <Route path="/quickinfo/contacts" element={<Contacts />} />
           <Route path="/quickinfo" element={<QuickInfo />} />
           <Route path="/login/" element={<LoginPage />} />
