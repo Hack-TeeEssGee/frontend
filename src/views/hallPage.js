@@ -4,27 +4,27 @@ import Dashboard from "../components/dashboard";
 import ContactCard from "../components/contactCard";
 import { useNavigate } from "react-router-dom";
 
-const AboutUs = () => {
+const AboutUs = (props) => {
 
     return (
         <div>
             <div className="about-us">
-                <h2>Founded on :</h2>
-                <h2>Capacity :</h2>
-                <h2>Sharing :</h2>
+                <h2>Founded on : {props.hall["Founded On"]}</h2>
+                <h2>Capacity : {props.hall["Capacity"]}</h2>
+                <h2>Sharing : {props.hall["Sharing"]}</h2>
             </div>
             <div className="about-us">
-                <h2>Motto :</h2>
-                <h2>Gender :</h2>
-                <h2>Website :</h2>
+                <h2>Motto : {props.hall["Motto"]}</h2>
+                <h2>Gender : {props.hall["Gender"]}</h2>
+                <h2>Website : {props.hall["Website"]}</h2>
             </div>
             <div className="about-us2">
-                <h2>About Us :</h2>
-                <p>adssafgsdg </p>
+                <h2>About Us : </h2>
+                <p>{props.hall["About Us"]}</p>
             </div>
             <div className="about-us2">
                 <h2>Infrastructure :</h2>
-                <p>adssafgsdg </p>
+                <p>{props.hall["Infrastructure"]}</p>
 
             </div>
         </div>
@@ -66,7 +66,7 @@ const PhotoGallery = () => {
 }
 
 
-const ContactUs = () => {
+const ContactUs = (props) => {
 
     return (
         <div>
@@ -154,7 +154,8 @@ const HallPage = () => {
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent
-                    mode={dashboardListData.listData[currentSelection].option}
+                    mode={dashboardListData.listData[currentSelection].option
+                    } hall={hall}
                 />
             </div>
 

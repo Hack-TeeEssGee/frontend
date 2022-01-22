@@ -1,4 +1,5 @@
 const HallCard = (props) => {
+    console.log(props)
 
     return (
         <div className="hall-card" onClick={() => props.clickHandler(props.index)}>
