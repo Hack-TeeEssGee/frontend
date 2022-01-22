@@ -9,6 +9,7 @@ import EventCard from "../components/eventCard";
 import TableComponent from "../components/table";
 import { toast } from "react-toastify";
 import BillStatusUpdater from "../components/billStatusUpdater";
+import { useNavigate } from "react-router-dom";
 
 const EventWrapper = (props) => {
 
@@ -253,6 +254,7 @@ const SocietyPage = () => {
     const [society, setSociety] = useState({});
 
     let { accessTokenPayload } = useSessionContext();
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -319,8 +321,8 @@ const SocietyPage = () => {
             />
             <div className="container">
                 <div className="nav-button-wrapper">
-                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/society-point`}>GO BACK</button>
-                    {accessTokenPayload.role === "society" && currentSelection !== 2 && <button className="button" onClick={() => window.location.href = `${window.location.origin}/events/upload?organiser=${society.name}`}>ADD EVENT</button>}
+                    <button className="button" onClick={() => navigate("/society-point")}>GO BACK</button>
+                    {accessTokenPayload.role === "society" && currentSelection !== 2 && <button className="button" onClick={() => navigate(`/events/upload?organiser=${society.name}`)}>ADD EVENT</button>}
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent

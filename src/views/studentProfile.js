@@ -11,6 +11,7 @@ import onLogout from "../utils/logout";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 const CertificateListWrapper = (props) => {
 
@@ -91,6 +92,8 @@ const GrievanceForm = () => {
 
 const StudentProfile = () => {
 
+    let navigate = useNavigate();
+
     const studentData = {
         name: "",
         email: ""
@@ -104,7 +107,7 @@ const StudentProfile = () => {
     } catch (err) {
 
         //notify user to login again
-        window.location.href = `${window.location.origin}`
+        navigate("/");
     }
 
     const dashboardHeaderData = {
@@ -162,7 +165,7 @@ const StudentProfile = () => {
     }
 
     return (
-        <SessionAuth requireAuth={true} redirectToLogin={() => window.location.href = `${window.location.origin}/login?role=student`}>
+        <SessionAuth requireAuth={true} redirectToLogin={() => navigate("/login?role=student")}>
             <div className="student-profile">
                 <Dashboard
                     headerData={dashboardHeaderData}
@@ -172,8 +175,8 @@ const StudentProfile = () => {
                 />
                 <div className="container">
                     <div className="nav-button-wrapper">
-                        <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
-                        <button className="button" onClick={() => onLogout()}>LOGOUT</button>
+                        <button className="button" onClick={() => navigate("/")}>HOME</button>
+                        <button className="button" onClick={() => onLogout(navigate)}>LOGOUT</button>
                     </div>
                     <div className="title">{title}</div>
                     <BodyContent

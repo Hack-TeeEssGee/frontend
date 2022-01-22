@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import HallCard from "../components/hallCard";
-
+import { useNavigate } from "react-router-dom";
 
 const HallPoint = () => {
 
+    let navigate = useNavigate();
 
     const hallList = [
         {
@@ -33,14 +34,13 @@ const HallPoint = () => {
 
     const hallCardClickHandler = (name) => {
 
-        console.log("hello")
-        window.location.href = `${window.location.origin}/hall-point/hall?index=${name}`;
+        navigate(`/hall-point/hall?index=${name}`);
     }
 
     return (
         <div className="hall-point">
             <div className="nav-button-wrapper">
-                <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+                <button className="button" onClick={() => navigate("/")}>HOME</button>
             </div>
             <div className="title">HALLS</div>
             <div className="hall-list">

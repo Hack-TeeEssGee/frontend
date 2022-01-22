@@ -1,0 +1,29 @@
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $primary-grey;
+  z-index: 150;
+  animation: splashDissolve 1s ease-in 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes splashDissolve {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+  }
+}

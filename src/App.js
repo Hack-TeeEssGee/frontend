@@ -21,6 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocietyPage from "./views/societyPage";
 import Contacts from "./views/contacts";
 import { useEffect } from "react";
+import SplashScreen from "./views/splashScreen";
 
 SuperTokens.init({
   appInfo: {
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <div>
+      <SplashScreen />
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
@@ -59,15 +61,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/student-profile" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
-              {/*Components that require to be protected by authentication*/}
-              <StudentProfile />
-            </SessionAuth>
+            <StudentProfile />
           } />
           <Route path="/events/certs" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=tsg` }}>
-              <OfficialEventCert />
-            </SessionAuth>
+            <OfficialEventCert />
           } />
           <Route path="/events" element={
             <SessionAuth>
