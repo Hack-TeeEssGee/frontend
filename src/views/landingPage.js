@@ -5,6 +5,7 @@ import LoginPortal from "../components/landing/loginPortal";
 import Navbar from "../components/navbar";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import { useRef } from "react";
+import SplashScreen from "./splashScreen";
 
 const LandingPage = () => {
 
@@ -15,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-
+      <SplashScreen />
       <SessionAuth requireAuth={false}>
         <Navbar loginPortalRef={loginPortalRef} />
       </SessionAuth>
