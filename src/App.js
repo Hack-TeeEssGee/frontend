@@ -24,6 +24,9 @@ import Cdc from "./views/cdc";
 import Faculty from "./views/faculty";
 import QuickLink from "./views/quickLinks";
 import { useEffect } from "react";
+import NewBlog from "./views/newBlog";
+import BlogPage from "./views/blogPage";
+import SplashScreen from "./views/splashScreen";
 
 SuperTokens.init({
   appInfo: {
@@ -45,8 +48,12 @@ function App() {
     });
   }, []);
 
+  console.log(window.location.href);
+  console.log(window.location.origin);
+
   return (
     <div>
+      {window.location.href === (window.location.origin + "/") && <SplashScreen />}
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
@@ -61,16 +68,21 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
-          <Route path="/student-profile" element={
+          <Route path="/blog/new" element={
             <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
-              {/*Components that require to be protected by authentication*/}
-              <StudentProfile />
+              <NewBlog />
             </SessionAuth>
           } />
-          <Route path="/events/certs" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=tsg` }}>
-              <OfficialEventCert />
+          <Route path="/blog" element={
+            <SessionAuth>
+              <BlogPage />
             </SessionAuth>
+          } />
+          <Route path="/student-profile" element={
+            <StudentProfile />
+          } />
+          <Route path="/events/certs" element={
+            <OfficialEventCert />
           } />
           <Route path="/events" element={
             <SessionAuth>

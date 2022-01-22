@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import SocietyCard from "../components/societyCard";
 import { BACKEND_URL } from '../constants';
+import { useNavigate } from "react-router-dom";
 
 const SocietyPoint = () => {
 
     const [societyList, setSocietyList] = useState([]);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -23,15 +26,13 @@ const SocietyPoint = () => {
     localStorage.setItem("societyList", JSON.stringify(societyList));
 
     const societyCardClickHandler = (name) => {
-
-        console.log("hello")
-        window.location.href = `${window.location.origin}/society-point/society?index=${name}`;
+        navigate(`/society-point/society?index=${name}`);
     }
 
     return (
         <div className="society-point">
             <div className="nav-button-wrapper">
-                <button className="button" onClick={() => window.location.href = `${window.location.origin}/`}>HOME</button>
+                <button className="button" onClick={() => navigate("/")}>HOME</button>
             </div>
             <div className="title">SOCIETIES</div>
             <div className="society-list">

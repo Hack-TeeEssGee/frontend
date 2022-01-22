@@ -1,8 +1,9 @@
 import Dashboard from "../components/dashboard";
 import ContactCard from "../components/contactCard";
-import { UilGameStructure, UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
+import { UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
 import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const sampleContactData = {
     "Office Bearers": [
@@ -57,6 +58,8 @@ const ContactsWrapper = (props) => {
 const Contacts = () => {
 
     const [contactList, setContactList] = useState({});
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         setContactList(sampleContactData);
@@ -114,10 +117,8 @@ const Contacts = () => {
                 changeSelection={setCurrentSelection}
             />
             <div className="container">
-                <div className="button-wrapper">
-                    <div className="nav-button-wrapper">
-                        <button className="button" onClick={() => window.location.href = `${window.location.origin}/quickinfo`}>GO BACK</button>
-                    </div>
+                <div className="nav-button-wrapper">
+                    <button className="button" onClick={() => navigate("/quick-info")}>GO BACK</button>
                 </div>
                 <div className="title">CONTACTS</div>
                 <ContactsWrapper

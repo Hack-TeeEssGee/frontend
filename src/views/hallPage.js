@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { UilCommentAltLines, UilScenery, UilBill, UilEnvelopeAdd, UilFacebookF, UilPhone, UilEnvelope } from '@iconscout/react-unicons';
+import { UilCommentAltLines, UilScenery, UilEnvelopeAdd } from '@iconscout/react-unicons';
 import Dashboard from "../components/dashboard";
-import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import ContactCard from "../components/contactCard";
+import { useNavigate } from "react-router-dom";
+
 const AboutUs = (props) => {
 
     return (
@@ -69,24 +70,12 @@ const ContactUs = (props) => {
 
     return (
         <div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
-            <div className="contact">
-                <ContactCard name="John" position="Warden" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
-            </div>
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
+            <ContactCard name="John" position="Warden" photo="https://i.imgur.com/saBEwCK.jpg" phone="123-456-7890" email="asdfsdfds" fb="aadsd" insta="asdasd" linkedin="asdasd" />
 
         </div >
 
@@ -98,7 +87,7 @@ const HallPage = () => {
 
     const [hall, setHall] = useState({});
 
-    let { accessTokenPayload } = useSessionContext();
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -134,7 +123,6 @@ const HallPage = () => {
         ]
     }
 
-
     const [currentSelection, setCurrentSelection] = useState(dashboardListData.defaultSelection);
 
     var title, BodyContent;
@@ -162,7 +150,7 @@ const HallPage = () => {
             />
             <div className="container">
                 <div className="nav-button-wrapper">
-                    <button className="button" onClick={() => window.location.href = `${window.location.origin}/hall-point`}>GO BACK</button>
+                    <button className="button" onClick={() => navigate("/hall-point")}>GO BACK</button>
                 </div>
                 <div className="title">{title}</div>
                 <BodyContent
