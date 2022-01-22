@@ -3,25 +3,69 @@ import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
-const sampleFacultyData = {
+const sampleFacultyData = [{
     "name": "Raghavendra Kaushik",
     "position": "President, TSG",
     "photo": "https://i.imgur.com/saBEwCK.jpg",
-    "dept" : "Department of Computer Science and Engineering",
-    "research-area" : "Networking",
+    "dept": "Department of Computer Science and Engineering",
+    "research-area": "Networking",
     "email": "cghosh828049@gmail.com",
     "phone": "+918018212895",
-    "website" : "http://google.com"
+    "website": "http://google.com"
+},{
+    "name": "Raghavendra Kaushik",
+    "position": "President, TSG",
+    "photo": "https://i.imgur.com/saBEwCK.jpg",
+    "dept": "Department of Computer Science and Engineering",
+    "research-area": "Networking",
+    "email": "cghosh828049@gmail.com",
+    "phone": "+918018212895",
+    "website": "http://google.com"
+}, {
+    "name": "Raghavendra Kaushik",
+    "position": "President, TSG",
+    "photo": "https://i.imgur.com/saBEwCK.jpg",
+    "dept": "Department of Computer Science and Engineering",
+    "research-area": "Networking",
+    "email": "cghosh828049@gmail.com",
+    "phone": "+918018212895",
+    "website": "http://google.com"
+}];
+
+const FacultyCard = (props) => {
+
+    return (
+        <div className='faculty-card'>
+            <div className='faculty-personal'>
+                <div className="faculty-img">
+                    <img src={props.photo} alt="Profile photo"/>
+                </div>
+                <div className="faculty-name">
+                    {props.name}
+                </div>
+            </div>
+            <div className="faculty-details-wrapper">
+                <div className="faculty-details">{props.position}</div>
+                <div className="faculty-details">{props.dept}</div>
+                <div className="faculty-details">Research Area: {props["research-area"]}</div>
+            </div>
+            <div className="faculty-handle">
+                <button onClick={() => window.location.href=`mailto:${props.email}`}><UilEnvelope color="purple" size={40} /></button>
+                <button onClick={() =>  {navigator.clipboard.writeText(`${props.phone}`); toast.success('Phone number copied to clipboard'); }} ><UilPhone size={40} color="orangered" /></button>
+                <button onClick={() => window.location.href=`${props.website}`} ><UilGlobe size={40} color="grey" /></button>
+            </div>
+        </div>
+    )
 }
 
 const Faculty = () => {
 
-    const [contactList, setContactList] = useState({});
+    const [facultyList, setFacultyList] = useState([]);
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        setContactList(sampleFacultyData);
+        setFacultyList(sampleFacultyData);
     }, [])
 
     return (
@@ -29,22 +73,9 @@ const Faculty = () => {
             <div className="nav-button-wrapper">
                 <button type="button" class="button" onClick={() => navigate("/quickinfo")}>Go Back</button>
             </div>
-            <div className="faculty-img">
-                <img src={sampleFacultyData.photo} alt="Profile photo"/>
-            </div>
-            <div className="faculty-name">
-                {sampleFacultyData.name}
-            </div>
-            <div className="faculty-details">
-                <div className="faculty-details-wrapper">{sampleFacultyData.position}</div>
-                <div className="faculty-details-wrapper">{sampleFacultyData.dept}</div>
-                <div className="faculty-details-wrapper">Research Area: {sampleFacultyData["research-area"]}</div>
-            </div>
-            <div className="faculty-handle">
-                <button onClick={() => window.location.href=`mailto:${sampleFacultyData.email}`}><UilEnvelope color="purple" size={40} /></button>
-                <button onClick={() =>  {navigator.clipboard.writeText(`${sampleFacultyData.phone}`); toast.success('Phone number copied to clipboard'); }} color="orangered"><UilPhone size={40} /></button>
-                <button onClick={() => window.location.href=`${sampleFacultyData.website}`} color="lightblue"><UilGlobe size={40} /></button>
-            </div>
+            {facultyList.map((faculty) => {
+                return(<FacultyCard {...faculty} />)
+            })}
         </div >
     )
 }

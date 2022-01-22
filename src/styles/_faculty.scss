@@ -1,37 +1,95 @@
 .faculty {
-    background-color: $primary-color;
-    min-height: 100vh;
-    padding-top: 10rem;
-    display: flex;
+  background-color: $primary-grey;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faculty-card {
+  background-color: $primary-color;
+  width: 80%;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 4px 4px 25px rgba($color: #000000, $alpha: 0.4);
+
+  &:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+
+  @include smd {
     flex-direction: column;
-    align-items: center;
+    &:nth-child(odd) {
+      flex-direction: column;
+    }
+  }
 }
+
+.faculty-personal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include smd {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
 .faculty-img {
-    img {
-        border-radius: 50%;
-        height: 200px;
-    }
+  img {
+    border-radius: 50%;
+    height: 10rem;
+  }
 }
+
 .faculty-name {
-    margin-top: 20px;
-    font-size: 1.8rem;
-    font-weight: 600;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-left: 1rem;
+  color: $text-secondary-color;
+
+  @include sm {
+    font-size: 1.5rem;
+    transform: translateY(-25%);
+  }
 }
-.faculty-details {
-    text-align: center;
-    font-size: 1.2rem;
-    color: $login-page-texts;
-    font-weight: 700;
-    .faculty-details-wrapper {
-        margin: 10px;
+
+.faculty-details-wrapper {
+  font-size: 1.5rem;
+  color: $text-secondary-color;
+  margin: 1rem 0;
+
+  .faculty-details {
+    margin: 1rem;
+
+    @include sm {
+      font-size: 1.2rem;
+      text-align: center;
     }
+  }
 }
+
 .faculty-handle {
-    button {
-        padding: 0;
-        border: none;
-        background: none;
-        margin: 10px;
-        cursor: pointer;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include smd {
+    flex-direction: row;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+    margin: 10px;
+    cursor: pointer;
+  }
 }
