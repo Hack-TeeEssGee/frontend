@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Calendar from "react-calendar";
+import { BACKEND_URL } from "../../constants";
 
 const EventCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -7,14 +9,20 @@ const EventCalendar = () => {
 
   useEffect(() => {
 
-    //get events list from backend according to date.
+    const eventArray = [];
 
-    //DEMO data
-    setEventsOfDay([
-      "TSG Website Hackathon",
-      "Convocation Ceremony 2021"
-    ])
-  }, []);
+    //get events list from backend according to date.
+    axios.post(`${BACKEND_URL}/event/today`, { date: selectedDate.toISOString() })
+      .then((response) => {
+        response.data.events.map((event) => {
+          eventArray.push(event.name);
+          return event; //not required. added to suppress warning.
+        })
+        setEventsOfDay(eventArray);
+      })
+      .catch((err) => console.log(err));
+    
+  }, [selectedDate]);
 
   return (
     <div className="event-calendar">

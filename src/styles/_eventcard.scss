@@ -1,0 +1,64 @@
+.event-wrapper {
+  width: 90%;
+
+  @include sm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.event-card {
+  background: linear-gradient(30deg, $login-black 30%, $login-red);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 4px 25px rgba($color: $primary-color, $alpha: 0.4);
+  margin: 2rem;
+  vertical-align: top;
+  border-radius: 10px;
+  overflow: hidden;
+
+  img {
+    width: 23rem;
+    padding: 1rem;
+    border-radius: 30px;
+    opacity: 0.9;
+
+    @include sm {
+      width: 20rem;
+    }
+  }
+
+  .event-title {
+    width: 24rem;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+    color: $text-primary-color;
+
+    @include sm {
+      width: 19rem;
+    }
+  }
+
+  .event-date-wrapper {
+    margin: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    color: $text-secondary-color;
+    font-size: 1.1rem;
+  }
+
+  .event-link {
+    display: block;
+    color: $heading-color;
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}

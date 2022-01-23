@@ -1,0 +1,46 @@
+.hall-point {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
+
+  .title {
+    font-size: 3.5rem;
+
+    @include sm {
+      margin-top: 3rem;
+    }
+  }
+}
+
+.hall-card {
+  display: inline-block;
+  margin: 2rem 3rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(30deg, $login-black 30%, $login-red);
+  box-shadow: 4px 4px 20px rgba($color: $primary-color, $alpha: 0.1);
+
+  img {
+    width: 23rem;
+    padding: 1rem;
+    border-radius: 30px;
+    opacity: 0.9;
+
+    @include sm {
+      width: 100%;
+    }
+  }
+
+  .hall-title {
+    max-width: 23rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $text-secondary-color;
+  }
+}

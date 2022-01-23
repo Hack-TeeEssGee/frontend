@@ -1,5 +1,6 @@
 .dashboard {
   background-color: $primary-color;
+  color: $text-primary-color;
   width: 35rem;
   min-height: 100vh;
   max-height: 100vh;
@@ -9,12 +10,16 @@
   flex-direction: column;
   justify-content: space-between;
 
+  position: fixed;
+  z-index: 100;
+
   &[isopen="false"] {
     width: fit-content;
 
     .dashboard-header {
       div,
-      svg {
+      svg,
+      img {
         display: none;
       }
     }
@@ -45,8 +50,13 @@
     }
 
     .subtitle {
-      color: $text-primary-color;
+      color: $text-secondary-color;
       font-size: 1.2rem;
+    }
+
+    img {
+      width: 15rem;
+      border-radius: 10px;
     }
   }
 
@@ -77,7 +87,7 @@
   .special {
     .dashboard-option {
       padding: 1rem 10%;
-      border-top: 1px solid #eee;
+      border-top: 1px solid $primary-grey;
     }
   }
 }

@@ -4,6 +4,8 @@ import verifyEmail from "../../utils/verifyEmail";
 import axios from "axios";
 import { AUTH_URL } from "../../constants";
 import Session from "supertokens-auth-react/recipe/session";
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 Session.addAxiosInterceptors(axios);
 
@@ -13,6 +15,8 @@ const StudentLogin = () => {
     const [userPassword, setUserPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     const [code, setCode] = useState("");
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         const tempEmail = localStorage.getItem("studentEmail");
@@ -39,12 +43,18 @@ const StudentLogin = () => {
             
             //send OTP to mail.
             axios.post(`${AUTH_URL}/otp`, { email: userEmail })
-                .then((response) => setCode(response.data.Details))
-                .catch((err) => console.log(err));
+                .then((response) =>  {
+                    setCode(response.data.Details);
+                    toast.success('OTP sent');
+                    })
+                .catch((err) => { 
+                    console.log(err);
+                    toast.error('Please try again');
+                });
         }
         else {
-
             //invalid email. notify user.
+            toast.error('Please check your e-mail');
         }
     }
 
@@ -64,9 +74,13 @@ const StudentLogin = () => {
                     roll_no: response.data.roll_no,
                 }
                 localStorage.setItem("student_metadata", JSON.stringify(studentMetadata));
-                window.location.href = `${window.location.origin}`
+                navigate("/");
+                toast.success('Login successful');
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                toast.error('Login error');
+            });
     }
 
     return (
@@ -80,17 +94,18 @@ const StudentLogin = () => {
             </div>
             <input type="email" value={userEmail} onChange={(e) => {emailChangeHandler(e.target.value)}} className="enter-box">
             </input> 
-            <button className="signin-button" onClick={() => sendOTP()}>Get OTP</button>
+            <div className="remember-hoola-hoo">
+                <button className="button signin-button" onClick={() => sendOTP()}>Get OTP</button>
+                <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
+                <label className="checkbox-label" htmlFor="studentRememberMe">Remember Me</label>
+            </div>
+            <br/><br/>
             <div className="invisible">
                 Enter OTP sent to Institute Mail ID
             </div>
-            <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
+            <input type="text" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
             </input>
-            <div className="remember-hoola-hoo">
-            <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="studentRememberMe" className="remember-hoola-hoo" />
-            <label className="checkbox-label" htmlFor="studentRememberMe">Remember Me</label>
-            </div>
-            <button className="signin-button" onClick={() => verifyUser()} >Sign In</button>
+            <button className="button signin-button" onClick={() => verifyUser()} >Sign In</button>
         </div>
         <div className="student-login-pic">
             <img src={StudentPic} alt="student"></img>

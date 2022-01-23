@@ -15,7 +15,7 @@ const Logbar = () => {
       </div>
 
       <div className="logbar-links">
-        <button onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
+        <button className="button" onClick={() => window.location.href=`${window.location.origin}/`}>Go Back</button>
       </div>
     </div>
   );

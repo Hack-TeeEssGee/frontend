@@ -1,5 +1,11 @@
 .student-profile {
-  background-color: #eee;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
+  color: $text-secondary-color;
   display: flex;
   overflow: hidden;
 
@@ -7,36 +13,15 @@
     max-height: 100vh;
     overflow-y: scroll;
     width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    button {
-      align-self: flex-end;
-      margin: 1.5rem 2rem 0 0;
-
-      @include sm {
-        font-size: 1rem;
-        padding: 0.6rem 0.8rem;
-      }
-    }
 
     .certificate-list-wrapper,
     .certificate-uploader,
     .grievance-form {
       width: 100%;
       padding: 2rem;
-
-      .add-button {
-        border-radius: 10px;
-        font-size: 1.4rem;
-        width: 10rem;
-        align-self: center;
-        background-color: #f58840;
-        font-weight: bold;
-        margin: 0;
-      }
     }
 
     .certificate {
@@ -44,10 +29,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      background-color: #fff;
+      background-color: $primary-white;
       min-height: 25rem;
-      margin: 3rem;
-      box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+      margin: 0 3rem;
+      background: linear-gradient(30deg, $login-black 30%, $login-red);
+      box-shadow: 4px 4px 20px rgba($color: $primary-color, $alpha: 0.2);
+      border-radius: 10px;
 
       @include smd {
         margin: 1rem 0;
@@ -59,7 +46,9 @@
       }
 
       img {
-        width: 25rem;
+        width: 23rem;
+        padding: 1rem;
+        border-radius: 20px;
 
         @include sm {
           width: 70vw;
@@ -68,7 +57,9 @@
 
       .event-name {
         font-size: 1.5rem;
+        padding: 1rem;
         font-weight: 600;
+        color: $text-primary-color;
 
         @include sm {
           font-size: 1.2rem;
@@ -77,6 +68,8 @@
 
       .event-position {
         font-size: 1.3rem;
+        padding: 0.5rem;
+        color: $text-secondary-color;
 
         @include sm {
           font-size: 1rem;
@@ -84,7 +77,9 @@
       }
 
       .download-cert {
-        background-color: rgba($login-orange, 0.3);
+        background-color: transparent;
+        color: $heading-color;
+        box-shadow: none;
         width: 100%;
         margin: 0;
         border-radius: 0;
@@ -101,34 +96,46 @@
     .grievance-form {
       input,
       textarea {
-        background-color: $primary-grey;
+        background-color: transparent;
         border-radius: 10px;
         border-style: solid;
         border-width: 3px;
-        border-color: #f58840;
+        border-color: $text-secondary-color;
         font-size: 1.4rem;
+        color: $text-secondary-color;
+
+        &:hover,
+        &:active,
+        &:focus {
+          border-color: $heading-color;
+          outline: none;
+        }
       }
 
       .grievance-name {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        flex-wrap: wrap;
+        align-items: center;
 
-        .input-box {
-          padding: 0.4em 0.4em 0.4em 0.4rem;
-          width: 300px;
-          height: 60px;
-          margin: 70px;
-          margin-bottom: 40px;
-          @include md {
-            margin: 10px;
-            width: 40%;
-          }
+        @include sm {
+          flex-direction: column;
+        }
+
+        .type-label {
+          font-size: 1.5rem;
+        }
+
+        .dropdown {
+          width: 25%;
+          
           @include sm {
-            margin: 10px;
             width: 100%;
             font-size: 1rem;
+          }
+
+          @include md {
+            width: 50%;
           }
         }
       }
@@ -137,22 +144,31 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 50rem;
+        margin: 0 auto;
+
+        @include sm {
+          width: 100%;
+        }
+
+        .label {
+          font-size: 1.6rem;
+        }
 
         .grievance-box {
-          padding: 0.4em 0.4em 0.4em 0.4rem;
-          max-width: 100%;
-          margin-bottom: 40px;
+          padding: 0.6rem;
+          width: 95%;
+          margin: 2rem 0;
+          background-color: $primary-color;
+          font-family: "Karla", sans-serif;
+
+          &::placeholder {
+            font-family: "Karla", sans-serif;
+          }
+
           @include sm {
             font-size: 1rem;
           }
-        }
-        .add-button {
-          border-radius: 10px;
-          width: 150px;
-          align-self: center;
-          background-color: #f58840;
-          font-weight: bold;
-          margin: 0;
         }
       }
     }
@@ -160,69 +176,16 @@
     .certificate-uploader {
       text-align: center;
       border-radius: 10px;
-      width: 40rem;
+      width: 50rem;
       padding: 2rem;
-      background-color: rgba($login-orange, 0.3);
       margin: 2rem 1rem;
 
       @include md {
-        width: 30rem;
+        width: 35rem;
       }
 
       @include sm {
         width: 90%;
-      }
-
-      .type-1 {
-        border-radius: 10px;
-        border: 4px solid rgba($login-orange, 0.6);
-        transition: 0.5s border-color;
-        width: 90%;
-        margin: 1rem;
-        height: 3.5rem;
-        outline: none;
-        padding: 1rem 1.5rem;
-        background-color: transparent;
-        font-size: 1.4rem;
-
-        @include sm {
-          font-size: 1.2rem;
-        }
-
-        &:hover {
-          border: 4px solid $login-orange;
-          outline: none;
-        }
-      }
-
-      input[type="file"] {
-        display: none;
-      }
-
-      .custom-file-upload {
-        border: 4px solid rgba($login-orange, 0.6);
-        display: inline-block;
-        padding: 0.6rem 1.5rem;
-        height: 3.5rem;
-        border-radius: 10px;
-        transition: 0.5s border-color;
-        width: 90%;
-        margin: 1rem;
-        font-size: 1.4rem;
-        color: #666;
-        text-align: left;
-
-        @include sm {
-          font-size: 1.2rem;
-        }
-
-        &:hover {
-          border: 4px solid $login-orange;
-        }
-      }
-
-      .add-button {
-        margin: 1rem;
       }
     }
   }

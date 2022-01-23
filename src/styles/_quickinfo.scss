@@ -1,7 +1,12 @@
 .quick-info {
-  background-color: $primary-color;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
+  width: 100%;
   min-height: 100vh;
-  padding-bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,26 +21,24 @@ button {
 }
 
 .block {
-  display: block;
-  width: 90%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25rem;
+  min-height: 20rem;
   border: none;
-  background-color: #333;
-  margin: 1.2rem;
-  padding: 1rem 1.5rem;
-  font-size: 1.8rem;
+  background: linear-gradient(30deg, $login-black 30%, $login-red);
+  margin: 1.5rem 2rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  vertical-align: top;
   cursor: pointer;
   text-align: center;
-  color: #eee;
+  color: $text-secondary-color;
   border-radius: 20px;
   font-weight: 600;
 
   @include sm {
     font-size: 1.5rem;
   }
-}
-
-.return-btn {
-  align-self: flex-end;
-  font-weight: bold;
-  margin: 2rem 2.5rem;
 }

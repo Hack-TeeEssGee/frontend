@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import Logbar from "../components/logbar";
+import { useLocation, useNavigate } from "react-router-dom";
 import OfficialLogin from "../components/login/official";
 import StudentLogin from "../components/login/student"
+import MyParticles from "../components/myParticles";
 
 const LoginPage = () => {
 
-    const location = useLocation();
     const [role, setRole] = useState("");
+
+    const location = useLocation();
+    let navigate = useNavigate();
 
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
@@ -16,8 +18,11 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
-            <Logbar />
+            <div className="nav-button-wrapper">
+                <button className="button" onClick={() => navigate("/")}>HOME</button>
+            </div>
             {role === "student" ? <StudentLogin /> : <OfficialLogin role={role} />}
+            <MyParticles />
         </div>
     )
 }

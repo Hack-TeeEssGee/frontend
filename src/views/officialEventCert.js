@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { BACKEND_URL } from '../constants';
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import { SessionAuth } from 'supertokens-auth-react/recipe/session';
+
 
 const OfficialEventCert = () => {
 
@@ -11,6 +15,8 @@ const OfficialEventCert = () => {
     const [email, setEmail] = useState("");
     const [position, setPosition] = useState("");
     const [certificate, setCertificate] = useState(null);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -45,36 +51,45 @@ const OfficialEventCert = () => {
                 'content-type': 'multipart/form-data'
             }
         })
-            .then(res => { console.log(res) })
-            .catch (err=> { console.log(err) });
+            .then(res => { 
+                console.log(res);
+                toast.success('Certificate upload successful');
+            })
+            .catch (err=> { 
+                console.log(err);
+                toast.error('Upload error');
+            });
     }
 
     return (
-        <div className="official-event-certificate">
-            <button onClick={() => window.location.href = `${window.location.origin}/events`}>GO BACK</button>
-            <div className="title">TSG Event Certificates Uploader</div>
-            <div className="wrapper">
-                <Dropdown
-                    options={eventList}
-                    value={eventList[0]}
-                    placeholder="Select an event"
-                    onChange={setEvent}
-                    className="dropdown"
-                    controlClassName="dropdown-control"
-                    placeholderClassName="dropdown-placeholder"
-                    arrowClassName="dropdown-arrow"
-                />
-                <input type="text" className="type-1" placeholder="Enter email of Student" onChange={(e) => {setEmail(e.target.value)}} >
-                </input>
-                <input type="text" className="type-1" placeholder="Enter Position" onChange={(e) => {setPosition(e.target.value)}} >
-                </input>
-                <label htmlFor="file-upload" className="custom-file-upload">
-                    &#8613; &nbsp; Upload Certificate File
-                </label>
-                <input id="file-upload" type="file" accept="image/png, image/jpeg" onChange={(e) => {setCertificate(e.target.files[0])}} />
-                <button className="add-button" onClick={() => {handleSubmit()}}>Add +</button>
+        <SessionAuth requireAuth={true} redirectToLogin={() => { navigate("/login?role=tsg") }}>
+            <div className="official-event-certificate">
+                <button className="button" onClick={() => navigate("/events")}>GO BACK</button>
+                <div className="title">TSG Event Certificates Uploader</div>
+                <div className="wrapper">
+                    <Dropdown
+                        options={eventList}
+                        value={eventList[0]}
+                        placeholder="Select an event"
+                        onChange={setEvent}
+                        className="dropdown"
+                        controlClassName="dropdown-control"
+                        placeholderClassName="dropdown-placeholder"
+                        arrowClassName="dropdown-arrow"
+                        menuClassName="dropdown-menu"
+                    />
+                    <input type="text" className="type-1" placeholder="Enter email of Student" onChange={(e) => {setEmail(e.target.value)}} >
+                    </input>
+                    <input type="text" className="type-1" placeholder="Enter Position" onChange={(e) => {setPosition(e.target.value)}} >
+                    </input>
+                    <label htmlFor="file-upload" className="custom-file-upload">
+                        &#8613; &nbsp; Upload Certificate File
+                    </label>
+                    <input id="file-upload" type="file" accept="image/png, image/jpeg" onChange={(e) => {setCertificate(e.target.files[0])}} />
+                    <button className="button add-button" onClick={() => {handleSubmit()}}>Add +</button>
+                </div>
             </div>
-        </div>
+        </SessionAuth>
     )
 }
 

@@ -1,3 +1,43 @@
 .society-point {
-  background-color: $primary-color;
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba($primary-grey, 0.85),
+      rgba($primary-grey, 0.85)
+    ),
+    url("../assets/gymk.jpeg");
+  background-size: cover;
+  padding: 2rem;
+
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+.society-card {
+  display: inline-block;
+  margin: 2rem 3rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(30deg, $login-black 30%, $login-red);
+  box-shadow: 4px 4px 20px rgba($color: $primary-color, $alpha: 0.2);
+
+  img {
+    width: 23rem;
+    padding: 1rem;
+    border-radius: 30px;
+    opacity: 0.9;
+
+    @include sm {
+      width: 100%;
+    }
+  }
+
+  .society-title {
+    color: $text-secondary-color;
+    max-width: 23rem;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
 }

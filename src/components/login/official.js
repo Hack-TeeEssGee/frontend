@@ -4,6 +4,8 @@ import verifyEmail from "../../utils/verifyEmail";
 import axios from "axios";
 import { AUTH_URL } from "../../constants";
 import Session from "supertokens-auth-react/recipe/session";
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 Session.addAxiosInterceptors(axios);
 
@@ -14,6 +16,8 @@ const OfficialLogin = (props) => {
     const [rememberMe, setRememberMe] = useState(false);
 
     const role = props.role;
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         const tempEmail = localStorage.getItem("officialEmail");
@@ -44,12 +48,19 @@ const OfficialLogin = (props) => {
                 password: userPassword,
                 role: role
             })
-                .then((response) => window.location.href=`${window.location.origin}`)
-                .catch((err) => console.log(err));
+                .then((response) => {
+                    navigate("/");
+                    toast.success('Login successful');
+                })
+                .catch((err) => {
+                    console.log(err);
+                    toast.error('Login error');
+                });
         }
         else {
 
             //invalid email. notify user
+            toast.error('Please check your e-mail');
         }
 
         
@@ -66,16 +77,17 @@ const OfficialLogin = (props) => {
             </div>
             <input type="email" value={userEmail} onChange={(e) => {emailChangeHandler(e.target.value)}} className="enter-box">
             </input> 
+            <br/><br/>
             <div className="invisible">
                 Enter your Password
             </div>
             <input type="password" value={userPassword} onChange={(e) => {setUserPassword(e.target.value)}} className="enter-box">
             </input>
-            <div className="remember-hoola-hoo">
+                <div className="remember-hoola-hoo">
+                <button className="button signin-button" onClick={() => verifyUser()}>Sign In</button>
                 <input type="checkbox" checked={rememberMe} onChange={() => rememberMeChangeHandler()} id="officialRememberMe" className="remember-hoola-hoo" />
                 <label className="checkbox-label" htmlFor="officialRememberMe">Remember Me</label>
             </div>
-            <button className="signin-button" onClick={() => verifyUser()}>Sign In</button>
         </div>
         <div className="official-login-pic">
             <img src={OfficialPic} alt="official"></img>

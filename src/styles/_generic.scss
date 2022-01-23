@@ -9,24 +9,28 @@ body {
   background-color: $primary-grey;
 }
 
-button,
+::-webkit-scrollbar {
+  background: $primary-color-highlight;
+}
+
 .button {
   background-color: $secondary-color;
-  color: $heading-color;
+  color: $primary-color;
   text-decoration: none;
   font-size: 1.2rem;
   font-family: "Karla", sans-serif;
+  font-weight: 600;
   margin: 1rem 0.5rem;
   padding: 0.8rem 1.2rem;
   border-radius: 5px;
   border: none;
-  box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.1);
+  box-shadow: 4px 4px 10px rgba($color: $heading-color, $alpha: 0.1);
   transition: all 0.2s ease-in-out;
 
   &:hover,
   &:active {
     cursor: pointer;
-    box-shadow: 4px 4px 20px rgba($color: #000000, $alpha: 0.1);
+    box-shadow: 4px 4px 20px rgba($color: $heading-color, $alpha: 0.1);
   }
 
   &:active {
@@ -41,9 +45,26 @@ a {
 h1 {
   font-size: 3.5rem;
   margin: 2rem;
+  color: $text-primary-color;
 
   @include sm {
     font-size: 2.5rem;
+  }
+}
+
+.nav-button-wrapper {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  @include sm {
+    padding: 1rem;
+
+    .button {
+      padding: 0.4rem 0.8rem;
+      font-size: 1.1rem;
+    }
   }
 }
 
@@ -52,9 +73,179 @@ h1 {
   font-weight: 700;
   margin: 1rem;
   text-align: center;
+  color: $text-primary-color;
 
   @include smd {
     font-size: 2rem;
     margin: 0.5rem;
   }
+}
+
+body {
+  .dropdown {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: $text-secondary-color;
+    background-color: rgba($primary-color, 1);
+    width: 95%;
+    margin: 1rem;
+    height: 3.5rem;
+    padding: 0;
+    font-size: 1.4rem;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $heading-color;
+      outline: none;
+    }
+
+    &-placeholder {
+      margin: 0;
+      padding: 0.2rem 1rem;
+    }
+
+    &-arrow {
+      transform: translateY(7px);
+    }
+
+    &-control {
+      background-color: transparent;
+      outline: none;
+      text-align: left;
+      color: $text-secondary-color;
+      font-size: 1.4rem;
+      border: none;
+    }
+
+    &-menu {
+      background-color: $primary-color;
+      color: $text-secondary-color;
+      border: none;
+      outline: none;
+    }
+
+    .Dropdown-option {
+      color: $text-secondary-color;
+
+      &:hover {
+        background-color: $primary-color-highlight;
+      }
+    }
+
+    .Dropdown-option.is-selected {
+      background-color: $primary-color-highlight;
+    }
+  }
+}
+
+.container {
+  margin-left: 5rem;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+//form ui
+
+.type-1 {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: $text-secondary-color;
+  background-color: rgba($primary-color, 1);
+  color: $text-secondary-color;
+  transition: 0.5s border-color;
+  width: 95%;
+  margin: 1rem;
+  height: 3.5rem;
+  outline: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+
+  @include sm {
+    font-size: 1.2rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $heading-color;
+    outline: none;
+  }
+}
+
+.date-picker {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: $text-secondary-color;
+  background-color: rgba($primary-color, 1);
+  transition: 0.5s border-color;
+  width: 95%;
+  margin: 1rem;
+  height: 3.5rem;
+  outline: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  color: $text-secondary-color;
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(100%);
+    filter: brightness(50%);
+  }
+
+  @include sm {
+    font-size: 1.2rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $heading-color;
+    outline: none;
+  }
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: $text-secondary-color;
+  background-color: rgba($primary-color, 1);
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  height: 3.5rem;
+  transition: 0.5s border-color;
+  width: 95%;
+  margin: 1rem;
+  font-size: 1.4rem;
+  text-align: left;
+
+  @include sm {
+    font-size: 1.2rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $heading-color;
+    outline: none;
+  }
+}
+
+.add-button {
+  width: 95%;
+  margin: 2rem 1rem;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: $heading-color;
+  background-color: rgba($primary-color, 1);
+  color: $text-secondary-color;
+  font-size: 1.8rem;
+  font-weight: 600;
 }

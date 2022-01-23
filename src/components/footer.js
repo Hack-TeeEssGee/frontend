@@ -82,9 +82,9 @@ const Footer = () => {
           <ul>
             <li>
               <a
-                //target="_blank"
-                //rel="noreferrer noopener"
-                href="/#">
+                // target="_blank"
+                // rel="noreferrer noopener"
+                href="/cdc">
                 CDC Stats
               </a>
             </li>
@@ -92,7 +92,7 @@ const Footer = () => {
               <a
                 //target="_blank"
                 //rel="noreferrer noopener"
-                href="/#">
+                href="/hall-point">
                 Hall of Residence
               </a>
             </li>
@@ -100,7 +100,7 @@ const Footer = () => {
               <a
                 //target="_blank"
                 //rel="noreferrer noopener"
-                href="/#">
+                href="/faculty">
                 Faculty
               </a>
             </li>

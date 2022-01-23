@@ -4,14 +4,27 @@
 @import "generic.scss";
 
 //views
+@import "splashscreen.scss";
 @import "landing.scss";
 @import "events.scss";
+@import "eventuploader.scss";
 @import "quickinfo.scss";
 @import "societypoint.scss";
+@import "societypage.scss";
 @import "studentprofile.scss";
 @import "login.scss";
+@import "contacts.scss";
+@import "hallpoint.scss";
+@import "hallpage.scss";
+@import "cdc.scss";
+@import "faculty.scss";
+@import "quicklinks.scss";
+@import "blogpage.scss";
+@import "newblog.scss";
 
 //components
 @import "footer.scss";
 @import "navbar.scss";
 @import "dashboard.scss";
+@import "eventcard.scss";
+@import "quickcard.scss";

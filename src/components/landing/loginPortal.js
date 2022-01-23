@@ -2,6 +2,7 @@ import UilUser from "@iconscout/react-unicons/icons/uil-user";
 import UilGraduationCap from '@iconscout/react-unicons/icons/uil-graduation-cap';
 import UilShieldCheck from '@iconscout/react-unicons/icons/uil-shield-check';
 import UilMedal from '@iconscout/react-unicons/icons/uil-medal';
+import { useNavigate } from "react-router-dom";
 
 const loginPortalData = [
   {
@@ -30,7 +31,10 @@ const loginPortalData = [
   }
 ]
 
-const LoginPortal = ({innerRef}) => {
+const LoginPortal = ({ innerRef }) => {
+  
+  let navigate = useNavigate();
+
   return (
     <div className="login-portal" ref={innerRef}>
       <h1>Login Portal</h1>
@@ -40,7 +44,7 @@ const LoginPortal = ({innerRef}) => {
             return (
               <div key={card.role} className="login-card" color={card.color}>
                 <card.icon size={100}/>
-                <button className="login-card-button" onClick={() => window.location.href=`${window.location.origin}/login?role=${card.url}`}>{card.role}</button>
+                <button className="button login-card-button" onClick={() => navigate(`/login?role=${card.url}`)}>{card.role}</button>
               </div>
             )
           })

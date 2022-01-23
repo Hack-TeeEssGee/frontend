@@ -1,0 +1,66 @@
+.event-upload-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba($primary-grey, 0.95),
+      rgba($primary-grey, 0.95)
+    ),
+    url("../assets/background.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-upload {
+  text-align: center;
+  border-radius: 10px;
+  width: 60rem;
+  padding: 1rem 2rem;
+  margin: 0 2rem;
+  display: flex;
+  flex-direction: column;
+
+  @include md {
+    width: 30rem;
+  }
+
+  @include sm {
+    width: 95%;
+    margin: 5rem 2rem;
+  }
+
+  label {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 2.4rem;
+    color: $text-secondary-color;
+    margin-top: 1rem;
+
+    @include sm {
+      font-weight: 1.5rem;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  .title {
+    @include sm {
+      margin: 2rem 0;
+      font-size: 2.5rem;
+    }
+  }
+
+  .date-picker-list {
+    display: flex;
+    width: 100%;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 47%;
+    }
+  }
+}
