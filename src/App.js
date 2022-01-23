@@ -7,6 +7,7 @@ import LandingPage from "./views/landingPage";
 import QuickInfo from "./views/quickInfo";
 import SocietyPoint from "./views/societyPoint";
 import StudentProfile from "./views/studentProfile";
+import StudentPoint from "./views/studentPoint";
 
 import SuperTokens from "supertokens-auth-react";
 import Session from "supertokens-auth-react/recipe/session";
@@ -96,6 +97,7 @@ function App() {
             </SessionAuth>
           } />
           <Route path="/society-point" element={<SocietyPoint />} />
+          <Route path="/student-point" element={<StudentPoint />} />
           <Route path="/hall-point" element={<HallPoint />} />
           <Route path="/cdc" element={<Cdc />} />
           <Route path="/faculty" element={<Faculty />} />
