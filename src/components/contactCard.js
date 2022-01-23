@@ -10,9 +10,9 @@ const ContactCard = (props) => {
             <div className="contact-links">
                 <a href={`mailto:${props.email}`}><UilEnvelope color="orangered" size={40} /></a>
                 <a href={`Tel:${props.phone}`}><UilPhone color="purple" size={40} /></a>
-                <a href={props.fb}><UilFacebookF size={40} /></a>
-                <a href={props.insta}><UilInstagram color="red" size={40} /></a>
-                <a href={props.linkedin}><UilLinkedinAlt size={40} /></a>
+                {props?.fb ? <a href={props.fb}><UilFacebookF size={40} /></a> : <div className="hidden"></div>}
+                {props?.insta ? <a href={props.insta}><UilInstagram color="red" size={40} /></a> : <div className='hidden'></div>}
+                {props?.linkedin ? <a href={props.linkedin}><UilLinkedinAlt size={40} /></a> : <div className='hidden'></div>}
             </div>
         </div>
     )

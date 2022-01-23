@@ -53,7 +53,7 @@ const Navbar = (props) => {
         <div className="link" onClick={() => navigate("/events")}>Events</div>
         <div className="link" onClick={() => navigate("/")}>News Bulletin</div>
         <div className="link" onClick={() => navigate("/society-point")}>Societies</div>
-        <div className="link" onClick={() => navigate("/")}>Student Point</div>
+        <div className="link" onClick={() => navigate("/student-point")}>Student Point</div>
         <div className="link" onClick={() => navigate("/quickinfo")}>Quick Info</div>
         <div className="link" onClick={() => navigate("/blog")}>Blog</div>
         <button className="button" onClick={buttonProperties.clickHandler}>{buttonProperties.text}</button>
