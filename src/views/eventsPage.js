@@ -40,14 +40,14 @@ const EventResults = () => {
     const mainCategoryList = ["Inter-IIT", "General Championship", "Events"];
 
     const [mainCategory, setMainCategory] = useState(mainCategoryList[0]);
-    const gcData = [{"Hall":"NH","Atheletics":"0","Badminton":"0","Basketball":"6","Bridge":"2","Chess":"0","Cricket":"0","Football":"0","Hockey":"0","Squash":"0","Table Tennis":"0","Tennis":"0","Volleyball":"0","Weightlifting":"2"},{"Hall":"PH","Atheletics":"0","Badminton":"0","Basketball":"2","Bridge":"1","Chess":"1","Cricket":"0","Football":"0","Hockey":"4","Squash":"2","Table Tennis":"2","Tennis":"0","Volleyball":"0","Weightlifting":"4"}]
+    const [gcData, setGcData] = useState({});
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     axios.get(`${BACKEND_URL}/info/gc`)
-    //         .then((response) => console.log(JSON.stringify(response.data.data)))
-    //         .catch((err) => console.log(err));
-    // }, []);
+        axios.get(`${BACKEND_URL}/info/gc`)
+            .then((response) => setGcData(response.data.data))
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <div className="event-results">
@@ -58,8 +58,9 @@ const EventResults = () => {
                     )
                 })}
             </div>
+            <div className="result-category">Sports and Games</div>
             <Results
-                    data={gcData}
+                    data={gcData?.sports_data}
                     keys={[
                         "Atheletics",
                         "Badminton",
@@ -75,6 +76,36 @@ const EventResults = () => {
                         "Volleyball",
                         "Weightlifting",
                     ]}
+                    layout={"vertical"}
+            />
+            <div className="result-category">Social and Cultural</div>
+            <Results
+                    data={gcData?.socult_data}
+                    keys={[
+                        "Eastern Vocals",
+                        "Western Vocals",
+                        "Eastern Instrumentals",
+                        "Groups",
+                        "Western Instrumentals",
+                        "Sketching",
+                        "Cartooning",
+                        "Painting",
+                        "Thermocol and Clay Modelling",
+                        "Bengali Elocution",
+                        "Debate",
+                        "English Elocution",
+                        "Hindi Elocution",
+                        "WTGW",
+                        "Quiz",
+                        "Stage Play",
+                        "Choreography",
+                        "Street Play",
+                        "Short Film Making",
+                        "Dramatics Cup",
+                        "Entertainment Cup",
+                        "Fine Arts Cup",
+                        "Literary Cup",
+                      ]}
                     layout={"vertical"}
                 />
         </div>

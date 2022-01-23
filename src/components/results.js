@@ -12,7 +12,7 @@ const Results = (props) => {
             padding={0.3}
             valueScale={{ type: "linear" }}
             indexScale={{ type: "band", round: true }}
-            colors={{ scheme: "spectral" }}
+            colors={{ scheme: "dark2" }}
             borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
             axisTop={null}
             axisRight={null}
@@ -41,9 +41,9 @@ const Results = (props) => {
                 anchor: "bottom-right",
                 direction: "column",
                 justify: false,
-                translateX: 120,
+                translateX: 50,
                 translateY: 0,
-                itemsSpacing: 2,
+                itemsSpacing: 5,
                 itemWidth: 100,
                 itemHeight: 20,
                 itemDirection: "left-to-right",
