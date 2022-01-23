@@ -67,9 +67,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/blog/new" element={
-            <SessionAuth requireAuth={true} redirectToLogin={() => { window.location.href = `${window.location.origin}/login?role=student` }}>
-              <NewBlog />
-            </SessionAuth>
+            <NewBlog />
           } />
           <Route path="/blog" element={
             <SessionAuth>
