@@ -6,27 +6,7 @@ import myTheme from "../utils/markdownTheme";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from '../constants';
 import axios from 'axios';
-
-const SampleBlogData = [
-    {
-        title: "Hello World how are you all kk hrhrw wgwg rgwy4y533hgw r4y24y4t",
-        author: "Chirag Ghosh",
-        date: "21.01.2022",
-        body: "Hello everyone. First blog of KGPverse. **Enjoy!**\n\n\\\n```javascript\nconst name = \"KGPverse\";\n```\n\n\\\n> Javascript is the best.\n\n\\\n\\\n"
-    },
-    {
-        title: "Hello World",
-        author: "Chirag Ghosh",
-        date: "21.01.2022",
-        body: "Hello everyone. First blog of KGPverse. **Enjoy!**\n\n\\\n```javascript\nconst name = \"KGPverse\";\n```\n\n\\\n> Javascript is the best.\n\n\\\n\\\n"
-    },
-    {
-        title: "Hello World",
-        author: "Chirag Ghosh",
-        date: "21.01.2022",
-        body: "Hello everyone. First blog of KGPverse. **Enjoy!**\n\n\\\n```javascript\nconst name = \"KGPverse\";\n```\n\n\\\n> Javascript is the best.\n\n\\\n\\\n"
-    },
-]
+import { toast } from "react-toastify";
 
 const BlogPage = (props) => {
 
@@ -36,7 +16,6 @@ const BlogPage = (props) => {
 
     useEffect(() => {
 
-        if (localStorage.getItem("blogList") !== null) setBlogList(JSON.parse(localStorage.getItem("blogList")));
         axios.get(`${BACKEND_URL}/info/blog/`)
             .then((response) => {
                 // console.log(response.data.blogs)
@@ -47,8 +26,6 @@ const BlogPage = (props) => {
         // toast.info("Click on a card to explore more.");
     }, []);
 
-    localStorage.setItem("blogList", JSON.stringify(blogList));
-
     let { doesSessionExist } = useSessionContext();
 
     let navigate = useNavigate();
@@ -56,6 +33,37 @@ const BlogPage = (props) => {
     const blogSelectHandler = (index) => {
         setSelectedBlogIndex(index);
         setListMode(false);
+    }
+
+    const reportBlog = () => {
+
+        axios.post(`${BACKEND_URL}/info/blog/report`, {
+            id: blogList[selectedBlogIndex].id,
+            email: JSON.parse(localStorage.getItem("student_metadata"))["email"]
+        })
+            .then((res) => {
+                console.log(res);
+                toast.success("Reported blog");
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Problem reporting blog");
+            });
+    }
+
+    const deleteBlog = () => {
+
+        axios.post(`${BACKEND_URL}/info/blog/delete`, {
+            id: blogList[selectedBlogIndex].id
+        })
+            .then((res) => {
+                console.log(res);
+                toast.success("Deleted blog");
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Problem deleting blog");
+            });
     }
 
     return (
@@ -94,6 +102,10 @@ const BlogPage = (props) => {
                         value={blogList[selectedBlogIndex].body}
                         readOnly
                     />
+                    <div className="nav-button-wrapper">
+                        {doesSessionExist && <button className="button" onClick={() => reportBlog()}>REPORT</button>}
+                        {JSON.parse(localStorage.getItem("student_metadata"))["email"] === blogList[selectedBlogIndex].email && <button className="button" onClick={() => deleteBlog()}>DELETE</button>}
+                    </div>
                 </div>
             )}
         </div>

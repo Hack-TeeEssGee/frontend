@@ -3,6 +3,9 @@ import Editor from "rich-markdown-editor";
 import myTheme from "../utils/markdownTheme";
 import { useNavigate } from "react-router-dom";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
+import { toast } from "react-toastify";
 
 const NewBlog = () => {
 
@@ -13,8 +16,20 @@ const NewBlog = () => {
 
     const submitBlog = () => {
 
-        console.log(title);
-        console.log(markdownContent);
+        axios.post(`${BACKEND_URL}/info/blog`, {
+            name: JSON.parse(localStorage.getItem("student_metadata"))["name"],
+            email: JSON.parse(localStorage.getItem("student_metadata"))["email"],
+            body: markdownContent,
+            title
+        })
+            .then((res) => {
+                console.log(res);
+                toast.success("Uploaded blog");
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Problem uploading blog");
+            });
         
     }
 
