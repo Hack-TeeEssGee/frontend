@@ -73,6 +73,12 @@
     @include smd {
       width: 90%;
     }
+    a {
+      color: $text-secondary-color;
+    }
+    a:hover {
+      color: $text-primary-color;
+    }
   }
 }
 
