@@ -4,45 +4,8 @@ import { UilMusic, UilSetting, UilVolleyball } from '@iconscout/react-unicons';
 import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const sampleContactData = {
-    "Office Bearers": [
-        {
-            "name": "Raghavendra Kaushik",
-            "position": "President",
-            "photo": "https://i.imgur.com/saBEwCK.jpg",
-            "email": "cghosh828049@gmail.com",
-            "phone": "+918018212895",
-            "fb": "https://www.favebook.com",
-            "insta": "https://www.instagram.com",
-            "linkedin": "https://www.linkedin.com"
-        },
-    ],
-    "Office Staff": [
-        {
-            "name": "Raghavendra Kaushik",
-            "position": "Attendant",
-            "photo": "https://i.imgur.com/saBEwCK.jpg",
-            "email": "cghosh828049@gmail.com",
-            "phone": "+918018212895",
-            "fb": "https://www.favebook.com",
-            "insta": "https://www.instagram.com",
-            "linkedin": "https://www.linkedin.com"
-        },
-    ],
-    "Secretaries": [
-        {
-            "name": "Raghavendra Kaushik",
-            "position": "Secretary Academic Help",
-            "photo": "https://i.imgur.com/saBEwCK.jpg",
-            "email": "cghosh828049@gmail.com",
-            "phone": "+918018212895",
-            "fb": "https://www.favebook.com",
-            "insta": "https://www.instagram.com",
-            "linkedin": "https://www.linkedin.com"
-        },
-    ]
-}
+import { BACKEND_URL } from '../constants';
+import axios from 'axios';
 
 const ContactsWrapper = (props) => {
 
@@ -62,8 +25,16 @@ const Contacts = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        setContactList(sampleContactData);
+        if (localStorage.getItem("contactList") !== null) setContactList(JSON.parse(localStorage.getItem("contactList")));
+        axios.get(`${BACKEND_URL}/tsg/office/`)
+            .then((response) => {
+                setContactList(response.data)
+            })
+            .catch((err) => console.log(err));
     }, [])
+
+    // console.log(contactList)
+    localStorage.setItem("contactList", JSON.stringify(contactList));
 
     const dashboardHeaderData = {
         title: "TSG Contacts",
@@ -100,10 +71,10 @@ const Contacts = () => {
         contactArray = contactList["Office Bearers"];
     }
     else if (currentSelection === 1) {
-        contactArray = contactList["Office Staff"];
+        contactArray = contactList["TSG Staff"];
     }
     else {
-        contactArray = contactList["Secretaries"];
+        contactArray = contactList["Secretary"];
     }
 
     if (contactArray === undefined) contactArray = [];
