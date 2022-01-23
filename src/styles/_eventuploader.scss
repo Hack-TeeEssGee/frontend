@@ -53,32 +53,6 @@
     }
   }
 
-  .type-1 {
-    border-radius: 10px;
-    border-style: solid;
-    border-color: $text-secondary-color;
-    background-color: rgba($primary-color, 1);
-    color: $text-secondary-color;
-    transition: 0.5s border-color;
-    width: 95%;
-    margin: 1rem;
-    height: 3.5rem;
-    outline: none;
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-
-    @include sm {
-      font-size: 1.2rem;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: $heading-color;
-      outline: none;
-    }
-  }
-
   .date-picker-list {
     display: flex;
     width: 100%;
@@ -88,82 +62,5 @@
       flex-direction: column;
       width: 47%;
     }
-  }
-
-  .date-picker {
-    border-radius: 10px;
-    border-style: solid;
-    border-color: $text-secondary-color;
-    background-color: rgba($primary-color, 1);
-    transition: 0.5s border-color;
-    width: 95%;
-    margin: 1rem;
-    height: 3.5rem;
-    outline: none;
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-    color: $text-secondary-color;
-
-    input[type="date"]::-webkit-calendar-picker-indicator {
-      cursor: pointer;
-      border-radius: 4px;
-      margin-right: 2px;
-      opacity: 0.6;
-      filter: invert(100%);
-      filter: brightness(50%);
-    }
-
-    @include sm {
-      font-size: 1.2rem;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: $heading-color;
-      outline: none;
-    }
-  }
-
-  input[type="file"] {
-    display: none;
-  }
-
-  .custom-file-upload {
-    border-radius: 10px;
-    border-style: solid;
-    border-color: $text-secondary-color;
-    background-color: rgba($primary-color, 1);
-    display: inline-block;
-    padding: 0.6rem 1.5rem;
-    height: 3.5rem;
-    transition: 0.5s border-color;
-    width: 95%;
-    margin: 1rem;
-    font-size: 1.4rem;
-    text-align: left;
-
-    @include sm {
-      font-size: 1.2rem;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: $heading-color;
-      outline: none;
-    }
-  }
-
-  .add-button {
-    width: 95%;
-    margin: 2rem 1rem;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: $heading-color;
-    background-color: rgba($primary-color, 1);
-    color: $text-secondary-color;
-    font-size: 1.8rem;
-    font-weight: 600;
   }
 }

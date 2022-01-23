@@ -5,6 +5,7 @@ import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import EventCard from "../components/eventCard";
+import Results from "../components/results";
 import { useNavigate } from "react-router-dom";
 
 const RecentEvents = (props) => {
@@ -39,6 +40,14 @@ const EventResults = () => {
     const mainCategoryList = ["Inter-IIT", "General Championship", "Events"];
 
     const [mainCategory, setMainCategory] = useState(mainCategoryList[0]);
+    const [gcData, setGcData] = useState({});
+
+    useEffect(() => {
+
+        axios.get(`${BACKEND_URL}/info/gc`)
+            .then((response) => setGcData(response.data.data))
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <div className="event-results">
@@ -49,6 +58,56 @@ const EventResults = () => {
                     )
                 })}
             </div>
+            <div className="result-category">Sports and Games</div>
+            <Results
+                    data={gcData?.sports_data}
+                    keys={[
+                        "Atheletics",
+                        "Badminton",
+                        "Basketball",
+                        "Bridge",
+                        "Chess",
+                        "Cricket",
+                        "Football",
+                        "Hockey",
+                        "Squash",
+                        "Table Tennis",
+                        "Tennis",
+                        "Volleyball",
+                        "Weightlifting",
+                    ]}
+                    layout={"vertical"}
+            />
+            <div className="result-category">Social and Cultural</div>
+            <Results
+                    data={gcData?.socult_data}
+                    keys={[
+                        "Eastern Vocals",
+                        "Western Vocals",
+                        "Eastern Instrumentals",
+                        "Groups",
+                        "Western Instrumentals",
+                        "Sketching",
+                        "Cartooning",
+                        "Painting",
+                        "Thermocol and Clay Modelling",
+                        "Bengali Elocution",
+                        "Debate",
+                        "English Elocution",
+                        "Hindi Elocution",
+                        "WTGW",
+                        "Quiz",
+                        "Stage Play",
+                        "Choreography",
+                        "Street Play",
+                        "Short Film Making",
+                        "Dramatics Cup",
+                        "Entertainment Cup",
+                        "Fine Arts Cup",
+                        "Literary Cup",
+                      ]}
+                    layout={"vertical"}
+                />
         </div>
     )
 }
