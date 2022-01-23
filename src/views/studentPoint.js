@@ -11,12 +11,17 @@ import { toast } from 'react-toastify';
 
 
 const CareerCards = (props) => {
-    console.log(eval(props.career))
+    
+    useEffect(() => {
+
+        toast.info("Click on the card for resources.");
+    }, []);
+    
     return (
         <div className="career-card-list">
             {
                 props.career.map((career, index) => {
-                    return (<div className="career-card"><div className="career-title">
+                    return (<div className="career-card" onClick={() => window.open(career.Link, "_blank")}><div className="career-title">
                         {career.Name}
                         </div>
                         <div className="career-desc"> {career.Description}</div>
@@ -55,7 +60,7 @@ const BillReimbursement = () => {
     const columns = useMemo(() => [
         {
             Header: "S.No",
-            accessor: "S.No"
+            accessor: "Serial"
         },
         {
             Header: "Description",
@@ -63,7 +68,8 @@ const BillReimbursement = () => {
         },
         {
             Header: "Link",
-            accessor: "Link"
+            accessor: "Link",
+            Cell: ({ cell: { value } }) => <a href={value} target="_blank" rel="noreferrer noopener" >Open</a>
         }
     ], []);
 

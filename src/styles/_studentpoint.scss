@@ -1,24 +1,24 @@
 .career-card-list {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  .career-card {
+    background: linear-gradient(30deg, $login-black 30%, $login-red);
+    display: inline-flex;
     flex-direction: column;
-    .career-card{
-        background: linear-gradient(30deg, $login-black 30%, $login-red);
-        display: inline-flex;
-        flex-direction: column;
-        // align-items: center;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 6px 12px 20px rgba(#000, 0.1);
-        margin: 2rem;
-        padding: 2rem;
-        .career-title {
-            text-align: left;
-            font-size: 2.5rem;
-            padding-bottom: 1.2rem;
-        }
-        .career-desc {
-            font-size: 1.2rem;
-        }
+    // align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 6px 12px 20px rgba(#000, 0.1);
+    margin: 2rem;
+    padding: 2rem;
+    cursor: pointer;
+    .career-title {
+      text-align: left;
+      font-size: 2.5rem;
+      padding-bottom: 1.2rem;
     }
-
+    .career-desc {
+      font-size: 1.2rem;
+    }
+  }
 }

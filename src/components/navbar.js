@@ -51,7 +51,6 @@ const Navbar = (props) => {
       <div className="navbar-links">
         <div className="link" onClick={() => navigate("/")}>Home</div>
         <div className="link" onClick={() => navigate("/events")}>Events</div>
-        <div className="link" onClick={() => navigate("/")}>News Bulletin</div>
         <div className="link" onClick={() => navigate("/society-point")}>Societies</div>
         <div className="link" onClick={() => navigate("/student-point")}>Student Point</div>
         <div className="link" onClick={() => navigate("/quickinfo")}>Quick Info</div>
