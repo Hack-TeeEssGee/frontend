@@ -101,6 +101,7 @@ const GrievanceForm = () => {
     const [poster, setPoster] = useState(null);
     const [type, setType] = useState({label: "Academic Department", value: "Academic Department"});
 
+
     const typeList = ["Academic Department", "Payment", "Scholarship", "Extra Curricular", "Mental Health", "Other"];
 
     const fileUploader = (event) => {

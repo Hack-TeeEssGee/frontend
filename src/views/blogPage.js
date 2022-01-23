@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Editor from "rich-markdown-editor";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import BlogListCard from "../components/blog/blogListCard";
 import myTheme from "../utils/markdownTheme";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from '../constants';
+import axios from 'axios';
 
 const SampleBlogData = [
     {
@@ -26,10 +28,26 @@ const SampleBlogData = [
     },
 ]
 
-const BlogPage = () => {
+const BlogPage = (props) => {
 
     const [listMode, setListMode] = useState(true);
     const [selectedBlogIndex, setSelectedBlogIndex] = useState(0);
+    const [blogList, setBlogList] = useState([]);
+
+    useEffect(() => {
+
+        if (localStorage.getItem("blogList") !== null) setBlogList(JSON.parse(localStorage.getItem("blogList")));
+        axios.get(`${BACKEND_URL}/info/blog/`)
+            .then((response) => {
+                // console.log(response.data.blogs)
+                setBlogList(response.data.blogs)
+            })
+            .catch((err) => console.log(err));
+
+        // toast.info("Click on a card to explore more.");
+    }, []);
+
+    localStorage.setItem("blogList", JSON.stringify(blogList));
 
     let { doesSessionExist } = useSessionContext();
 
@@ -53,7 +71,7 @@ const BlogPage = () => {
                 <>
                     <div className="title">KGPverse Tales...</div>
                     <div className="blog-list">
-                        {SampleBlogData.map((blogData, index) => {
+                        {blogList.map((blogData, index) => {
                             return (
                                 <BlogListCard
                                     {...blogData}
@@ -66,14 +84,14 @@ const BlogPage = () => {
             )}
             {!listMode && (
                 <div className="blog-render">
-                    <div className="title">{SampleBlogData[selectedBlogIndex].title}</div>
+                    <div className="title">{blogList[selectedBlogIndex].title}</div>
                     <div className="header-area">
-                        <div>{SampleBlogData[selectedBlogIndex].author}</div>
-                        <div>{SampleBlogData[selectedBlogIndex].date}</div>
+                        <div><a href={`mailto:${blogList[selectedBlogIndex].email}`}>{blogList[selectedBlogIndex].name}</a></div>
+                        <div>{blogList[selectedBlogIndex].createdAt.substring(0,10)}</div>
                     </div>
                     <Editor
                         theme={myTheme}
-                        value={SampleBlogData[selectedBlogIndex].body}
+                        value={blogList[selectedBlogIndex].body}
                         readOnly
                     />
                 </div>
