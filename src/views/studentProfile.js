@@ -54,16 +54,46 @@ const CertificateListWrapper = (props) => {
 
 const CertificateUploader = () => {
 
+    const [eventName, setEventName] = useState("");
+    const [position, setPosition] = useState("");
+    const [fileName, setFileName] = useState("No file selected");
+    const [file, setFile] = useState(null);
+
+    const fileUploader = (event) => {
+
+        setFileName(event.target.files[0].name);
+        setFile(event.target.files[0]);
+    }
+
+    const handleSubmit = () => {
+
+        const formData = new FormData();
+        formData.append('email', JSON.parse(localStorage.getItem("student_metadata"))["email"]);
+        formData.append('event', eventName);
+        formData.append('position', position);
+        formData.append('image', file)
+
+        axios.post(`${BACKEND_URL}/student/certificate/`, formData, {})
+            .then(res => { 
+                console.log(res);
+                toast.success('Event upload successful');
+            })
+            .catch (err=> { 
+                console.log(err);
+                toast.error('Upload error'); 
+            });
+        }
+
     return (
         <div className="certificate-uploader">
-            <input type="text" className="type-1" placeholder="Enter name of event" >
+            <input type="text" className="type-1" placeholder="Enter name of event" value={eventName} onChange={(event) => setEventName(event.target.value)}>
             </input>
-            <input type="text" className="type-1" placeholder="Enter Position" >
+            <input type="text" className="type-1" placeholder="Enter Position" value={position} onChange={(event) => setPosition(event.target.value)}>
             </input>
             <label htmlFor="file-upload" className="custom-file-upload">
-                &#8613; &nbsp; Upload Certificate File
+                &#8613; &nbsp; {fileName}
             </label>
-            <input id="file-upload" type="file" />
+            <input id="file-upload" type="file" onChange={(event) => fileUploader(event)}/>
             <button className="button add-button">Add +</button>
         </div>
     )
