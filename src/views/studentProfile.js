@@ -88,7 +88,7 @@ const CertificateUploader = () => {
                 &#8613; &nbsp; {fileName}
             </label>
             <input id="file-upload" type="file" onChange={(event) => fileUploader(event)}/>
-            <button className="button add-button">Add +</button>
+            <button className="button add-button" onChange={() => handleSubmit()}>Add +</button>
         </div>
     )
 }
