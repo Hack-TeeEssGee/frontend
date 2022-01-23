@@ -21,10 +21,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .event-result-bar {
+      background-color: red;
+    }
   }
 
   .event-results {
     width: 100%;
+    height: 100vh;
+    color: $text-secondary-color;
 
     .category-list {
       width: 100%;

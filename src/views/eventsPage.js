@@ -5,6 +5,7 @@ import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import EventCard from "../components/eventCard";
+import Results from "../components/results";
 import { useNavigate } from "react-router-dom";
 
 const RecentEvents = (props) => {
@@ -39,6 +40,14 @@ const EventResults = () => {
     const mainCategoryList = ["Inter-IIT", "General Championship", "Events"];
 
     const [mainCategory, setMainCategory] = useState(mainCategoryList[0]);
+    const gcData = [{"Hall":"NH","Atheletics":"0","Badminton":"0","Basketball":"6","Bridge":"2","Chess":"0","Cricket":"0","Football":"0","Hockey":"0","Squash":"0","Table Tennis":"0","Tennis":"0","Volleyball":"0","Weightlifting":"2"},{"Hall":"PH","Atheletics":"0","Badminton":"0","Basketball":"2","Bridge":"1","Chess":"1","Cricket":"0","Football":"0","Hockey":"4","Squash":"2","Table Tennis":"2","Tennis":"0","Volleyball":"0","Weightlifting":"4"}]
+
+    // useEffect(() => {
+
+    //     axios.get(`${BACKEND_URL}/info/gc`)
+    //         .then((response) => console.log(JSON.stringify(response.data.data)))
+    //         .catch((err) => console.log(err));
+    // }, []);
 
     return (
         <div className="event-results">
@@ -49,6 +58,25 @@ const EventResults = () => {
                     )
                 })}
             </div>
+            <Results
+                    data={gcData}
+                    keys={[
+                        "Atheletics",
+                        "Badminton",
+                        "Basketball",
+                        "Bridge",
+                        "Chess",
+                        "Cricket",
+                        "Football",
+                        "Hockey",
+                        "Squash",
+                        "Table Tennis",
+                        "Tennis",
+                        "Volleyball",
+                        "Weightlifting",
+                    ]}
+                    layout={"vertical"}
+                />
         </div>
     )
 }

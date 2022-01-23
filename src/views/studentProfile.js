@@ -67,7 +67,7 @@ const CertificateUploader = () => {
         formData.append('position', position);
         formData.append('image', file)
 
-        axios.post(`${BACKEND_URL}/student/certificate/`, formData, {})
+        axios.post(`${BACKEND_URL}/certificate/other`, formData, {})
             .then(res => { 
                 console.log(res);
                 toast.success('Event upload successful');
