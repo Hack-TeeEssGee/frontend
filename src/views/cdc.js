@@ -2,6 +2,7 @@ import Dashboard from "../components/dashboard";
 import { UilSetting, UilBookmark } from '@iconscout/react-unicons';
 import tsgLogo from "../assets/tsg-logo.png";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const sampleContactData = [];
 
@@ -29,6 +30,8 @@ const TimelineList = (props) => {
 const Cdc = () => {
 
     const [contactList, setContactList] = useState({});
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         setContactList(sampleContactData);
@@ -78,7 +81,7 @@ const Cdc = () => {
             <div className="container">
                 <div className="button-wrapper">
                     <div className="nav-button-wrapper">
-                        <button className="button" onClick={() => window.location.href = `${window.location.origin}/quickinfo`}>GO BACK</button>
+                        <button className="button" onClick={() => navigate("/quickinfo")}>GO BACK</button>
                     </div>
                 </div>
                 <div className="timeline">

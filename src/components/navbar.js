@@ -4,6 +4,7 @@ import UilBars from "@iconscout/react-unicons/icons/uil-bars";
 import UilTimes from "@iconscout/react-unicons/icons/uil-times";
 import { useSessionContext } from 'supertokens-auth-react/recipe/session';
 import { useNavigate } from "react-router-dom";
+import onLogout from "../utils/logout";
 
 const Navbar = (props) => {
   const [isMobNavbarOpen, setIsMobNavbarOpen] = useState(false);
@@ -23,6 +24,14 @@ const Navbar = (props) => {
     buttonProperties.text = "Student Profile";
     buttonProperties.clickHandler = () => {
       navigate("/student-profile");
+    }
+  }
+
+  else if (accessTokenPayload.role === "admin" || accessTokenPayload.role === "tsg" || accessTokenPayload.role === "society") {
+    
+    buttonProperties.text = "Sign Out";
+    buttonProperties.clickHandler = () => {
+      onLogout(navigate);
     }
   }
 

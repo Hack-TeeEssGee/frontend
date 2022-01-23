@@ -89,7 +89,7 @@ const Contacts = () => {
             />
             <div className="container">
                 <div className="nav-button-wrapper">
-                    <button className="button" onClick={() => navigate("/quick-info")}>GO BACK</button>
+                    <button className="button" onClick={() => navigate("/quickinfo")}>GO BACK</button>
                 </div>
                 <div className="title">CONTACTS</div>
                 <ContactsWrapper

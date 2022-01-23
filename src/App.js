@@ -48,9 +48,6 @@ function App() {
     });
   }, []);
 
-  console.log(window.location.href);
-  console.log(window.location.origin);
-
   return (
     <div>
       {window.location.href === (window.location.origin + "/") && <SplashScreen />}
