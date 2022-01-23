@@ -40,7 +40,7 @@ const EventResults = () => {
     const mainCategoryList = ["Inter-IIT", "General Championship", "Events"];
 
     const [mainCategory, setMainCategory] = useState(mainCategoryList[0]);
-    const [gcData, setGcData] = useState({});
+    const [gcData, setGcData] = useState({sports_data: [], socult_data: []});
 
     useEffect(() => {
 
