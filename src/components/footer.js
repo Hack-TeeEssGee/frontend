@@ -114,7 +114,7 @@ const Footer = () => {
               <a
                 //target="_blank"
                 //rel="noreferrer noopener"
-                href="/#">
+                href="/faculty">
                 Office Bearers
               </a>
             </li>
@@ -122,7 +122,7 @@ const Footer = () => {
               <a
                 //target="_blank"
                 //rel="noreferrer noopener"
-                href="/#">
+                href="/faculty">
                 Office Staff
               </a>
             </li>
@@ -130,7 +130,7 @@ const Footer = () => {
               <a
                 //target="_blank"
                 //rel="noreferrer noopener"
-                href="/#">
+                href="/faculty">
                 Secreteries
               </a>
             </li>
