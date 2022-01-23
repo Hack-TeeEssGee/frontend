@@ -1,11 +1,5 @@
 import Dashboard from "../components/dashboard";
-import UilUserCircle from "@iconscout/react-unicons/icons/uil-user-circle";
-import UilMusic from "@iconscout/react-unicons/icons/uil-music";
-import UilSetting from "@iconscout/react-unicons/icons/uil-setting";
-import UilBall from "@iconscout/react-unicons/icons/uil-volleyball";
-import UilUsersAlt from "@iconscout/react-unicons/icons/uil-users-alt";
-import UilStar from "@iconscout/react-unicons/icons/uil-star";
-import UilInfo from "@iconscout/react-unicons/icons/uil-info-circle";
+import { UilUserCircle, UilMusic, UilSetting, UilBasketball, UilUsersAlt, UilStar, UilInfo, UilUpload } from '@iconscout/react-unicons';
 import { useState, useEffect } from "react";
 import onLogout from "../utils/logout";
 import { SessionAuth } from "supertokens-auth-react/recipe/session";
@@ -31,7 +25,7 @@ const CertificateListWrapper = (props) => {
             {
                 certificateList.map((certificate, index) => {
 
-                    if (props.mode === certificate.category) {
+                    if (props.mode === certificate.category || (certificate.category === null && props.mode === "Others")) {
                         return (
                             <div key={index} className="certificate">
                                 <img alt="event-cert" src={certificate.event_image} />
@@ -197,7 +191,7 @@ const StudentProfile = () => {
 
     const dashboardListData = {
         defaultSelection: 0,
-        specialSelection: 5, //Enter -1 for none
+        specialSelection: 6, //Enter -1 for none
         listData: [
             {
                 option: "Technology",
@@ -209,7 +203,7 @@ const StudentProfile = () => {
             },
             {
                 option: "Sports and Games",
-                icon: UilBall
+                icon: UilBasketball
             },
             {
                 option: "Students' Welfare",
@@ -218,6 +212,10 @@ const StudentProfile = () => {
             {
                 option: "Others",
                 icon: UilStar
+            },
+            {
+                option: "Upload Certificate",
+                icon: UilUpload
             },
             {
                 option: "Student's Grievance Form",
@@ -230,11 +228,11 @@ const StudentProfile = () => {
 
     var title, BodyContent;
 
-    if (currentSelection >= 0 && currentSelection <= 3) {
+    if (currentSelection >= 0 && currentSelection <= 4) {
         title = "EVENTS PARTICIPATED";
         BodyContent = CertificateListWrapper;
     }
-    else if (currentSelection === 4) {
+    else if (currentSelection === 5) {
         title = "UPLOAD CERTIFICATE";
         BodyContent = CertificateUploader;
     }
