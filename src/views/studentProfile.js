@@ -12,6 +12,8 @@ import { SessionAuth } from "supertokens-auth-react/recipe/session";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import { useNavigate } from "react-router-dom";
+import Dropdown from 'react-dropdown';
+import { toast } from 'react-toastify';
 
 const CertificateListWrapper = (props) => {
 
@@ -69,22 +71,69 @@ const CertificateUploader = () => {
 
 const GrievanceForm = () => {
 
-    const [userName, setUserName] = useState("");
-    const [userRoll, setUserRoll] = useState("");
     const [userGrievance, setUserGrievance] = useState("");
+    const [userResolution, setUserResolution] = useState("");
+    const [fileName, setFileName] = useState("No file selected");
+    const [poster, setPoster] = useState(null);
+    const [type, setType] = useState({label: "Academic Department", value: "Academic Department"});
+
+    const typeList = ["Academic Department", "Payment", "Scholarship", "Extra Curricular", "Mental Health", "Other"];
+
+    const fileUploader = (event) => {
+
+        setFileName(event.target.files[0].name);
+        setPoster(event.target.files[0]);
+    }
+
+    const handleSubmit = () => {
+
+        const formData = new FormData();
+        formData.append('name', JSON.parse(localStorage.getItem("student_metadata"))["name"]);
+        formData.append('email', JSON.parse(localStorage.getItem("student_metadata"))["email"]);
+        formData.append('type', type);
+        formData.append('description', userGrievance);
+        formData.append('resolutions', userResolution);
+        formData.append('image', poster)
+
+        axios.post(`${BACKEND_URL}/student/grievence/`, formData, {})
+            .then(res => { 
+                console.log(res);
+                toast.success('Event upload successful');
+            })
+            .catch (err=> { 
+                console.log(err);
+                toast.error('Upload error'); 
+            });
+        }
 
     return (
         <div className="grievance-form">
             <div className="grievance-name">
-                <input type="text" placeholder="Enter your name" value={userName} onChange={(e) => { setUserName(e.target.value) }} className="input-box">
-                </input>
-                <input type="text" placeholder="Enter your roll number" value={userRoll} onChange={(e) => { setUserRoll(e.target.value) }} className="input-box">
-                </input>
+                <label className="type-label">Type of Grievance: </label>
+                <Dropdown
+                    options={typeList}
+                    value={type}
+                    placeholder="Select type of grievance"
+                    onChange={setType}
+                    className="dropdown"
+                    controlClassName="dropdown-control"
+                    placeholderClassName="dropdown-placeholder"
+                    arrowClassName="dropdown-arrow"
+                    menuClassName="dropdown-menu"
+                />
             </div>
             <div className="grievance-content">
                 <textarea cols="50" rows="8" placeholder="Type your grievance" value={userGrievance} onChange={(e) => { setUserGrievance(e.target.value) }} className="grievance-box">
                 </textarea>
-                <button className="button add-button">Add +</button>
+                <textarea cols="50" rows="8" placeholder="What attempts have you made to resolve this grievance up to now?" value={userResolution} onChange={(e) => { setUserResolution(e.target.value) }} className="grievance-box">
+                </textarea>
+                <label className="label">Upload File</label>
+                <label htmlFor="file-upload" className="custom-file-upload">
+                    &#8613; &nbsp; {fileName}
+                </label>
+                <input id="file-upload" type="file" onChange={(event) => fileUploader(event)} />
+
+                <button className="button add-button" onClick={() => {handleSubmit()}}>Add +</button>
             </div>
         </div>
     )

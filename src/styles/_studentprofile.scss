@@ -96,34 +96,46 @@
     .grievance-form {
       input,
       textarea {
-        background-color: $primary-grey;
+        background-color: transparent;
         border-radius: 10px;
         border-style: solid;
         border-width: 3px;
-        border-color: $login-orange;
+        border-color: $text-secondary-color;
         font-size: 1.4rem;
+        color: $text-secondary-color;
+
+        &:hover,
+        &:active,
+        &:focus {
+          border-color: $heading-color;
+          outline: none;
+        }
       }
 
       .grievance-name {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        flex-wrap: wrap;
+        align-items: center;
 
-        .input-box {
-          padding: 0.4em 0.4em 0.4em 0.4rem;
-          width: 300px;
-          height: 60px;
-          margin: 70px;
-          margin-bottom: 40px;
-          @include md {
-            margin: 10px;
-            width: 40%;
-          }
+        @include sm {
+          flex-direction: column;
+        }
+
+        .type-label {
+          font-size: 1.5rem;
+        }
+
+        .dropdown {
+          width: 25%;
+
           @include sm {
-            margin: 10px;
             width: 100%;
             font-size: 1rem;
+          }
+
+          @include md {
+            width: 50%;
           }
         }
       }
@@ -132,11 +144,28 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 50rem;
+        margin: 0 auto;
+
+        @include sm {
+          width: 100%;
+        }
+
+        .label {
+          font-size: 1.6rem;
+        }
 
         .grievance-box {
-          padding: 0.4em 0.4em 0.4em 0.4rem;
-          max-width: 100%;
-          margin-bottom: 40px;
+          padding: 0.6rem;
+          width: 95%;
+          margin: 2rem 0;
+          background-color: $primary-color;
+          font-family: "Karla", sans-serif;
+
+          &::placeholder {
+            font-family: "Karla", sans-serif;
+          }
+
           @include sm {
             font-size: 1rem;
           }
