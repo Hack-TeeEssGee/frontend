@@ -2,6 +2,8 @@ import { UilEnvelope, UilPhone, UilGlobe } from '@iconscout/react-unicons';
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from '../constants';
+import axios from 'axios';
 
 const sampleFacultyData = [{
     "name": "Raghavendra Kaushik",
@@ -38,21 +40,21 @@ const FacultyCard = (props) => {
         <div className='faculty-card'>
             <div className='faculty-personal'>
                 <div className="faculty-img">
-                    <img src={props.photo} alt="Profile photo"/>
+                    <img src={props.Photo} alt="Profile photo"/>
                 </div>
                 <div className="faculty-name">
-                    {props.name}
+                    {props.Name}
                 </div>
             </div>
             <div className="faculty-details-wrapper">
-                <div className="faculty-details">{props.position}</div>
-                <div className="faculty-details">{props.dept}</div>
-                <div className="faculty-details">Research Area: {props["research-area"]}</div>
+                <div className="faculty-details">{props.Position}</div>
+                <div className="faculty-details">{props.Department}</div>
+                <div className="faculty-details">Research Area: {props["Research Area"]}</div>
             </div>
             <div className="faculty-handle">
-                <button onClick={() => window.location.href=`mailto:${props.email}`}><UilEnvelope color="purple" size={40} /></button>
-                <button onClick={() =>  {navigator.clipboard.writeText(`${props.phone}`); toast.success('Phone number copied to clipboard'); }} ><UilPhone size={40} color="orangered" /></button>
-                <button onClick={() => window.location.href=`${props.website}`} ><UilGlobe size={40} color="grey" /></button>
+                <button onClick={() => window.location.href=`mailto:${props.Email}`}><UilEnvelope color="purple" size={40} /></button>
+                <button onClick={() =>  {navigator.clipboard.writeText(`${props.Phone}`); toast.success('Phone number copied to clipboard'); }} ><UilPhone size={40} color="orangered" /></button>
+                <button onClick={() => window.location.href=`${props.Website}`} ><UilGlobe size={40} color="grey" /></button>
             </div>
         </div>
     )
@@ -62,11 +64,20 @@ const Faculty = () => {
 
     const [facultyList, setFacultyList] = useState([]);
 
-    let navigate = useNavigate();
-
     useEffect(() => {
-        setFacultyList(sampleFacultyData);
-    }, [])
+
+        if (localStorage.getItem("facultyList") !== null) setFacultyList(JSON.parse(localStorage.getItem("facultyList")));
+        axios.get(`${BACKEND_URL}/info/professor/`)
+            .then((response) => {
+                console.log(response.data.data)
+                setFacultyList(response.data.data)
+            })
+            .catch((err) => console.log(err));
+    }, []);
+
+    localStorage.setItem("faultyList", JSON.stringify(facultyList));
+
+    let navigate = useNavigate();
 
     return (
         <div className="faculty">
