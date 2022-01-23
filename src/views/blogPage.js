@@ -7,27 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from '../constants';
 import axios from 'axios';
 
-const SampleBlogData = [
-    {
-        title: "Hello World how are you all kk hrhrw wgwg rgwy4y533hgw r4y24y4t",
-        author: "Chirag Ghosh",
-        date: "21.01.2022",
-        body: "Hello everyone. First blog of KGPverse. **Enjoy!**\n\n\\\n```javascript\nconst name = \"KGPverse\";\n```\n\n\\\n> Javascript is the best.\n\n\\\n\\\n"
-    },
-    {
-        title: "Hello World",
-        author: "Chirag Ghosh",
-        date: "21.01.2022",
-        body: "Hello everyone. First blog of KGPverse. **Enjoy!**\n\n\\\n```javascript\nconst name = \"KGPverse\";\n```\n\n\\\n> Javascript is the best.\n\n\\\n\\\n"
-    },
-    {
-        title: "Hello World",
-        author: "Chirag Ghosh",
-        date: "21.01.2022",
-        body: "Hello everyone. First blog of KGPverse. **Enjoy!**\n\n\\\n```javascript\nconst name = \"KGPverse\";\n```\n\n\\\n> Javascript is the best.\n\n\\\n\\\n"
-    },
-]
-
 const BlogPage = (props) => {
 
     const [listMode, setListMode] = useState(true);
