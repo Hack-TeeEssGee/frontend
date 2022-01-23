@@ -21,10 +21,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .event-result-bar {
+      background-color: red;
+    }
   }
 
   .event-results {
-    width: 100%;
+    width: 90%;
+    height: 90vh;
+
+    text {
+      fill: $text-primary-color !important;
+      font-size: 1.1rem !important;
+    }
+
+    .result-category {
+      font-size: 1.4rem;
+      font-size: 600;
+    }
 
     .category-list {
       width: 100%;
